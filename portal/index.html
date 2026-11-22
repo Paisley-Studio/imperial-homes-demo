@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imperial Homes — Portals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#000;--burg:#6D011A;--white:#fff;--ink:#000;--ink2:rgba(0,0,0,.66);--ink3:rgba(0,0,0,.46);--line:rgba(0,0,0,.09);--pale:rgba(0,0,0,.035);--bp:rgba(109,1,26,.08);
+--nav:#000;--nav2:rgba(255,255,255,.66);--nav3:rgba(255,255,255,.4);--navl:rgba(255,255,255,.09);--navh:rgba(255,255,255,.06);--ease:cubic-bezier(.2,.7,.1,1);--r:10px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip}
+body{font-family:'Quicksand',system-ui,sans-serif;background:#fff;color:var(--ink);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+:focus-visible{outline:2px solid var(--burg);outline-offset:2px}
+.ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* Shell */
+.shell{display:grid;grid-template-columns:264px minmax(0,1fr);min-height:100vh;transition:grid-template-columns .5s var(--ease)}
+.side{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;background:var(--nav);color:#fff;z-index:50;overflow:hidden}
+.sb{display:flex;align-items:center;gap:12px;height:64px;padding:0 18px;border-bottom:1px solid var(--navl)}
+.sb svg{width:32px;height:32px;flex:none}
+.sb strong{display:block;font-size:.8rem;letter-spacing:.3em;white-space:nowrap}
+.sb span{display:block;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--nav3);font-weight:700;white-space:nowrap}
+.ws{margin:14px 12px 6px;position:relative}
+.ws select{width:100%;appearance:none;-webkit-appearance:none;background:var(--burg);color:#fff;border:0;border-radius:8px;padding:11px 34px 11px 40px;font-weight:700;font-size:.78rem;letter-spacing:.06em;cursor:pointer}
+.ws select option{color:#000;background:#fff}
+.ws .ic{position:absolute;top:50%;transform:translateY(-50%);pointer-events:none}
+.ws .ic:first-child{left:13px;width:16px}.ws .ic:last-child{right:12px;width:14px}
+.snav{flex:1;overflow-y:auto;padding:4px 10px 14px;scrollbar-width:thin;scrollbar-color:var(--navl) transparent}
+.sg{margin:16px 8px 6px;font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--nav3);white-space:nowrap}
+.sl{position:relative;display:flex;align-items:center;gap:11px;padding:9px 11px;border-radius:8px;color:var(--nav2);font-weight:600;font-size:.86rem;white-space:nowrap;transition:background .3s,color .3s,transform .3s var(--ease)}
+.sl:hover{background:var(--navh);color:#fff;transform:translateX(3px)}
+.sl.on{background:rgba(255,255,255,.1);color:#fff;font-weight:700}
+.sl.on::before{content:"";position:absolute;left:-10px;top:8px;bottom:8px;width:3px;border-radius:0 3px 3px 0;background:var(--burg)}
+.sl.on .ic{color:#fff}
+.sl .n{margin-left:auto;font-size:.66rem;min-width:20px;text-align:center;padding:1px 6px;border-radius:5px;background:var(--burg);color:#fff;font-weight:700}
+.sf{padding:10px;border-top:1px solid var(--navl);display:grid;gap:2px}
+.sf .sl{font-size:.8rem;color:var(--nav3)}
+.shell.col{grid-template-columns:72px minmax(0,1fr)}
+.shell.col .sb div,.shell.col .sg,.shell.col .sl span,.shell.col .sl .n,.shell.col .ws{display:none}
+.shell.col .sl{justify-content:center}
+.shell.col .sb{justify-content:center;padding:0}
+.shell.col [data-collapse] .ic{transform:rotate(180deg)}
+
+.main{min-width:0;display:flex;flex-direction:column}
+.top{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;height:64px;padding:0 24px;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line)}
+.crumb{font-weight:700;font-size:.95rem;white-space:nowrap}
+.crumb small{color:var(--ink3);font-weight:600;margin-right:6px}
+.srch{margin-left:18px;flex:1;max-width:360px;position:relative}
+.srch input{width:100%;height:38px;border:1px solid var(--line);border-radius:8px;background:var(--pale);padding:0 12px 0 36px;outline:none;font-size:.84rem;transition:border-color .3s,background .3s}
+.srch input:focus{border-color:var(--burg);background:#fff}
+.srch .ic{position:absolute;left:11px;top:10px;width:16px;color:var(--ink3)}
+.sp{flex:1}
+.clock{font-variant-numeric:tabular-nums;font-weight:700;font-size:.8rem;padding:6px 10px;border-radius:6px;background:var(--pale);color:var(--ink2)}
+.ib{position:relative;width:38px;height:38px;border-radius:8px;display:grid;place-items:center;color:var(--ink2);transition:background .3s}
+.ib:hover{background:var(--pale);color:#000}
+.ib .dot{position:absolute;top:4px;right:4px;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:var(--burg);color:#fff;font-size:.6rem;font-weight:700;display:grid;place-items:center}
+.tu{display:flex;align-items:center;gap:10px;padding:4px 10px 4px 4px;border-radius:8px;transition:background .3s}
+.tu:hover{background:var(--pale)}
+.tu b{display:block;font-size:.82rem;line-height:1.2}.tu small{font-size:.68rem;color:var(--ink3)}
+.av{width:34px;height:34px;border-radius:50%;background:#000;color:#fff;display:grid;place-items:center;font-size:.72rem;font-weight:700;flex:none}
+.av.b{background:var(--burg)}
+.mt{display:none}
+.pop{position:absolute;top:56px;right:24px;width:340px;max-width:calc(100vw - 24px);background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:0 24px 60px rgba(0,0,0,.14);opacity:0;visibility:hidden;transform:translateY(-8px);transition:all .35s var(--ease)}
+.pop.on{opacity:1;visibility:visible;transform:none}
+.pop h4{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);font-size:.86rem}
+.pop h4 button{font-size:.7rem;color:var(--burg);font-weight:700}
+.nf{display:block;padding:12px 16px;border-bottom:1px solid var(--line);font-size:.82rem}
+.nf.u{background:var(--bp)}
+.nf small{display:block;color:var(--ink3);font-size:.72rem}
+
+.content{padding:28px;width:100%;max-width:1560px;margin:0 auto;flex:1}
+.content>*{animation:rise .7s var(--ease) both}
+.content>*:nth-child(2){animation-delay:.05s}.content>*:nth-child(3){animation-delay:.1s}.content>*:nth-child(4){animation-delay:.15s}.content>*:nth-child(5){animation-delay:.2s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* Components */
+.ph{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.ph h1{font-size:1.5rem;font-weight:700;letter-spacing:-.01em;display:flex;align-items:center;gap:12px}
+.ph p{color:var(--ink3);font-size:.88rem;margin-top:2px}
+.pi{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:10px;background:#000;color:#fff}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px;border-radius:8px;font-size:.8rem;font-weight:700;border:1px solid var(--line);background:#fff;white-space:nowrap;transition:all .3s var(--ease)}
+.btn:hover{border-color:#000}
+.btn.k{background:#000;color:#fff;border-color:#000}.btn.k:hover{background:var(--burg);border-color:var(--burg)}
+.btn.b{background:var(--burg);color:#fff;border-color:var(--burg)}.btn.b:hover{background:#000;border-color:#000}
+.btn.s{height:30px;padding:0 10px;font-size:.72rem}
+.btn .ic{width:16px}
+.welcome{position:relative;overflow:hidden;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;padding:28px 30px;border-radius:14px;background:#000;color:#fff;margin-bottom:18px}
+.welcome::before{content:"";position:absolute;right:-80px;top:-120px;width:320px;height:320px;border-radius:50%;background:var(--burg);opacity:.75}
+.welcome::after{content:"";position:absolute;right:120px;bottom:-140px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(255,255,255,.18)}
+.welcome>*{position:relative;z-index:1}
+.welcome h2{font-size:1.45rem;font-weight:700}
+.welcome p{color:rgba(255,255,255,.7);margin-top:4px;max-width:60ch}
+.welcome .btn{background:#fff;color:#000;border-color:#fff}.welcome .btn:hover{background:var(--burg);color:#fff;border-color:var(--burg)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:18px}
+.stat{position:relative;padding:18px;border:1px solid var(--line);border-radius:var(--r);background:#fff;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+.stat:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.08);border-color:rgba(0,0,0,.2)}
+.stat .lb{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink3);padding-right:44px}
+.stat .v{font-size:1.65rem;font-weight:700;margin-top:6px;letter-spacing:-.01em}
+.stat .h{font-size:.76rem;color:var(--ink3)}
+.stat .h b{color:var(--burg)}
+.stat .si{position:absolute;right:16px;top:16px;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:var(--pale)}
+.stat.t .si{background:var(--burg);color:#fff}
+.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;align-items:start}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.stack{display:grid;gap:18px}
+.card{border:1px solid var(--line);border-radius:var(--r);background:#fff;overflow:hidden}
+.ch{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.ch h3{font-size:.92rem;font-weight:700;flex:1}
+.ch .ic{color:var(--burg)}
+.cb{padding:18px}
+.cb.f{padding:0}
+.tabsx{display:flex;gap:4px;padding:4px;border-radius:9px;background:var(--pale);width:max-content;max-width:100%;overflow-x:auto;margin-bottom:14px}
+.tabsx button{padding:7px 14px;border-radius:7px;font-size:.78rem;font-weight:700;color:var(--ink2);white-space:nowrap}
+.tabsx button.on{background:#fff;color:#000;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.84rem}
+th{text-align:left;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700;padding:11px 18px;background:var(--pale);white-space:nowrap}
+td{padding:12px 18px;border-top:1px solid var(--line);vertical-align:middle}
+tbody tr{transition:background .25s}
+tbody tr:hover{background:var(--pale)}
+td small{display:block;color:var(--ink3);font-size:.74rem}
+.cell{display:flex;align-items:center;gap:12px;min-width:200px}
+.cell img{width:48px;height:40px;border-radius:6px;object-fit:cover;flex:none}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap;background:var(--pale);color:var(--ink2)}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.ok{background:#000;color:#fff}
+.pill.w{background:var(--bp);color:var(--burg)}
+.pill.bd{background:var(--burg);color:#fff}
+.li{display:flex;align-items:center;gap:12px;padding:12px 18px;border-top:1px solid var(--line);transition:background .25s}
+.li:first-child{border-top:0}
+.li:hover{background:var(--pale)}
+.li .g{flex:1;min-width:0}
+.li b{display:block;font-size:.86rem}.li small{color:var(--ink3);font-size:.76rem}
+.lic{width:36px;height:36px;border-radius:10px;background:var(--bp);color:var(--burg);display:grid;place-items:center;flex:none}
+.dt{flex:none;display:grid;justify-items:center;width:54px;padding:6px 0;border-radius:10px;background:#000;color:#fff;line-height:1.1}
+.dt b{font-size:1.2rem}.dt small{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.chart{display:flex;align-items:flex-end;gap:8px;height:190px;padding-top:16px}
+.cc{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;height:100%;justify-content:flex-end;min-width:0}
+.bar{width:100%;max-width:34px;border-radius:6px 6px 2px 2px;background:#000;height:0;transition:height 1.1s var(--ease);position:relative}
+.cc:last-child .bar{background:var(--burg)}
+.bar:hover::after{content:attr(data-v);position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);padding:3px 7px;border-radius:5px;background:#000;color:#fff;font-size:.66rem;font-weight:700;white-space:nowrap}
+.cc small{font-size:.64rem;color:var(--ink3);font-weight:700}
+.donut{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.dn{width:150px;height:150px;border-radius:50%;position:relative;flex:none}
+.dn::after{content:attr(data-c);position:absolute;inset:22px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:700;font-size:1.2rem;white-space:pre;text-align:center;line-height:1.2}
+.lg{display:grid;gap:8px;font-size:.8rem;font-weight:600}
+.lg i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:-1px}
+.prog{height:6px;border-radius:4px;background:var(--pale);overflow:hidden;margin-top:6px}
+.prog i{display:block;height:100%;background:var(--burg);width:0;transition:width 1.2s var(--ease)}
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.lc{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;transition:transform .45s var(--ease),box-shadow .45s}
+.lc:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.1)}
+.lc .im{aspect-ratio:16/11;overflow:hidden;position:relative}
+.lc img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.lc:hover img{transform:scale(1.06)}
+.lc .im .pill{position:absolute;left:10px;top:10px}
+.lc .bd{padding:14px 16px}
+.lc b{display:block}.lc small{color:var(--ink3);font-size:.78rem}
+.lc .ft{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-weight:700}
+.kan{display:grid;grid-template-columns:repeat(4,minmax(240px,1fr));gap:14px;overflow-x:auto;padding-bottom:6px}
+.lane{background:var(--pale);border-radius:var(--r);padding:12px}
+.lane h4{display:flex;justify-content:space-between;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;margin:2px 4px 12px}
+.lane h4 span{background:#000;color:#fff;border-radius:5px;padding:0 7px}
+.lane:last-child h4 span{background:var(--burg)}
+.deal{background:#fff;border:1px solid var(--line);border-radius:9px;padding:13px;margin-bottom:10px;animation:rise .5s var(--ease) both}
+.deal b{display:block;font-size:.86rem}.deal small{display:block;color:var(--ink3);font-size:.74rem}
+.deal .r{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-weight:700;font-size:.84rem}
+.chat{display:grid;grid-template-columns:300px minmax(0,1fr);height:min(640px,72vh)}
+.th{border-right:1px solid var(--line);overflow-y:auto}
+.th button{display:flex;gap:12px;width:100%;text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);transition:background .25s}
+.th button:hover{background:var(--pale)}
+.th button.on{background:var(--bp)}
+.th b{display:block;font-size:.84rem}.th small{display:block;color:var(--ink3);font-size:.74rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px}
+.cv{display:flex;flex-direction:column;min-width:0}
+.msgs{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:10px;background:var(--pale)}
+.m{max-width:72%;padding:10px 14px;border-radius:14px 14px 14px 4px;background:#fff;border:1px solid var(--line);font-size:.86rem;animation:rise .4s var(--ease) both}
+.m.me{align-self:flex-end;background:#000;color:#fff;border-color:#000;border-radius:14px 14px 4px 14px}
+.m small{display:block;font-size:.66rem;opacity:.6;margin-top:4px}
+.cmp{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.cmp input{flex:1;height:40px;border:1px solid var(--line);border-radius:8px;padding:0 12px;outline:none}
+.cmp input:focus{border-color:var(--burg)}
+.form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fd label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:6px}
+.fd input,.fd select,.fd textarea{width:100%;height:42px;border:1px solid var(--line);border-radius:8px;padding:0 12px;outline:none;background:#fff;transition:border-color .3s}
+.fd textarea{height:96px;padding:10px 12px;resize:vertical}
+.fd input:focus,.fd select:focus,.fd textarea:focus{border-color:var(--burg)}
+.fd.w{grid-column:1/-1}
+.tg{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 18px;border-top:1px solid var(--line)}
+.tg:first-child{border-top:0}
+.tg small{display:block;color:var(--ink3);font-size:.76rem}
+.sw{width:42px;height:24px;border-radius:12px;background:rgba(0,0,0,.18);position:relative;transition:background .3s;flex:none}
+.sw::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .35s var(--ease)}
+.sw[aria-checked="true"]{background:var(--burg)}
+.sw[aria-checked="true"]::after{transform:translateX(18px)}
+.empty{text-align:center;padding:40px 20px;color:var(--ink3)}
+.toast{position:fixed;right:24px;bottom:24px;z-index:90;background:#000;color:#fff;padding:14px 18px;border-radius:10px;border-left:4px solid var(--burg);font-size:.84rem;transform:translateY(160%);transition:transform .5s var(--ease);max-width:calc(100vw - 32px);box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.toast.on{transform:none}
+.sim{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:5px 9px;border-radius:6px;border:1px dashed rgba(0,0,0,.25);color:var(--ink3)}
+
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:18px}
+.live{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.live b{font-size:2.6rem;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+.live small{color:var(--ink3)}
+.pulse{width:10px;height:10px;border-radius:50%;background:var(--burg);align-self:center;animation:pulse 1.8s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(109,1,26,.5)}70%{box-shadow:0 0 0 12px rgba(109,1,26,0)}100%{box-shadow:0 0 0 0 rgba(109,1,26,0)}}
+.spark{display:block;width:100%;height:70px;margin-top:12px}
+.rg{display:grid;grid-template-columns:minmax(80px,130px) 1fr 40px;gap:10px;align-items:center;font-size:.8rem;font-weight:600;margin-bottom:9px}
+.rg span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rg .prog{margin:0}.rg b{text-align:right}
+.sx{display:none;position:absolute;top:14px;right:12px;width:36px;height:36px;border-radius:8px;color:#fff;place-items:center;background:var(--navh);z-index:2}
+@media (max-width:1180px){.g3{grid-template-columns:1fr 1fr}.g3>:first-child{grid-column:1/-1}}
+@media (max-width:760px){.g3{grid-template-columns:1fr}}
+@media (max-width:980px){.sx{display:grid}}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:70;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
+.rvd{position:fixed;top:0;right:0;bottom:0;width:min(720px,100%);background:#fff;z-index:71;transform:translateX(102%);transition:transform .7s var(--ease);display:flex;flex-direction:column;box-shadow:-30px 0 60px rgba(0,0,0,.15)}
+.rv-open .scrim{opacity:1;visibility:visible}.rv-open .rvd{transform:none}
+.rvh{display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid var(--line)}
+.rvh h3{flex:1;font-size:1.05rem;line-height:1.3}
+.rvb{flex:1;overflow-y:auto;padding:20px}
+.rvg{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:140px 140px;gap:6px;border-radius:10px;overflow:hidden;margin-bottom:18px}
+.rvg img{width:100%;height:100%;object-fit:cover}.rvg img:first-child{grid-row:span 2}
+.kvg{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin:4px 0 14px}
+.kvg div{background:#fff;padding:12px 14px}.kvg small{display:block;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);font-weight:700}
+.h5{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin:22px 0 8px}
+.ck{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.86rem;width:100%;text-align:left;font-weight:600}
+.ck i{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;border:1.5px solid rgba(0,0,0,.2);flex:none}
+.ck i .ic{width:14px}
+.ck.ok i{background:#000;border-color:#000;color:#fff}
+.ck em{margin-left:auto;font-style:normal;font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--burg)}
+.ck.ok em{color:var(--ink3)}
+.tmpl{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.tmpl button{font-size:.74rem;font-weight:600;padding:6px 11px;border-radius:20px;border:1px solid var(--line);transition:border-color .3s,color .3s;text-align:left}
+.tmpl button:hover{border-color:var(--burg);color:var(--burg)}
+.rvm{display:flex;flex-direction:column;gap:8px;background:var(--pale);border-radius:10px;padding:14px;min-height:110px;max-height:280px;overflow-y:auto}
+.rvf{display:flex;gap:8px;padding:14px 20px;border-top:1px solid var(--line);flex-wrap:wrap}
+@media (max-width:600px){.rvg{grid-template-rows:110px 110px}.kvg{grid-template-columns:1fr}}
+@media (max-width:1180px){.grid{grid-template-columns:1fr}.clock,.sim{display:none}}
+@media (max-width:980px){
+  .shell,.shell.col{grid-template-columns:1fr}
+  .side{position:fixed;inset:0 auto 0 0;width:280px;transform:translateX(-102%);transition:transform .5s var(--ease)}
+  .shell.open .side{transform:none;box-shadow:0 0 60px rgba(0,0,0,.4)}
+  .shell.open::after{content:"";position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:45}
+  .mt{display:grid}
+  [data-collapse]{display:none!important}
+  .top{padding:0 12px}.content{padding:18px 14px 50px}
+  .tu div{display:none}
+  .g2,.form{grid-template-columns:1fr}
+  .chat{grid-template-columns:1fr;height:auto}
+  .th{max-height:220px;border-right:0;border-bottom:1px solid var(--line)}
+  .msgs{min-height:340px}
+}
+@media (max-width:600px){.srch{display:none}.crumb small{display:none}.welcome{padding:22px}.stat .v{font-size:1.4rem}.pop{right:12px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="dash" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></symbol>
+  <symbol id="home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-6h4v6"/></symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.3 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></symbol>
+  <symbol id="cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol>
+  <symbol id="file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6zM14 3v4h4M9 13h6M9 17h6"/></symbol>
+  <symbol id="users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a5 5 0 0 1 3.5 6"/></symbol>
+  <symbol id="chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 16v-5M12 16V7M17 16v-3"/></symbol>
+  <symbol id="msg" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4"/></symbol>
+  <symbol id="brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V4h8v3M3 13h18"/></symbol>
+  <symbol id="wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M3 10h18M16 15h2"/></symbol>
+  <symbol id="bell" viewBox="0 0 24 24"><path d="M6 16v-5a6 6 0 0 1 12 0v5l2 2H4zM10 21a2 2 0 0 0 4 0"/></symbol>
+  <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="chev" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
+  <symbol id="down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+  <symbol id="out" viewBox="0 0 24 24"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"/></symbol>
+  <symbol id="eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></symbol>
+  <symbol id="trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
+  <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+  <symbol id="key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></symbol>
+  <symbol id="send" viewBox="0 0 24 24"><path d="M4 12l16-8-6 16-3-7z"/></symbol>
+  <symbol id="act" viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></symbol>
+  <symbol id="x" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+</svg>
+
+<div class="shell" id="shell">
+  <aside class="side" aria-label="Portal navigation">
+    <button class="sx" data-sclose aria-label="Close navigation"><svg class="ic"><use href="#x"/></svg></button>
+    <a class="sb" href="../">
+      <svg viewBox="0 0 40 40" fill="none" stroke="#fff" stroke-width="1.3" aria-hidden="true"><path d="M4 36V16L20 4l16 12v20"/><path d="M12 36V20l8-6 8 6v16"/><path d="M20 36V26"/><path d="M1 36h38" stroke="#6D011A" stroke-width="2.4"/></svg>
+      <div><strong>IMPERIAL</strong><span id="sbRole">Portal</span></div>
+    </a>
+    <label class="ws"><svg class="ic"><use href="#key"/></svg><span class="sr" hidden>Switch portal</span>
+      <select id="roleSel" aria-label="Switch portal"><option value="admin">Administration</option><option value="agent">Agent Portal</option><option value="seller">Seller Portal</option><option value="buyer">Buyer Portal</option></select>
+      <svg class="ic"><use href="#down"/></svg></label>
+    <nav class="snav" id="snav"></nav>
+    <div class="sf">
+      <a class="sl" href="../marketplace/"><svg class="ic"><use href="#globe"/></svg><span>Private Collection</span></a>
+      <a class="sl" href="../"><svg class="ic"><use href="#out"/></svg><span>Back to website</span></a>
+      <button class="sl" data-collapse><svg class="ic"><use href="#chev"/></svg><span>Collapse</span></button>
+    </div>
+  </aside>
+  <div class="main">
+    <header class="top">
+      <button class="ib mt" data-menu aria-label="Open navigation"><svg class="ic"><use href="#menu"/></svg></button>
+      <div class="crumb" id="crumb"></div>
+      <label class="srch"><svg class="ic"><use href="#search"/></svg><input id="gsearch" placeholder="Search residences, clients, IDs…" aria-label="Search"></label>
+      <span class="sp"></span>
+      <span class="sim">Simulation</span>
+      <span class="clock" id="clock">--:--</span>
+      <button class="ib" data-bell aria-label="Notifications"><svg class="ic"><use href="#bell"/></svg><span class="dot" id="bellN">0</span></button>
+      <div class="tu" id="tu"></div>
+      <div class="pop" id="pop"></div>
+    </header>
+    <main class="content" id="content"></main>
+  </div>
+</div>
+<div class="scrim" id="scrim" data-rvclose></div>
+<aside class="rvd" id="rvd" role="dialog" aria-modal="true" aria-label="Review submission"></aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const ic = id => `<svg class="ic"><use href="#${id}"/></svg>`;
+const I = n => '../Images/' + n;
+const usd = m => m >= 1000 ? `KES ${(m / 1000).toFixed(2)}B` : `KES ${Number.isInteger(m) ? m : (+m).toFixed(1)}M`;
+const ini = n => n.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+const P = ['download%20(32).jpg','download%20(29).jpg','Backyard%20Pool%20with%20Built-In%20Sunken%20Lounge.jpg','download%20(30).jpg','download%20(31).jpg','download%20(28).jpg','download%20(35).jpg','download%20(36).jpg','download%20(33).jpg','download%20(34).jpg','download%20(37).jpg','Beautiful%20Living%20Room%20%F0%9F%98%8D%F0%9F%92%9E%F0%9F%98%8E%F0%9F%92%A1.jpg'];
+
+/* ================= Seeded data (fictional) ================= */
+const AG = [{id:'a1',n:'Wambui Karanja',r:'Principal Partner',city:'Karen',deals:14,vol:6120,rating:4.9},{id:'a2',n:'Hassan Abdallah',r:'Partner, Coast',city:'Mombasa',deals:11,vol:3380,rating:4.8},{id:'a3',n:'Chebet Rotich',r:'Partner, Rift Valley',city:'Naivasha',deals:9,vol:2940,rating:4.9},{id:'a4',n:'Brian Otieno',r:'Senior Partner, Nairobi',city:'Westlands',deals:12,vol:4260,rating:4.7}];
+const LS = [
+ ['The Meridian Estate','Karen, Nairobi','Estate',1450,8,'a1','Live'],['Obsidian House','Runda, Nairobi','Residence',420,6,'a1','Live'],
+ ['Lagoon Pavilion','Diani Beach, Kwale','Villa',280,5,'a2','Under Offer'],['Maison Blanche','Muthaiga, Nairobi','Villa',980,7,'a1','Live'],
+ ['Cypress Hall','Tigoni, Limuru','Estate',760,7,'a3','Live'],['Azure Point','Vipingo Ridge, Kilifi','Villa',540,6,'a2','Under Offer'],
+ ['The Pergola Residence','Lavington, Nairobi','Residence',240,5,'a4','Live'],['Garden Terraces','Kitisuru, Nairobi','Estate',890,7,'a4','Sold'],
+ ['Sky Collection One','Westlands, Nairobi','Penthouse',350,4,'a3','Live'],['Atelier Penthouse','Nyali, Mombasa','Penthouse',190,4,'a2','Live'],
+ ['Linea Residence','Spring Valley, Nairobi','Residence',310,5,'a4','Pending'],['Vantage Estate','Lake Naivasha, Nakuru','Estate',1200,9,'a3','Live']
+];
+const D = {
+  listings: LS.map((r, i) => ({id:'IH-' + (1040 + i), name:r[0], loc:r[1], type:r[2], price:r[3], beds:r[4], agent:r[5], status:r[6], img:P[i % P.length], views:900 + (i * 977) % 4100, enq:5 + (i * 7) % 30, seller:['s1','s2','s3','s4'][i % 4], listed:`${(i * 3) % 28 + 1} ${['Aug','Sep','Oct','Nov'][i % 4]} 2026`})),
+  users: [
+    ['Wanjiku Kamau','Buyer','Karen','Verified','KES 1.5B budget'],['Otieno Odhiambo','Buyer','Kisumu','Verified','KES 2B budget'],['Achieng Ouma','Buyer','Lavington','Verified','KES 900M budget'],
+    ['Kiprono Kiptoo','Buyer','Eldoret','Pending KYC','KES 600M budget'],['Zawadi Njoroge','Buyer','Runda','Verified','KES 1.2B budget'],['Mutua Musyoka','Buyer','Machakos','Pending KYC','KES 450M budget'],
+    ['Njeri Mwangi','Seller','Muthaiga','Verified','3 residences'],['Fatma Said','Seller','Nyali','Verified','2 residences'],['Kamau Githinji','Seller','Kitisuru','Verified','2 residences'],
+    ['Rift Valley Holdings Ltd','Seller','Naivasha','Pending KYC','1 residence'],['Amani Wekesa','Buyer','Westlands','Verified','KES 1.1B budget'],['Baraka Kimani','Buyer','Kileleshwa','Suspended','—']
+  ].map((u, i) => ({id:'U' + (2201 + i), n:u[0], role:u[1], city:u[2], status:u[3], meta:u[4], joined:`${(i * 5) % 27 + 1} ${['Mar','May','Jul','Sep','Oct'][i % 5]} 2026`})),
+  queue: [
+    {id:'Q1', n:'Mount Kenya Lodge Estate', t:'Listing', d:'Nanyuki, Laikipia', p:480, by:'Kamau Githinji', role:'Seller', when:'2 h ago', g:[P[4], P[6], P[7]], specs:{Location:'Nanyuki, Laikipia', Asking:'KES 480M', Bedrooms:'7', Land:'25 acres'}, desc:'A stone-and-cedar lodge estate facing Mount Kenya, with staff cottages, stables and a private airstrip licence.', docs:[['Title deed (certified copy)', 1], ['Land search certificate', 1], ['Professional photography', 1], ['Floor plans', 0], ['Valuation report', 0]], msgs:[['them', 'We have submitted the lodge estate. The valuation report will follow next week.', '09:12']]},
+    {id:'Q2', n:'Joyce Wairimu', t:'Agent', d:'Nairobi · 12 yrs experience', by:'Joyce Wairimu', role:'Agent applicant', when:'5 h ago', specs:{Agency:'Wairimu & Partners', Experience:'12 years', 'EARB licence':'Awaiting verification', Focus:'Karen, Runda, Gigiri'}, desc:'Specialist in diplomatic and executive residences across the Gigiri and Runda corridors.', docs:[['EARB practising certificate', 1], ['KRA PIN certificate', 1], ['Professional indemnity cover', 0], ['Two client references', 1]], msgs:[]},
+    {id:'Q3', n:'Kilifi Creek Villa', t:'Listing', d:'Kilifi, Coast', p:260, by:'Fatma Said', role:'Seller', when:'Yesterday', g:[P[2], P[9], P[0]], specs:{Location:'Kilifi Creek', Asking:'KES 260M', Bedrooms:'5', Frontage:'60 m creek'}, desc:'Creek-front villa with private jetty, infinity pool and mature baobabs.', docs:[['Title deed (certified copy)', 1], ['Professional photography', 0], ['Floor plans', 1], ['Valuation report', 1]], msgs:[['me', 'Thank you, Fatma. The photographs are below our minimum resolution. Could you share the originals?', 'Yesterday'], ['them', 'Of course. Our photographer will send the full set tomorrow.', 'Yesterday']]},
+    {id:'Q4', n:'Kiprono Kiptoo', t:'KYC', d:'Proof of funds · KES 600M', by:'Kiprono Kiptoo', role:'Buyer', when:'3 h ago', specs:{Budget:'KES 600M', Residence:'Eldoret', 'Source of funds':'Agribusiness', Advisor:'Chebet Rotich'}, docs:[['National ID', 1], ['Proof of funds letter', 1], ['Source of wealth declaration', 0]], msgs:[]},
+    {id:'Q5', n:'Mutua Musyoka', t:'KYC', d:'Source of wealth', by:'Mutua Musyoka', role:'Buyer', when:'Today', specs:{Budget:'KES 450M', Residence:'Machakos', 'Source of funds':'Construction', Advisor:'Brian Otieno'}, docs:[['National ID', 1], ['Proof of funds letter', 0], ['Source of wealth declaration', 0]], msgs:[]}
+  ],
+  tx: [['TX-90412','Garden Terraces','Zawadi Njoroge',890,'Completed','12 Nov'],['TX-90408','Azure Point','Otieno Odhiambo',520,'In Escrow','09 Nov'],['TX-90401','Lagoon Pavilion','Achieng Ouma',270,'In Escrow','04 Nov'],['TX-90377','Villa Serena, Watamu','Amani Wekesa',460,'Completed','28 Oct'],['TX-90352','Aurelia House, Gigiri','Wanjiku Kamau',330,'Completed','15 Oct'],['TX-90340','Palmyra Estate, Karen','Otieno Odhiambo',1100,'Completed','02 Oct']]
+    .map(t => ({id:t[0], l:t[1], b:t[2], a:t[3], s:t[4], d:t[5], c:+(t[3] * .02).toFixed(2)})),
+  viewings: [['IH-1043','Wanjiku Kamau','a2','02 Dec','11:00','Helicopter from Wilson Airport','Confirmed'],['IH-1040','Wanjiku Kamau','a1','05 Dec','16:30','In person','Confirmed'],['IH-1051','Wanjiku Kamau','a3','08 Dec','10:00','Virtual walkthrough','Requested'],['IH-1048','Achieng Ouma','a2','03 Dec','14:00','In person','Requested'],['IH-1044','Amani Wekesa','a2','06 Dec','12:00','In person','Confirmed'],['IH-1041','Kiprono Kiptoo','a4','04 Dec','09:30','In person','Requested']]
+    .map((v, i) => ({id:'V' + i, l:v[0], c:v[1], a:v[2], d:v[3], t:v[4], m:v[5], s:v[6]})),
+  offers: [['O1','IH-1048','Wanjiku Kamau',330,'Under Review'],['O2','IH-1044','Wanjiku Kamau',720,'Countered'],['O3','IH-1041','Private Client · Karen',400,'New'],['O4','IH-1046','Family Office · Westlands',225,'New'],['O5','IH-1050','Private Client · Nyali',295,'Countered'],['O6','IH-1045','Otieno Odhiambo',520,'Accepted']]
+    .map(o => ({id:o[0], l:o[1], b:o[2], a:o[3], s:o[4]})),
+  deals: [['Wanjiku Kamau','IH-1043',980,0],['Family Office N.','IH-1040',1450,1],['Amani Wekesa','IH-1044',760,1],['Achieng Ouma','IH-1048',350,2],['Kiprono Kiptoo','IH-1042',280,2],['Zawadi Njoroge','IH-1047',890,3],['Mutua Musyoka','IH-1049',190,0],['Otieno Odhiambo','IH-1051',1200,1]]
+    .map((d, i) => ({id:i, c:d[0], l:d[1], v:d[2], st:d[3]})),
+  saved: new Set(['IH-1040','IH-1043','IH-1048','IH-1051']),
+  docs: [['Proof of Funds — Private Bank Letter','KYC','Verified','14 Oct'],['Source of Wealth Declaration','KYC','Verified','14 Oct'],['NDA — Sky Collection One','Legal','Signed','02 Nov'],['Due Diligence Pack — Cypress Hall','Legal','Ready','18 Nov'],['Letter of Intent — Maison Blanche','Offer','Draft','20 Nov']],
+  payouts: [['PO-3301','Garden Terraces · commission',17.8,'Paid','14 Nov'],['PO-3294','Azure Point · deposit release',52,'Scheduled','02 Dec'],['PO-3280','Villa Serena · commission',9.2,'Paid','30 Oct']],
+  threads: [
+    {id:'t1', w:'Wambui Karanja', r:'Principal Partner', m:[['them','Good evening, Ms. Kamau. Two off-market estates in Karen match your brief.','18:02'],['me','Excellent. Please share the dossiers.','18:10'],['them','Sent to your documents. Shall I arrange a preview this week?','18:12']]},
+    {id:'t2', w:'Hassan Abdallah', r:'Senior Partner, Europe', m:[['them','Your Muthaiga viewing includes a chauffeur from your residence.','Yesterday']]},
+    {id:'t3', w:'Private Office', r:'Concierge', m:[['them','Legal due diligence for Sky Collection One is ready for review.','Mon']]}
+  ],
+  notifs: [['New offer received on Obsidian House','4 min ago',1],['Viewing confirmed · Maison Blanche','1 h ago',1],['KYC submitted · Kiprono Kiptoo','3 h ago',1],['Payout released · KES 17.8M','Yesterday',0]],
+  log: [['Offer submitted · Sky Collection One','2 min ago'],['Buyer verified · Amani Wekesa','18 min ago'],['Viewing confirmed · Maison Blanche','1 h ago'],['Listing approved · Linea Residence','3 h ago'],['Payout released · KES 17.8M','Yesterday']]
+};
+const L = id => D.listings.find(l => l.id === id) || {name:id, loc:'', img:P[0], price:0};
+const A = id => AG.find(a => a.id === id) || AG[0];
+const tone = s => /Live|Verified|Confirmed|Completed|Accepted|Paid|Signed|Approved/.test(s) ? 'ok' : /Pending|Requested|New|Countered|Under|Escrow|Scheduled|Ready|Draft|Review/.test(s) ? 'w' : /Sold|Closing/.test(s) ? 'bd' : '';
+const pill = s => `<span class="pill ${tone(s)}">${s}</span>`;
+
+/* ================= UI helpers ================= */
+const head = (t, sub, icon, actions = '') => `<div class="ph"><div><h1><span class="pi">${ic(icon)}</span>${t}</h1><p>${sub}</p></div><div class="row">${actions}</div></div>`;
+const stat = (lb, v, icn, h = '', t = '') => `<div class="stat ${t}"><div class="lb">${lb}</div><div class="v">${v}</div><div class="h">${h}</div><span class="si">${ic(icn)}</span></div>`;
+const card = (t, icn, body, act = '', flush) => `<section class="card"><div class="ch">${ic(icn)}<h3>${t}</h3>${act}</div><div class="cb ${flush ? 'f' : ''}">${body}</div></section>`;
+const table = (cols, rows) => rows.length ? `<div class="tw"><table><thead><tr>${cols.map(c => `<th>${c}</th>`).join('')}</tr></thead><tbody>${rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : '<div class="empty">Nothing here yet.</div>';
+const cellL = l => `<div class="cell"><img src="${I(l.img)}" alt="" loading="lazy"><div><b>${l.name}</b><small>${l.loc}</small></div></div>`;
+const chart = (vals, labels, fmt = v => v) => { const mx = Math.max(...vals); return `<div class="chart">${vals.map((v, i) => `<div class="cc"><div class="bar" data-h="${Math.round(v / mx * 100)}" data-v="${fmt(v)}"></div><small>${labels[i]}</small></div>`).join('')}</div>`; };
+const donut = (segs, center) => { let a = 0; const tot = segs.reduce((s, x) => s + x[1], 0); const st = segs.map(([, v, c]) => { const s = `${c} ${a}deg ${(a += v / tot * 360)}deg`; return s; }).join(','); return `<div class="donut"><div class="dn" style="background:conic-gradient(${st})" data-c="${center}"></div><div class="lg">${segs.map(([n, v, c]) => `<span><i style="background:${c}"></i>${n} · ${v}</span>`).join('')}</div></div>`; };
+const li = (icon, b, s, right = '') => `<div class="li"><span class="lic">${ic(icon)}</span><div class="g"><b>${b}</b><small>${s}</small></div>${right}</div>`;
+const lcard = l => `<article class="lc"><div class="im"><img src="${I(l.img)}" alt="${l.name}" loading="lazy">${pill(l.status || 'Live')}</div><div class="bd"><b>${l.name}</b><small>${l.loc} · ${l.beds} bed · ${l.type}</small><div class="ft"><span>${usd(l.price)}</span><span class="row">${D.saved.has(l.id) ? `<button class="btn s" data-unsave="${l.id}">${ic('heart')}Saved</button>` : `<button class="btn s" data-save="${l.id}">${ic('heart')}Save</button>`}</span></div></div></article>`;
+const tabs = (key, opts, cur) => `<div class="tabsx" data-tabs="${key}">${opts.map(o => `<button class="${o === cur ? 'on' : ''}" data-tab="${o}">${o}</button>`).join('')}</div>`;
+const F = {}; // filter state per page
+const greet = () => { const h = new Date().getHours(); return h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening'; };
+const welcome = (t, p, acts) => `<div class="welcome"><div><h2>${t}</h2><p>${p}</p></div><div class="row">${acts}</div></div>`;
+const chatUI = () => { const cur = F.thread || D.threads[0].id, t = D.threads.find(x => x.id === cur);
+  return `<section class="card"><div class="chat"><div class="th">${D.threads.map(x => `<button class="${x.id === cur ? 'on' : ''}" data-thread="${x.id}"><span class="av ${x.id === cur ? 'b' : ''}">${ini(x.w)}</span><div><b>${x.w}</b><small>${x.m[x.m.length - 1][1]}</small></div></button>`).join('')}</div>
+  <div class="cv"><div class="ch"><span class="av b">${ini(t.w)}</span><h3>${t.w}<br><small style="color:var(--ink3);font-weight:600">${t.r}</small></h3></div>
+  <div class="msgs" id="msgs">${t.m.map(([w, x, tm]) => `<div class="m ${w === 'me' ? 'me' : ''}">${x}<small>${tm}</small></div>`).join('')}</div>
+  <form class="cmp" data-send="${t.id}"><input name="m" placeholder="Write a message…" aria-label="Message" autocomplete="off" required><button class="btn k">${ic('send')}Send</button></form></div></div></section>`; };
+
+/* ================= Live audience (simulated) ================= */
+let live = 148; const hist = Array.from({length:24}, (_, i) => 118 + Math.round(Math.sin(i / 3) * 14 + i * 1.2));
+const meters = rows => { const mx = Math.max(...rows.map(r => r[1])); return rows.map(([n, v]) => `<div class="rg"><span>${n}</span><div class="prog"><i data-w="${Math.round(v / mx * 100)}"></i></div><b>${v}%</b></div>`).join(''); };
+const spark = () => { const mx = Math.max(...hist), mn = Math.min(...hist), pts = hist.map((v, i) => `${(i / (hist.length - 1) * 300).toFixed(1)},${(56 - (v - mn) / (mx - mn || 1) * 48).toFixed(1)}`).join(' ');
+  return `<svg viewBox="0 0 300 60" class="spark" preserveAspectRatio="none" aria-hidden="true"><polygon points="0,60 ${pts} 300,60" fill="rgba(109,1,26,.08)"/><polyline points="${pts}" fill="none" stroke="#6D011A" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>`; };
+const audience = () => `<div class="g3">
+  ${card('Live audience', 'eye', `<div class="live"><span class="pulse"></span><b id="liveN">${live}</b><small>people viewing right now</small></div><div id="sparkW">${spark()}</div><div class="row" style="justify-content:space-between;font-size:.78rem;color:var(--ink3);margin-top:8px"><span>Today <b style="color:#000">3,482</b> visitors</span><span>Avg. session <b style="color:#000">6m 12s</b></span></div>`, '<span class="pill w">Live</span>')}
+  ${card('Devices', 'dash', donut([['Mobile', 58, '#6D011A'], ['Desktop', 34, '#000'], ['Tablet', 8, 'rgba(0,0,0,.18)']], '3,482\nvisitors'))}
+  ${card('Visitors by region', 'globe', meters([['Nairobi', 46], ['Mombasa & Coast', 14], ['Diaspora · UK', 9], ['Diaspora · USA', 8], ['Kisumu', 6], ['UAE', 6], ['Nakuru', 5], ['Eldoret', 3], ['Other', 3]]))}</div>`;
+setInterval(() => { live = Math.max(90, Math.min(260, live + Math.round((Math.random() - .45) * 10))); hist.push(live); hist.shift(); const n = document.getElementById('liveN'); if (n) { n.textContent = live; document.getElementById('sparkW').innerHTML = spark(); } }, 3000);
+
+/* ================= Pages ================= */
+const ROLES = {
+admin: {label:'Administration', user:['Grace Muthoni','Platform Administrator'], nav:[
+  ['Overview', [['dashboard','Dashboard','dash'],['activity','Activity','act']]],
+  ['Marketplace', [['listings','Listings','home', () => D.listings.length],['verification','Verification','shield', () => D.queue.length],['viewings','Viewings','cal'],['transactions','Transactions','wallet']]],
+  ['People', [['users','Clients','users'],['agents','Agents','brief']]],
+  ['Insights', [['analytics','Audience','eye'],['reports','Reports','chart'],['settings','Settings','gear']]]]},
+agent: {label:'Agent Portal', user:['Wambui Karanja','Principal Partner'], nav:[
+  ['Workspace', [['dashboard','Dashboard','dash'],['pipeline','Pipeline','trend', () => D.deals.filter(d => d.st < 3).length],['calendar','Calendar','cal'],['messages','Messages','msg', () => D.threads.length]]],
+  ['Business', [['clients','Clients','users'],['listings','My Listings','home'],['commissions','Commissions','wallet']]]]},
+seller: {label:'Seller Portal', user:['Njeri Mwangi','Owner · 3 residences'], nav:[
+  ['Portfolio', [['dashboard','Dashboard','dash'],['listings','My Residences','home'],['new','Present a Residence','plus']]],
+  ['Activity', [['offers','Offers','file', () => D.offers.filter(o => o.s === 'New').length],['viewings','Viewings','cal'],['analytics','Analytics','chart'],['payouts','Payouts','wallet'],['messages','Messages','msg']]]]},
+buyer: {label:'Buyer Portal', user:['Wanjiku Kamau','Verified Private Client'], nav:[
+  ['Private Office', [['dashboard','Dashboard','dash'],['saved','Saved Residences','heart', () => D.saved.size],['viewings','Viewings','cal'],['offers','Offers','file']]],
+  ['Account', [['messages','Concierge','msg', () => 1],['documents','Documents','shield'],['profile','Profile','gear']]]]}
+};
+
+const PAGES = {
+/* ---------- ADMIN ---------- */
+'admin/dashboard': () => { const live = D.listings.filter(l => l.status === 'Live'), gmv = D.tx.reduce((s, t) => s + t.a, 0);
+  return welcome(`${greet()}, Grace`, 'Imperial Homes · Kenya console. Everything that needs a decision is below.', `<a class="btn" href="#admin/verification">${ic('shield')}Review queue</a><a class="btn" href="#admin/listings">${ic('home')}Listings</a><a class="btn" href="#admin/reports">${ic('chart')}Reports</a>`) +
+  `<div class="stats">${stat('Collection value', usd(live.reduce((s, l) => s + l.price, 0)), 'globe', `${live.length} live residences`, 't')}${stat('Transaction volume · 60d', usd(gmv), 'wallet', `<b>+24%</b> vs prior period`)}${stat('Platform revenue · 60d', usd(+(gmv * .02).toFixed(1)), 'trend', '2% blended commission')}${stat('Verified clients', '1,284', 'users', '<b>+42</b> this week')}${stat('Awaiting review', D.queue.length, 'shield', 'listings, agents, KYC')}</div>${audience()}
+  <div class="grid"><div class="stack">
+    ${card('Needs your attention', 'bell', D.queue.slice(0, 4).map(q => li(q.t === 'Listing' ? 'home' : q.t === 'Agent' ? 'brief' : 'key', q.n, `${q.t} · ${q.d}`, `<div class="row"><button class="btn s k" data-review="${q.id}">Review</button><button class="btn s b" data-apr="${q.id}">Approve</button><button class="btn s" data-rej="${q.id}">Reject</button></div>`)).join('') || '<div class="empty">Queue clear.</div>', `<a class="btn s" href="#admin/verification">All</a>`, true)}
+    ${card('Revenue, last 6 months', 'chart', chart([14, 19, 17, 26, 31, 40], ['Jun','Jul','Aug','Sep','Oct','Nov'], v => 'KES ' + v + 'M'))}
+    ${card('Top residences by interest', 'eye', table(['Residence','Views','Enquiries','Asking'], [...D.listings].sort((a, b) => b.views - a.views).slice(0, 5).map(l => [cellL(l), l.views.toLocaleString(), l.enq, `<b>${usd(l.price)}</b>`])), '', true)}
+  </div><div class="stack">
+    ${card('Collection mix', 'dash', donut([['Estates', D.listings.filter(l => l.type === 'Estate').length, '#000'], ['Villas', D.listings.filter(l => l.type === 'Villa').length, '#6D011A'], ['Penthouses', D.listings.filter(l => l.type === 'Penthouse').length, 'rgba(109,1,26,.35)'], ['Residences', D.listings.filter(l => l.type === 'Residence').length, 'rgba(0,0,0,.18)']], D.listings.length + '\nlistings'))}
+    ${card('Latest transactions', 'wallet', D.tx.slice(0, 4).map(t => li('wallet', `${t.l} · ${usd(t.a)}`, `${t.b} · ${t.d}`, pill(t.s))).join(''), `<a class="btn s" href="#admin/transactions">All</a>`, true)}
+    ${card('Live activity', 'act', D.log.slice(0, 5).map(([p, t]) => li('act', p, t)).join(''), '', true)}
+  </div></div>`; },
+'admin/listings': () => { const f = F.al || 'All', rows = D.listings.filter(l => f === 'All' || l.status === f);
+  return head('Listings', `${D.listings.length} residences across the collection`, 'home', `<button class="btn k" data-go="seller/new">${ic('plus')}New listing</button>`) + tabs('al', ['All','Live','Pending','Under Offer','Sold','Suspended'], f) +
+  card('Residences', 'home', table(['ID','Residence','Type','Agent','Asking','Views','Status',''], rows.map(l => [`<b>${l.id}</b>`, cellL(l), l.type, A(l.agent).n, `<b>${usd(l.price)}</b>`, l.views.toLocaleString(), pill(l.status),
+    l.status === 'Pending' ? `<button class="btn s b" data-golive="${l.id}">Approve</button>` : l.status === 'Sold' ? '' : `<button class="btn s" data-tog="${l.id}">${l.status === 'Suspended' ? 'Restore' : 'Suspend'}</button>`])), `<span class="pill">${rows.length} shown</span>`, true); },
+'admin/verification': () => head('Verification', 'Listings, agents and client KYC awaiting a decision', 'shield') +
+  card('Queue', 'shield', table(['Item','Type','Detail','Value','Status',''], D.queue.map(q => [`<b style="cursor:pointer" data-review="${q.id}">${q.n}</b><small>${q.id} · by ${q.by || 'Njeri Mwangi'}</small>`, pill(q.t), q.d, q.p ? `<b>${usd(q.p)}</b>` : '—', pill(q.st || 'Awaiting Review'), `<div class="row"><button class="btn s k" data-review="${q.id}">${ic('eye')}Review</button><button class="btn s b" data-apr="${q.id}">${ic('check')}Approve</button><button class="btn s" data-rej="${q.id}">Reject</button></div>`])), '', true),
+'admin/viewings': () => head('Viewings', 'All private viewings across the platform', 'cal') +
+  card('Schedule', 'cal', table(['Date','Residence','Client','Agent','Arrangement','Status',''], D.viewings.map(v => [`<b>${v.d}</b><small>${v.t}</small>`, cellL(L(v.l)), v.c, A(v.a).n, v.m, pill(v.s), v.s === 'Requested' ? `<button class="btn s b" data-conf="${v.id}">Confirm</button>` : ''])), '', true),
+'admin/transactions': () => { const tot = D.tx.reduce((s, t) => s + t.a, 0);
+  return head('Transactions', 'Completed and in-progress settlements', 'wallet', `<button class="btn" data-export>${ic('file')}Export CSV</button>`) +
+  `<div class="stats">${stat('Volume', usd(tot), 'wallet', `${D.tx.length} transactions`, 't')}${stat('Commission earned', usd(+(tot * .02).toFixed(2)), 'trend', '2% blended')}${stat('In escrow', usd(D.tx.filter(t => t.s === 'In Escrow').reduce((s, t) => s + t.a, 0)), 'key', 'awaiting completion')}</div>` +
+  card('Ledger', 'wallet', table(['Reference','Residence','Buyer','Amount','Commission','Date','Status'], D.tx.map(t => [`<b>${t.id}</b>`, t.l, t.b, `<b>${usd(t.a)}</b>`, usd(t.c), t.d, pill(t.s)])), '', true); },
+'admin/users': () => { const f = F.au || 'All', q = (F.q || '').toLowerCase(), rows = D.users.filter(u => (f === 'All' || u.role === f || u.status === f) && (!q || u.n.toLowerCase().includes(q)));
+  return head('Clients', 'Verified buyers and sellers', 'users', `<button class="btn k" data-invite>${ic('plus')}Invite client</button>`) + tabs('au', ['All','Buyer','Seller','Pending KYC','Suspended'], f) +
+  card('Directory', 'users', table(['Client','Role','City','Mandate','Joined','Status',''], rows.map(u => [`<div class="cell" style="min-width:180px"><span class="av">${ini(u.n)}</span><div><b>${u.n}</b><small>${u.id}</small></div></div>`, u.role, u.city, u.meta, u.joined, pill(u.status),
+    u.status === 'Pending KYC' ? `<button class="btn s b" data-kyc="${u.id}">Verify</button>` : `<button class="btn s" data-susp="${u.id}">${u.status === 'Suspended' ? 'Reinstate' : 'Suspend'}</button>`])), '', true); },
+'admin/agents': () => head('Agents', 'Partner network performance', 'brief') + `<div class="lgrid">${AG.map(a => `<section class="card"><div class="cb"><div class="row" style="gap:12px"><span class="av b" style="width:46px;height:46px">${ini(a.n)}</span><div><b>${a.n}</b><br><small style="color:var(--ink3)">${a.r} · ${a.city}</small></div></div>
+  <div class="stats" style="grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 8px"><div><small style="color:var(--ink3)">Deals</small><br><b>${a.deals}</b></div><div><small style="color:var(--ink3)">Volume</small><br><b>${usd(a.vol)}</b></div><div><small style="color:var(--ink3)">Rating</small><br><b>${a.rating}</b></div></div>
+  <small style="color:var(--ink3)">Target attainment</small><div class="prog"><i data-w="${Math.min(98, Math.round(a.vol / 65))}"></i></div></div></section>`).join('')}</div>`,
+'admin/analytics': () => head('Audience', 'Who is viewing Imperial Homes, on which devices and from where', 'eye', '<span class="pill w">Live</span>') + audience() + `<div class="g2">
+  ${card('Visitors, last 14 days', 'chart', chart([2140, 2380, 2210, 2650, 2900, 3120, 2780, 2960, 3340, 3510, 3280, 3620, 3790, 3482], ['8','9','10','11','12','13','14','15','16','17','18','19','20','21'], v => v.toLocaleString()))}
+  ${card('Traffic sources', 'trend', meters([['Direct', 38], ['Google Search', 27], ['Instagram', 18], ['Partners', 11], ['Email', 6]]))}
+  ${card('Operating systems', 'dash', meters([['iOS', 41], ['Windows', 19], ['Android', 17], ['macOS', 15], ['Other', 8]]))}
+  ${card('Most viewed right now', 'home', table(['Residence', 'Viewing now', 'Today'], [...D.listings].sort((a, b) => b.views - a.views).slice(0, 5).map((l, i) => [cellL(l), `<b>${[14, 11, 9, 7, 6][i]}</b>`, Math.round(l.views / 9).toLocaleString()])), '', true)}</div>`,
+'admin/reports': () => head('Reports', 'Platform performance', 'chart', `<button class="btn" data-export>${ic('file')}Download PDF</button>`) + `<div class="g2">
+  ${card('Transaction volume ($M)', 'wallet', chart([720, 980, 830, 1290, 1540, 1980], ['Jun','Jul','Aug','Sep','Oct','Nov'], v => 'KES ' + v + 'M'))}
+  ${card('New verified clients', 'users', chart([48, 61, 57, 84, 92, 118], ['Jun','Jul','Aug','Sep','Oct','Nov']))}
+  ${card('Clients by region', 'globe', donut([['Nairobi', 52, '#000'], ['Coast', 19, '#6D011A'], ['Diaspora', 18, 'rgba(109,1,26,.35)'], ['Rift & Upcountry', 11, 'rgba(0,0,0,.18)']], '1,284\nclients'))}
+  ${card('Conversion funnel', 'trend', [['Enquiries', 100], ['Verified', 62], ['Viewings', 38], ['Offers', 17], ['Completed', 8]].map(([n, v]) => `<div style="margin-bottom:12px"><div class="row" style="justify-content:space-between"><b style="font-size:.84rem">${n}</b><small>${v}%</small></div><div class="prog"><i data-w="${v}"></i></div></div>`).join(''))}</div>`,
+'admin/activity': () => head('Activity', 'Every action across the platform, newest first', 'act') + card('Audit log', 'act', D.log.map(([p, t]) => li('act', p, t)).join(''), '', true),
+'admin/settings': () => head('Settings', 'Platform configuration', 'gear') + `<div class="g2">${card('Marketplace', 'gear', [['Invitation-only access', 'Only verified clients can view prices', 1], ['Off-market listings', 'Hide selected residences from public search', 1], ['Require proof of funds before viewings', 'Applies to residences above KES 200M', 1], ['Maintenance mode', 'Temporarily close the marketplace', 0]].map(([t, s, on], i) => `<div class="tg"><div><b>${t}</b><small>${s}</small></div><button class="sw" role="switch" aria-checked="${!!on}" data-sw="${i}" aria-label="${t}"></button></div>`).join(''), '', true)}
+  ${card('Commission', 'wallet', `<form class="form" data-saveform><div class="fd"><label>Buyer side (%)</label><input type="number" value="1" step=".1"></div><div class="fd"><label>Seller side (%)</label><input type="number" value="1" step=".1"></div><div class="fd w"><label>Settlement currency</label><select><option>KES</option><option>USD</option><option>EUR</option></select></div><div class="fd w"><button class="btn k">Save changes</button></div></form>`)}</div>`,
+
+/* ---------- AGENT ---------- */
+'agent/dashboard': () => { const pipe = D.deals.reduce((s, d) => s + d.v, 0), mine = D.listings.filter(l => l.agent === 'a1');
+  return welcome(`${greet()}, Wambui`, `${D.deals.filter(d => d.st < 3).length} active mandates · ${D.viewings.filter(v => v.s === 'Confirmed').length} confirmed viewings this week.`, `<a class="btn" href="#agent/pipeline">${ic('trend')}Pipeline</a><a class="btn" href="#agent/calendar">${ic('cal')}Calendar</a>`) +
+  `<div class="stats">${stat('Pipeline value', usd(pipe), 'trend', `${D.deals.length} deals`, 't')}${stat('Projected commission', usd(+(pipe * .02).toFixed(1)), 'wallet', '2% on close')}${stat('Closing this quarter', D.deals.filter(d => d.st === 3).length, 'check', '<b>On track</b>')}${stat('My listings', mine.length, 'home', `${mine.reduce((s, l) => s + l.views, 0).toLocaleString()} views`)}</div>
+  <div class="grid"><div class="stack">${card("Today's engagements", 'cal', [['09:30','Family Office M.','Second viewing · The Meridian Estate'],['13:00','Achieng Ouma','Counter-offer call · Sky Collection One'],['17:45','Zawadi Njoroge','Completion signing · Garden Terraces']].map(([t, c, w]) => `<div class="li"><div class="dt"><b>${t.split(':')[0]}</b><small>:${t.split(':')[1]}</small></div><div class="g"><b>${c}</b><small>${w}</small></div></div>`).join(''), '', true)}
+  ${card('Commission, last 6 months', 'chart', chart([4.5, 6.6, 5.7, 9.3, 8.2, 12.6], ['Jun','Jul','Aug','Sep','Oct','Nov'], v => 'KES ' + v + 'M'))}</div>
+  <div class="stack">${card('Hot deals', 'trend', D.deals.filter(d => d.st >= 2).map(d => li('trend', d.c, `${L(d.l).name} · ${usd(d.v)}`, pill(['Introduced','Viewing','Negotiation','Closing'][d.st]))).join(''), `<a class="btn s" href="#agent/pipeline">Pipeline</a>`, true)}
+  ${card('Messages', 'msg', D.threads.map(t => li('msg', t.w, t.m[t.m.length - 1][1])).join(''), `<a class="btn s" href="#agent/messages">Open</a>`, true)}</div></div>`; },
+'agent/pipeline': () => { const ln = ['Introduced','Viewing','Negotiation','Closing'];
+  return head('Pipeline', 'Advance clients through each stage', 'trend', `<button class="btn k" data-newdeal>${ic('plus')}New deal</button>`) + `<div class="kan">${ln.map((n, k) => { const ds = D.deals.filter(d => d.st === k);
+  return `<div class="lane"><h4>${n}<span>${ds.length}</span></h4>${ds.map(d => `<div class="deal"><b>${d.c}</b><small>${L(d.l).name} · ${L(d.l).loc}</small><div class="r"><span>${usd(d.v)}</span>${k < 3 ? `<button class="btn s" data-adv="${d.id}">Advance ${ic('chev')}</button>` : `<button class="btn s b" data-close="${d.id}">Close deal</button>`}</div></div>`).join('') || '<div class="empty" style="padding:20px">Empty</div>'}</div>`; }).join('')}</div>`; },
+'agent/calendar': () => head('Calendar', 'Upcoming viewings and engagements', 'cal') + card('Upcoming', 'cal', D.viewings.map(v => `<div class="li"><div class="dt"><b>${v.d.split(' ')[0]}</b><small>${v.d.split(' ')[1]}</small></div><div class="g"><b>${L(v.l).name}</b><small>${v.t} · ${v.c} · ${v.m}</small></div>${pill(v.s)}${v.s === 'Requested' ? `<button class="btn s b" data-conf="${v.id}">Confirm</button>` : ''}</div>`).join(''), '', true),
+'agent/messages': () => head('Messages', 'Secure conversations with clients', 'msg') + chatUI(),
+'agent/clients': () => head('Clients', 'Your private clients', 'users') + card('Client book', 'users', table(['Client','City','Mandate','Status','Stage'], D.users.filter(u => u.role === 'Buyer').map(u => { const d = D.deals.find(x => x.c === u.n); return [`<div class="cell" style="min-width:170px"><span class="av">${ini(u.n)}</span><b>${u.n}</b></div>`, u.city, u.meta, pill(u.status), d ? pill(['Introduced','Viewing','Negotiation','Closing'][d.st]) : '—']; })), '', true),
+'agent/listings': () => head('My Listings', 'Residences you represent', 'home') + `<div class="lgrid">${D.listings.filter(l => l.agent === 'a1' || l.agent === 'a2').map(lcard).join('')}</div>`,
+'agent/commissions': () => head('Commissions', 'Earned and projected', 'wallet') + `<div class="stats">${stat('Earned · 2026', 'KES 74M', 'wallet', '<b>+31%</b> year on year', 't')}${stat('Projected', usd(+(D.deals.reduce((s, d) => s + d.v, 0) * .02).toFixed(1)), 'trend', 'open pipeline')}${stat('Next payout', 'KES 17.8M', 'cal', 'scheduled 02 Dec')}</div>` + card('Statements', 'file', table(['Reference','Description','Amount','Date','Status'], D.payouts.map(p => [`<b>${p[0]}</b>`, p[1], `<b>${usd(p[2])}</b>`, p[4], pill(p[3])])), '', true),
+
+/* ---------- SELLER ---------- */
+'seller/dashboard': () => { const mine = D.listings.filter(l => l.seller === 's1');
+  return welcome(`${greet()}, Njeri`, 'Your residences are performing. Three verified buyers are actively considering your portfolio.', `<a class="btn" href="#seller/new">${ic('plus')}Present a residence</a><a class="btn" href="#seller/offers">${ic('file')}Offers</a>`) +
+  `<div class="stats">${stat('Portfolio value', usd(mine.reduce((s, l) => s + l.price, 0)), 'home', `${mine.length} residences`, 't')}${stat('Private views · 30d', mine.reduce((s, l) => s + l.views, 0).toLocaleString(), 'eye', '<b>+18%</b> vs last month')}${stat('Qualified enquiries', mine.reduce((s, l) => s + l.enq, 0), 'msg', 'verified buyers only')}${stat('Open offers', D.offers.filter(o => /New|Countered/.test(o.s)).length, 'file', 'awaiting your decision')}</div>
+  <div class="grid"><div class="stack">${card('Private views, last 8 weeks', 'chart', chart([380, 520, 470, 610, 580, 720, 800, 960], ['W1','W2','W3','W4','W5','W6','W7','W8']))}
+  ${card('Offers awaiting decision', 'file', D.offers.filter(o => /New|Countered/.test(o.s)).map(o => li('file', `${usd(o.a)} · ${L(o.l).name}`, o.b, `<div class="row"><button class="btn s b" data-acc="${o.id}">Accept</button><button class="btn s" data-dec="${o.id}">Decline</button></div>`)).join('') || '<div class="empty">No open offers.</div>', '', true)}</div>
+  <div class="stack">${card('My residences', 'home', mine.map(l => `<div class="li"><img src="${I(l.img)}" alt="" style="width:54px;height:44px;border-radius:6px;object-fit:cover"><div class="g"><b>${l.name}</b><small>${usd(l.price)} · ${l.views.toLocaleString()} views</small></div>${pill(l.status)}</div>`).join(''), `<a class="btn s" href="#seller/listings">All</a>`, true)}
+  ${card('Interest by market', 'globe', donut([['Nairobi', 48, '#000'], ['Coast', 22, '#6D011A'], ['Diaspora', 21, 'rgba(109,1,26,.35)'], ['Upcountry', 9, 'rgba(0,0,0,.18)']], '100%\nverified'))}</div></div>`; },
+'seller/listings': () => head('My Residences', 'Performance of each residence', 'home', `<a class="btn k" href="#seller/new">${ic('plus')}Present a residence</a>`) + card('Residences', 'home', table(['Residence','Asking','Views','Enquiries','Listed','Status'], D.listings.filter(l => l.seller === 's1').map(l => [cellL(l), `<b>${usd(l.price)}</b>`, l.views.toLocaleString(), l.enq, l.listed, pill(l.status)])), '', true),
+'seller/new': () => head('Present a Residence', 'Submitted residences are reviewed by our team before going live', 'plus') + card('Residence details', 'home', `<form class="form" data-newlisting>
+  <div class="fd"><label>Residence name</label><input name="n" required placeholder="e.g. Villa Aurora"></div><div class="fd"><label>Location</label><input name="c" required placeholder="City, country"></div>
+  <div class="fd"><label>Type</label><select name="t"><option>Estate</option><option>Villa</option><option>Penthouse</option><option>Residence</option></select></div><div class="fd"><label>Asking price (KES M)</label><input name="p" type="number" min="1" step=".1" required></div>
+  <div class="fd"><label>Bedrooms</label><input name="b" type="number" min="1" required></div><div class="fd"><label>Interior (m²)</label><input name="a" type="number" min="1"></div>
+  <div class="fd w"><label>Description</label><textarea name="d" placeholder="Architecture, setting, provenance…"></textarea></div>
+  <div class="fd w row"><button class="btn k">${ic('send')}Submit for review</button><span style="color:var(--ink3);font-size:.8rem">Simulation — nothing leaves this page.</span></div></form>`),
+'seller/offers': () => head('Offers', 'Offers from verified buyers', 'file') + card('All offers', 'file', table(['Residence','Buyer','Offer','vs Asking','Status',''], D.offers.filter(o => !o.b.startsWith('Wanjiku')).map(o => { const l = L(o.l); return [cellL(l), o.b, `<b>${usd(o.a)}</b>`, `${Math.round(o.a / l.price * 100)}%`, pill(o.s), /New|Countered/.test(o.s) ? `<div class="row"><button class="btn s b" data-acc="${o.id}">Accept</button><button class="btn s" data-dec="${o.id}">Decline</button></div>` : '']; })), '', true),
+'seller/viewings': () => PAGES['agent/calendar']().replace('Upcoming viewings and engagements', 'Viewings booked on your residences'),
+'seller/analytics': () => head('Analytics', 'How buyers engage with your residences', 'chart') + `<div class="g2">${card('Views by week', 'eye', chart([380, 520, 470, 610, 580, 720, 800, 960], ['W1','W2','W3','W4','W5','W6','W7','W8']))}${card('Enquiries by week', 'msg', chart([4, 7, 5, 9, 8, 12, 11, 15], ['W1','W2','W3','W4','W5','W6','W7','W8']))}${card('Buyer markets', 'globe', donut([['Nairobi', 48, '#000'], ['Coast', 22, '#6D011A'], ['Diaspora', 21, 'rgba(109,1,26,.35)'], ['Upcountry', 9, 'rgba(0,0,0,.18)']], '1,968\nviews'))}${card('Engagement', 'trend', [['Gallery completion', 82], ['Dossier downloads', 46], ['Viewing requests', 21]].map(([n, v]) => `<div style="margin-bottom:12px"><div class="row" style="justify-content:space-between"><b style="font-size:.84rem">${n}</b><small>${v}%</small></div><div class="prog"><i data-w="${v}"></i></div></div>`).join(''))}</div>`,
+'seller/payouts': () => head('Payouts', 'Settlement proceeds', 'wallet') + card('Statements', 'wallet', table(['Reference','Description','Amount','Date','Status'], D.payouts.map(p => [`<b>${p[0]}</b>`, p[1], `<b>${usd(p[2])}</b>`, p[4], pill(p[3])])), '', true),
+'seller/messages': () => head('Messages', 'Conversations with your agent and buyers', 'msg') + chatUI(),
+
+/* ---------- BUYER ---------- */
+'buyer/dashboard': () => welcome(`${greet()}, Ms. Kamau`, 'Your private office. Shortlists, viewings and offers, handled with complete discretion.', `<a class="btn" href="../marketplace/">${ic('globe')}Browse collection</a><a class="btn" href="#buyer/messages">${ic('msg')}Concierge</a>`) +
+  `<div class="stats">${stat('Verified budget', 'KES 1.5B', 'key', 'proof of funds verified', 't')}${stat('Saved residences', D.saved.size, 'heart', 'on your shortlist')}${stat('Upcoming viewings', D.viewings.filter(v => v.c === 'Wanjiku Kamau').length, 'cal', 'next: 02 Dec')}${stat('Active offers', D.offers.filter(o => o.b === 'Wanjiku Kamau').length, 'file', 'negotiated by your advisor')}</div>
+  <div class="grid"><div class="stack">${card('Saved residences', 'heart', `<div class="lgrid">${[...D.saved].slice(0, 3).map(id => lcard(L(id))).join('')}</div>`, `<a class="btn s" href="#buyer/saved">All</a>`)}
+  ${card('Upcoming viewings', 'cal', D.viewings.filter(v => v.c === 'Wanjiku Kamau').map(v => `<div class="li"><div class="dt"><b>${v.d.split(' ')[0]}</b><small>${v.d.split(' ')[1]}</small></div><div class="g"><b>${L(v.l).name}</b><small>${v.t} · ${v.m} · ${A(v.a).n}</small></div>${pill(v.s)}</div>`).join(''), '', true)}</div>
+  <div class="stack">${card('Your advisor', 'brief', `<div class="row" style="gap:14px"><span class="av b" style="width:52px;height:52px">WK</span><div><b>Wambui Karanja</b><br><small style="color:var(--ink3)">Principal Partner · replies within the hour</small></div></div><div class="row" style="margin-top:16px"><a class="btn k" href="#buyer/messages">${ic('msg')}Message</a><button class="btn" data-call>Request a call</button></div>`)}
+  ${card('Offers', 'file', D.offers.filter(o => o.b === 'Wanjiku Kamau').map(o => li('file', L(o.l).name, `Your offer ${usd(o.a)} · asking ${usd(L(o.l).price)}`, pill(o.s))).join(''), '', true)}
+  ${card('Concierge', 'msg', D.threads.map(t => li('msg', t.w, t.m[t.m.length - 1][1])).join(''), '', true)}</div></div>`,
+'buyer/saved': () => head('Saved Residences', 'Your private shortlist', 'heart', `<a class="btn k" href="../marketplace/">${ic('globe')}Browse collection</a>`) + (D.saved.size ? `<div class="lgrid">${[...D.saved].map(id => lcard(L(id))).join('')}</div>` : card('Shortlist', 'heart', '<div class="empty">Your shortlist is empty.</div>')) +
+  `<div style="margin-top:22px">${card('You may also consider', 'eye', `<div class="lgrid">${D.listings.filter(l => !D.saved.has(l.id) && l.status === 'Live').slice(0, 4).map(lcard).join('')}</div>`)}</div>`,
+'buyer/viewings': () => head('Viewings', 'Private viewings arranged for you', 'cal') + card('Schedule', 'cal', table(['Date','Residence','Advisor','Arrangement','Status'], D.viewings.filter(v => v.c === 'Wanjiku Kamau').map(v => [`<b>${v.d}</b><small>${v.t}</small>`, cellL(L(v.l)), A(v.a).n, v.m, pill(v.s)])), '', true),
+'buyer/offers': () => head('Offers', 'Offers negotiated on your behalf', 'file') + card('My offers', 'file', table(['Residence','Asking','Your offer','Status'], D.offers.filter(o => o.b === 'Wanjiku Kamau').map(o => [cellL(L(o.l)), usd(L(o.l).price), `<b>${usd(o.a)}</b>`, pill(o.s)])), '', true),
+'buyer/messages': () => head('Concierge', 'Your private office, available around the clock', 'msg') + chatUI(),
+'buyer/documents': () => head('Documents', 'KYC, NDAs and due diligence', 'shield', `<button class="btn k" data-upload>${ic('plus')}Upload</button>`) + card('Vault', 'shield', table(['Document','Category','Updated','Status'], D.docs.map(d => [`<div class="cell" style="min-width:220px"><span class="lic">${ic('file')}</span><b>${d[0]}</b></div>`, d[1], d[3], pill(d[2])])), '', true),
+'buyer/profile': () => head('Profile', 'Your preferences shape what we present', 'gear') + `<div class="g2">${card('Personal', 'users', `<form class="form" data-saveform><div class="fd"><label>Name</label><input value="Wanjiku Kamau"></div><div class="fd"><label>Residence</label><input value="Karen, Nairobi"></div><div class="fd w"><label>Preferred contact</label><select><option>Advisor via secure message</option><option>Telephone</option></select></div><div class="fd w"><button class="btn k">Save</button></div></form>`)}
+  ${card('Acquisition brief', 'key', `<form class="form" data-saveform><div class="fd"><label>Budget</label><input value="Up to KES 1.5B"></div><div class="fd"><label>Bedrooms</label><input value="8+"></div><div class="fd w"><label>Preferred markets</label><input value="Karen, Muthaiga, Vipingo Ridge"></div><div class="fd w"><button class="btn k">Update brief</button></div></form>`)}</div>`
+};
+
+/* ================= Shell / router ================= */
+let role = 'admin', page = 'dashboard';
+const shell = $('#shell');
+function renderNav() {
+  const R = ROLES[role];
+  $('#snav').innerHTML = R.nav.map(([g, items]) => `<div class="sg">${g}</div>${items.map(([k, t, icn, n]) => { const c = n ? n() : 0; return `<a class="sl ${k === page ? 'on' : ''}" href="#${role}/${k}" title="${t}">${ic(icn)}<span>${t}</span>${c ? `<span class="n">${c}</span>` : ''}</a>`; }).join('')}`).join('');
+  $('#sbRole').textContent = R.label; $('#roleSel').value = role;
+  const [n, r] = R.user; $('#tu').innerHTML = `<span class="av ${role === 'admin' ? '' : 'b'}">${ini(n)}</span><div><b>${n}</b><small>${r}</small></div>`;
+  const it = R.nav.flatMap(x => x[1]).find(x => x[0] === page);
+  $('#crumb').innerHTML = `<small>${R.label} /</small>${it ? it[1] : ''}`;
+  document.title = `${it ? it[1] : ''} · ${R.label} — Imperial Homes`;
+}
+function render(keepScroll) {
+  const fn = PAGES[`${role}/${page}`] || PAGES[`${role}/dashboard`];
+  $('#content').innerHTML = fn();
+  renderNav();
+  requestAnimationFrame(() => setTimeout(() => { $$('.bar').forEach(b => b.style.height = b.dataset.h + '%'); $$('.prog i').forEach(i => i.style.width = i.dataset.w + '%'); }, 120));
+  const m = $('#msgs'); if (m) m.scrollTop = m.scrollHeight;
+  if (!keepScroll) scrollTo(0, 0);
+}
+function route() {
+  const [r, p] = (location.hash.slice(1) || 'admin/dashboard').split('/');
+  role = ROLES[r] ? r : 'admin'; page = p || 'dashboard';
+  shell.classList.remove('open'); render();
+}
+addEventListener('hashchange', route);
+$('#roleSel').addEventListener('change', e => location.hash = `${e.target.value}/dashboard`);
+
+/* ================= Top bar ================= */
+const tick = () => $('#clock').textContent = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+tick(); setInterval(tick, 15000);
+const bell = () => { const u = D.notifs.filter(n => n[2]).length; $('#bellN').textContent = u; $('#bellN').style.display = u ? '' : 'none';
+  $('#pop').innerHTML = `<h4>Notifications <button data-readall>Mark all read</button></h4>${D.notifs.map(n => `<span class="nf ${n[2] ? 'u' : ''}">${n[0]}<small>${n[1]}</small></span>`).join('')}`; };
+bell();
+$('#gsearch').addEventListener('keydown', e => { if (e.key !== 'Enter') return; F.q = e.target.value; if (role === 'admin') { page = 'users'; location.hash = 'admin/users'; render(); } else toast(`Searching “${e.target.value}” across your portal (simulation).`); });
+
+/* ================= Toast & logging ================= */
+let tt; const toast = m => { const t = $('#toast'); t.textContent = m; t.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 3200); };
+const log = m => { D.log.unshift([m, 'Just now']); D.notifs.unshift([m, 'Just now', 1]); bell(); };
+const done = (m, keep = true) => { toast(m); render(keep); };
+
+/* ================= Review drawer ================= */
+const TPL = {Listing:['Please upload a certified copy of the title deed','Photos need higher resolution (min. 3000px wide)','The asking price is above recent comparables in this area','Kindly add floor plans for every level','Please attach a valuation report from a registered valuer'],
+  Agent:['Please upload your current EARB practising certificate','Professional indemnity cover is required before approval','We need two client references from the last 24 months'],
+  KYC:['Please upload a proof of funds letter from your bank','Kindly complete the source of wealth declaration','Your ID copy is unclear, please upload a clearer scan']};
+const qOf = id => D.queue.find(x => x.id === id);
+function openRv(id) {
+  const q = qOf(id); if (!q) return closeRv();
+  q.by = q.by || 'Njeri Mwangi'; q.role = q.role || (q.t === 'Listing' ? 'Seller' : q.t === 'Agent' ? 'Agent applicant' : 'Buyer'); q.msgs = q.msgs || []; q.st = q.st || 'Awaiting Review';
+  q.docs = q.docs || [['Title deed (certified copy)', 0], ['Professional photography', 1], ['Floor plans', 0], ['Valuation report', 0]];
+  const g = q.g || (q.t === 'Listing' ? [P[0], P[4], P[6]] : null), specs = q.specs || {Location:q.d, Asking:q.p ? usd(q.p) : '—'}, first = q.by.split(' ')[0], ok = q.docs.filter(d => d[1]).length;
+  $('#rvd').innerHTML = `<div class="rvh"><span class="pi">${ic(q.t === 'Listing' ? 'home' : q.t === 'Agent' ? 'brief' : 'key')}</span><h3>${q.n}<br><small style="color:var(--ink3);font-weight:600">${q.t} · ${q.id}</small></h3>${pill(q.st)}<button class="ib" data-rvclose aria-label="Close review">${ic('x')}</button></div>
+  <div class="rvb">
+    ${g ? `<div class="rvg">${g.map(s => `<img src="${I(s)}" alt="">`).join('')}</div>` : ''}
+    <div class="li" style="padding:0 0 14px;border:0"><span class="av b">${ini(q.by)}</span><div class="g"><b>${q.by}</b><small>${q.role} · submitted ${q.when || 'today'}</small></div><button class="btn s" data-rvfocus>${ic('msg')}Message</button></div>
+    <div class="kvg">${Object.entries(specs).map(([k, v]) => `<div><small>${k}</small><b>${v}</b></div>`).join('')}</div>
+    ${q.desc ? `<p style="color:var(--ink2);font-size:.9rem">${q.desc}</p>` : ''}
+    <div class="h5">Compliance checklist · ${ok}/${q.docs.length} received</div>
+    <div class="prog" style="margin:0 0 6px"><i style="width:${Math.round(ok / q.docs.length * 100)}%"></i></div>
+    <div>${q.docs.map((d, i) => `<button class="ck ${d[1] ? 'ok' : ''}" data-ck="${i}">` + `<i>${d[1] ? ic('check') : ''}</i>${d[0]}<em>${d[1] ? 'Received' : 'Missing'}</em></button>`).join('')}</div>
+    <div class="h5">Advice &amp; messages to ${first}</div>
+    <div class="tmpl">${(TPL[q.t] || TPL.Listing).map(t => `<button data-tpl="${t}">${t}</button>`).join('')}</div>
+    <div class="rvm" id="rvm">${q.msgs.length ? q.msgs.map(([w, t, tm]) => `<div class="m ${w === 'me' ? 'me' : ''}">${t}<small>${w === 'me' ? 'You' : first} · ${tm}</small></div>`).join('') : `<div class="empty" style="padding:18px">No messages yet. Tell ${first} what is missing or how to strengthen the submission.</div>`}</div>
+    <form class="cmp" data-rvsend="${q.id}" style="padding:10px 0 0;border:0"><input name="m" id="rvIn" placeholder="Write advice, a request or a note to ${first}…" aria-label="Message to ${first}" autocomplete="off" required><button class="btn k">${ic('send')}Send</button></form>
+  </div>
+  <div class="rvf"><button class="btn b" data-apr="${q.id}">${ic('check')}Approve</button><button class="btn" data-rvchg="${q.id}">Request changes</button><button class="btn" data-rej="${q.id}">Reject</button></div>`;
+  F.rv = id; document.body.classList.add('rv-open');
+  const box = $('#rvm'); box.scrollTop = box.scrollHeight;
+}
+const closeRv = () => { document.body.classList.remove('rv-open'); F.rv = null; };
+
+/* ================= Actions (simulated) ================= */
+document.addEventListener('click', e => {
+  if (!e.target.closest('#pop') && !e.target.closest('[data-bell]')) $('#pop').classList.remove('on');
+  const t = e.target.closest('button,[data-thread],[data-rvclose],[data-review]'); if (!t) return; const d = t.dataset;
+  if (d.review) return openRv(d.review);
+  if (d.rvclose !== undefined) return closeRv();
+  if (d.rvfocus !== undefined) return $('#rvIn').focus();
+  if (d.tpl) { const i = $('#rvIn'); i.value = d.tpl; return i.focus(); }
+  if (d.ck) { const q = qOf(F.rv); q.docs[+d.ck][1] = q.docs[+d.ck][1] ? 0 : 1; return openRv(q.id); }
+  if (d.rvchg) { const q = qOf(d.rvchg), miss = q.docs.filter(x => !x[1]).map(x => x[0].toLowerCase()); q.st = 'Changes Requested';
+    q.msgs.push(['me', 'Thank you for your submission. Before we can approve it we need a few changes' + (miss.length ? ': ' + miss.join(', ') + '.' : '.'), 'Now']); log(`Changes requested · ${q.n}`); toast(`Change request sent to ${q.by}.`); render(true); return openRv(q.id); }
+  if (d.bell !== undefined) return $('#pop').classList.toggle('on');
+  if (d.readall !== undefined) { D.notifs.forEach(n => n[2] = 0); return bell(); }
+  if (d.menu !== undefined) return shell.classList.toggle('open');
+  if (d.sclose !== undefined) return shell.classList.remove('open');
+  if (d.collapse !== undefined) return shell.classList.toggle('col');
+  if (d.tab) { const k = t.parentElement.dataset.tabs; F[k] = d.tab; return render(true); }
+  if (d.thread) { F.thread = d.thread; return render(true); }
+  if (d.apr || d.rej) { closeRv(); const q = D.queue.find(x => x.id === (d.apr || d.rej)); D.queue = D.queue.filter(x => x !== q);
+    if (d.apr && q.t === 'Listing') D.listings.unshift({id:'IH-' + (1100 + D.listings.length), name:q.n, loc:q.d, type:'Estate', price:q.p, beds:9, agent:'a2', status:'Live', img:P[(D.listings.length * 5) % P.length], views:0, enq:0, seller:'s1', listed:'Today'});
+    if (d.apr && q.t === 'KYC') { const u = D.users.find(x => x.n === q.n); if (u) u.status = 'Verified'; }
+    log(`${q.t} ${d.apr ? 'approved' : 'rejected'} · ${q.n}`); return done(`${q.n} ${d.apr ? 'approved' : 'rejected'}.`); }
+  if (d.tog) { const l = L(d.tog); l.status = l.status === 'Suspended' ? 'Live' : 'Suspended'; log(`Listing ${l.status.toLowerCase()} · ${l.name}`); return done(`${l.name} ${l.status === 'Live' ? 'restored' : 'suspended'}.`); }
+  if (d.golive) { const l = L(d.golive); l.status = 'Live'; log(`Listing approved · ${l.name}`); return done(`${l.name} is now live in the collection.`); }
+  if (d.kyc) { const u = D.users.find(x => x.id === d.kyc); u.status = 'Verified'; D.queue = D.queue.filter(q => q.n !== u.n); log(`Client verified · ${u.n}`); return done(`${u.n} verified.`); }
+  if (d.susp) { const u = D.users.find(x => x.id === d.susp); u.status = u.status === 'Suspended' ? 'Verified' : 'Suspended'; log(`Client ${u.status === 'Suspended' ? 'suspended' : 'reinstated'} · ${u.n}`); return done(`${u.n} ${u.status === 'Suspended' ? 'suspended' : 'reinstated'}.`); }
+  if (d.conf) { const v = D.viewings.find(x => x.id === d.conf); v.s = 'Confirmed'; log(`Viewing confirmed · ${L(v.l).name}`); return done(`Viewing confirmed for ${v.c}.`); }
+  if (d.adv) { const x = D.deals[+d.adv]; x.st++; log(`${x.c} moved to ${['Introduced','Viewing','Negotiation','Closing'][x.st]}`); return done(`${x.c} advanced.`); }
+  if (d.close) { const x = D.deals[+d.close]; D.deals = D.deals.filter(y => y !== x); D.deals.forEach((y, i) => y.id = i); const l = L(x.l); l.status = 'Sold';
+    D.tx.unshift({id:'TX-' + (90413 + D.tx.length), l:l.name, b:x.c, a:x.v, s:'In Escrow', d:'Today', c:+(x.v * .02).toFixed(2)}); log(`Deal closed · ${l.name} · ${usd(x.v)}`); return done(`Deal closed. ${usd(+(x.v * .02).toFixed(2))} commission projected.`); }
+  if (d.acc || d.dec) { const o = D.offers.find(x => x.id === (d.acc || d.dec)); o.s = d.acc ? 'Accepted' : 'Declined'; if (d.acc) L(o.l).status = 'Under Offer'; log(`Offer ${o.s.toLowerCase()} · ${L(o.l).name}`); return done(`Offer ${o.s.toLowerCase()}.`); }
+  if (d.save) { D.saved.add(d.save); return done('Added to your shortlist.'); }
+  if (d.unsave) { D.saved.delete(d.unsave); return done('Removed from your shortlist.'); }
+  if (d.sw) { const on = t.getAttribute('aria-checked') !== 'true'; t.setAttribute('aria-checked', on); return toast(`Setting ${on ? 'enabled' : 'disabled'} (simulation).`); }
+  if (d.go) return location.hash = d.go;
+  if (d.newdeal !== undefined) { const u = D.users.filter(x => x.role === 'Buyer')[D.deals.length % 7]; const l = D.listings[D.deals.length % D.listings.length]; D.deals.push({id:D.deals.length, c:u.n, l:l.id, v:l.price, st:0}); log(`New deal · ${u.n}`); return done(`${u.n} added to Introduced.`); }
+  if (d.export !== undefined) return toast('Export prepared (simulation, no file generated).');
+  if (d.invite !== undefined) return toast('Invitation drafted. Sending is disabled in simulation.');
+  if (d.upload !== undefined) return toast('Uploads are disabled in simulation.');
+  if (d.call !== undefined) return toast('Call request noted. Wambui will be in touch (simulation).');
+});
+document.addEventListener('submit', e => {
+  const f = e.target; e.preventDefault();
+  if (f.dataset.rvsend) { const q = qOf(f.dataset.rvsend), v = f.m.value.trim(); if (!v) return;
+    q.msgs.push(['me', v, 'Now']); if (q.st === 'Awaiting Review') q.st = 'Advised'; log(`Advice sent · ${q.n}`); render(true); openRv(q.id); $('#rvIn').focus();
+    setTimeout(() => { q.msgs.push(['them', ['Thank you for the guidance. We will update the submission by tomorrow.', 'Noted. I will upload the documents this afternoon.', 'Understood, I will speak to our valuer and revert.'][q.msgs.length % 3], 'Now']); D.notifs.unshift([`${q.by} replied on ${q.n}`, 'Just now', 1]); bell(); if (F.rv === q.id) openRv(q.id); }, 1800);
+    return; }
+  if (f.dataset.send) { const th = D.threads.find(x => x.id === f.dataset.send), v = f.m.value.trim(); if (!v) return;
+    th.m.push(['me', v, 'Now']); render(true);
+    setTimeout(() => { th.m.push(['them', 'Thank you. I will attend to this personally and revert shortly.', 'Now']); if (location.hash.includes('messages')) render(true); }, 1400); return; }
+  if (f.dataset.newlisting !== undefined) { const x = new FormData(f); D.queue.push({id:'Q' + Date.now(), n:x.get('n'), t:'Listing', d:x.get('c'), p:+x.get('p')}); log(`Listing submitted · ${x.get('n')}`); f.reset(); return toast('Submitted for review. Approve it from the Administration portal.'); }
+  if (f.dataset.saveform !== undefined) return toast('Saved (simulation).');
+});
+addEventListener('click', e => { if (shell.classList.contains('open') && !e.target.closest('.side') && !e.target.closest('[data-menu]')) shell.classList.remove('open'); });
+addEventListener('keydown', e => { if (e.key === 'Escape') { closeRv(); shell.classList.remove('open'); $('#pop').classList.remove('on'); } });
+
+route();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Private Collection — Imperial Homes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#000;--burg:#6D011A;--white:#fff;--i70:rgba(0,0,0,.7);--i50:rgba(0,0,0,.5);--i12:rgba(0,0,0,.12);--i06:rgba(0,0,0,.05);--p70:rgba(255,255,255,.72);--p50:rgba(255,255,255,.5);--p12:rgba(255,255,255,.12);--ease:cubic-bezier(.2,.7,.1,1);--g:clamp(16px,4vw,64px)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip;scroll-behavior:smooth}
+body{font-family:'Quicksand',system-ui,sans-serif;background:var(--white);color:var(--black);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+:focus-visible{outline:2px solid var(--burg);outline-offset:3px}
+.wrap{max-width:1520px;margin:0 auto;padding:0 var(--g)}
+.eb{font-size:.68rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px;color:var(--burg)}
+.eb::before{content:"";width:30px;height:1px;background:currentColor}
+h1{font-weight:500;font-size:clamp(2.2rem,4.6vw,4.2rem);line-height:1.04;letter-spacing:-.02em}
+h1 em,h2 em{font-style:normal;font-weight:300}
+h2{font-weight:500;font-size:clamp(1.4rem,2.2vw,2rem);letter-spacing:-.01em;line-height:1.15}
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;height:50px;padding:0 28px;font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;overflow:hidden;isolation:isolate;transition:color .5s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;transform:scaleX(0);transform-origin:right;transition:transform .6s var(--ease)}
+.btn:hover::before{transform:scaleX(1);transform-origin:left}
+.b-burg{background:var(--burg);color:#fff}.b-burg::before{background:#000}
+.b-black{background:#000;color:#fff}.b-black::before{background:var(--burg)}
+.b-line{border:1px solid currentColor}.b-line::before{background:#000}.b-line:hover{color:#fff}
+.dark .b-line::before{background:#fff}.dark .b-line:hover{color:#000}
+.sm{height:38px;padding:0 16px;font-size:.6rem}
+svg.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.4;flex:none}
+
+/* Top bar */
+.top{position:sticky;top:0;z-index:40;background:#000;color:#fff}
+.top .wrap{display:flex;align-items:center;gap:28px;height:70px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.32em;font-size:.78rem;white-space:nowrap}
+.brand svg{width:30px;height:30px}
+.tabs{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{position:relative;padding:10px 14px;font-size:.66rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;opacity:.65;white-space:nowrap;transition:opacity .3s}
+.tabs a:hover{opacity:1}
+.tabs a::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:2px;background:var(--burg);transform:scaleX(0);transition:transform .5s var(--ease)}
+.tabs a.on{opacity:1}.tabs a.on::after{transform:scaleX(1)}
+.sim{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--p12);padding:6px 10px;color:var(--p50);white-space:nowrap}
+
+/* View transitions */
+.view{display:none}
+.view.on{display:block}
+.view.on .st{opacity:0;transform:translateY(34px);animation:up 1.1s var(--ease) forwards}
+.view.on .st:nth-child(2){animation-delay:.08s}.view.on .st:nth-child(3){animation-delay:.16s}.view.on .st:nth-child(4){animation-delay:.24s}.view.on .st:nth-child(5){animation-delay:.32s}.view.on .st:nth-child(6){animation-delay:.4s}
+@keyframes up{to{opacity:1;transform:none}}
+.rv{opacity:0;transform:translateY(50px);transition:opacity 1.2s var(--ease),transform 1.3s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* Market hero */
+.mhero{position:relative;height:min(78vh,760px);min-height:480px;color:#fff;overflow:hidden;background:#000}
+.mhero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.72;transform:scale(1.08);animation:settle 3s var(--ease) forwards}
+@keyframes settle{to{transform:scale(1)}}
+.mhero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.8),rgba(0,0,0,0) 65%)}
+.mhero .wrap{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(40px,7vh,80px)}
+.mhero .eb{color:#fff;margin-bottom:22px}
+.mhero p{max-width:34em;color:var(--p70);margin-top:20px}
+.mstats{display:flex;gap:clamp(24px,5vw,70px);margin-top:36px;flex-wrap:wrap}
+.mstats b{display:block;font-size:1.6rem;font-weight:500}
+.mstats span{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--p50)}
+
+/* Filters */
+.filters{position:sticky;top:70px;z-index:30;background:#fff;border-bottom:1px solid var(--i12)}
+.filters .wrap{display:grid;grid-template-columns:1.4fr repeat(4,1fr) auto;align-items:stretch}
+.fl{padding:16px 20px;border-right:1px solid var(--i12)}
+.fl:first-child{padding-left:0}
+.fl label{display:block;font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--i50);margin-bottom:2px}
+.fl input,.fl select{width:100%;border:0;background:transparent;font-weight:600;outline:none;padding:2px 0}
+.count{display:flex;align-items:center;padding-left:20px;font-size:.78rem;color:var(--i50);white-space:nowrap}
+.count b{color:#000;margin-right:6px}
+
+/* Listings */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(36px,5vw,72px) clamp(16px,2.4vw,40px);padding:clamp(50px,7vw,100px) 0}
+.card{grid-column:span 4;cursor:pointer}
+.card:nth-child(6n+1){grid-column:span 7}.card:nth-child(6n+2){grid-column:span 5;margin-top:clamp(40px,8vw,120px)}
+.card:nth-child(6n+5){grid-column:span 5}.card:nth-child(6n+6){grid-column:span 7;margin-top:clamp(-80px,-5vw,-20px)}
+.card .ph{position:relative;overflow:hidden;aspect-ratio:4/5;background:var(--i06)}
+.card:nth-child(6n+1) .ph,.card:nth-child(6n+6) .ph{aspect-ratio:16/11}
+.card .ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.card:hover .ph img{transform:scale(1.05)}
+.card .tg{position:absolute;left:0;top:0;background:#fff;padding:8px 14px;font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.card .tg.b{background:var(--burg);color:#fff}
+.sv{position:absolute;right:14px;top:14px;width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;transition:background .4s,color .4s}
+.sv.on{background:var(--burg);color:#fff}
+.sv.on svg{fill:currentColor}
+.card .meta{display:flex;justify-content:space-between;gap:16px;padding-top:18px;align-items:flex-start}
+.card h3{font-weight:500;font-size:1.3rem;line-height:1.2}
+.loc{font-size:.8rem;color:var(--i50);font-weight:600;letter-spacing:.04em}
+.pr{font-weight:600;font-size:1.15rem;white-space:nowrap;text-align:right}
+.pr small{display:block;font-size:.58rem;letter-spacing:.2em;color:var(--i50);text-transform:uppercase}
+.spec{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px;padding-top:12px;border-top:1px solid var(--i12);font-size:.76rem;font-weight:600;color:var(--i70)}
+.empty{grid-column:1/-1;text-align:center;padding:80px 0;color:var(--i50)}
+
+/* Drawer */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:60;opacity:0;visibility:hidden;transition:opacity .6s var(--ease),visibility .6s}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(760px,100%);background:#fff;z-index:61;transform:translateX(100%);transition:transform .9s var(--ease);overflow-y:auto}
+.dopen .scrim{opacity:1;visibility:visible}.dopen .drawer{transform:none}
+.dg{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:260px 160px;gap:4px}
+.dg img{width:100%;height:100%;object-fit:cover}
+.dg img:first-child{grid-row:span 2}
+.db{padding:clamp(24px,4vw,48px)}
+.db h2{font-size:clamp(1.8rem,3vw,2.4rem);margin:14px 0 6px}
+.kv{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--i12);border-bottom:1px solid var(--i12);margin:26px 0}
+.kv div{padding:16px 0}
+.kv dt{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--i50);font-weight:700}
+.kv dd{font-weight:600;font-size:1.05rem}
+.feat{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:8px 24px;margin:20px 0 30px;font-size:.9rem}
+.feat li::before{content:"";display:inline-block;width:14px;height:1px;background:var(--burg);margin-right:10px;vertical-align:middle}
+.agent{display:flex;align-items:center;gap:16px;padding:18px 0;border-top:1px solid var(--i12);margin-bottom:26px}
+.av{width:48px;height:48px;border-radius:50%;background:#000;color:#fff;display:grid;place-items:center;font-weight:600;font-size:.85rem;flex:none}
+.av.b{background:var(--burg)}
+.x{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;z-index:2;transition:transform .5s var(--ease)}
+.x:hover{transform:rotate(90deg)}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Portals */
+.portal{padding:clamp(40px,6vw,80px) 0 100px}
+.dark{background:#000;color:#fff}
+.phead{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid var(--i12)}
+.dark .phead{border-color:var(--p12)}
+.phead h1{margin-top:16px;font-size:clamp(2rem,3.6vw,3.2rem)}
+.phead p{color:var(--i50);margin-top:10px;max-width:36em}
+.dark .phead p{color:var(--p50)}
+.who{display:flex;align-items:center;gap:14px}
+.who small{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--i50)}
+.dark .who small{color:var(--p50)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--i12)}
+.dark .kpis{border-color:var(--p12)}
+.kpi{padding:30px 24px 30px 0}
+.kpi+.kpi{padding-left:24px;border-left:1px solid var(--i12)}
+.dark .kpi+.kpi{border-color:var(--p12)}
+.kpi span{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--i50);font-weight:700}
+.dark .kpi span{color:var(--p50)}
+.kpi b{display:block;font-size:clamp(1.6rem,2.6vw,2.4rem);font-weight:500;margin-top:6px;letter-spacing:-.01em}
+.kpi i{font-style:normal;font-size:.74rem;color:var(--burg);font-weight:700}
+.dark .kpi i{color:#fff;background:var(--burg);padding:2px 8px}
+.cols{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(30px,4vw,64px);margin-top:56px}
+.blk{margin-bottom:56px}
+.bh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:20px;gap:16px}
+.bh h2{font-size:1.3rem}
+.bh span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--i50);font-weight:700}
+.dark .bh span{color:var(--p50)}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+th{text-align:left;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--i50);font-weight:700;padding:0 12px 12px 0;border-bottom:1px solid #000}
+.dark th{color:var(--p50);border-color:#fff}
+td{padding:16px 12px 16px 0;border-bottom:1px solid var(--i12);vertical-align:middle}
+.dark td{border-color:var(--p12)}
+tr{transition:background .3s}
+tbody tr:hover{background:var(--i06)}
+.dark tbody tr:hover{background:rgba(255,255,255,.04)}
+.tw{overflow-x:auto}
+.pill{display:inline-block;font-size:.56rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:5px 10px;border:1px solid currentColor;white-space:nowrap}
+.pill.b{background:var(--burg);border-color:var(--burg);color:#fff}
+.pill.k{background:#000;border-color:#000;color:#fff}
+.dark .pill.k{background:#fff;color:#000;border-color:#fff}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.thumb{cursor:pointer}
+.thumb .ph{aspect-ratio:4/5;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.thumb:hover img{transform:scale(1.06)}
+.thumb b{display:block;font-weight:600;font-size:.9rem;margin-top:10px}
+.thumb small{color:var(--i50);font-size:.78rem}
+.list{list-style:none}
+.list li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--i12);align-items:flex-start}
+.dark .list li{border-color:var(--p12)}
+.list p{font-size:.88rem}
+.list small{display:block;color:var(--i50);font-size:.74rem}
+.dark .list small{color:var(--p50)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--burg);margin-top:8px;flex:none}
+.bars{display:flex;align-items:flex-end;gap:clamp(4px,1vw,12px);height:200px;border-bottom:1px solid currentColor;padding-top:20px}
+.bars div{flex:1;position:relative;height:100%;display:flex;align-items:flex-end}
+.bars i{display:block;width:100%;background:#000;height:0;transition:height 1.4s var(--ease)}
+.dark .bars i{background:#fff}
+.bars div:last-child i{background:var(--burg)!important}
+.bars span{position:absolute;bottom:-24px;left:0;right:0;text-align:center;font-size:.6rem;color:var(--i50);letter-spacing:.1em}
+.dark .bars span{color:var(--p50)}
+.kan{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:16px;overflow-x:auto;padding-bottom:10px;margin-top:56px}
+.lane h3{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;font-weight:700;padding-bottom:12px;border-bottom:2px solid #000;margin-bottom:14px;display:flex;justify-content:space-between}
+.lane:last-child h3{border-color:var(--burg);color:var(--burg)}
+.deal{border:1px solid var(--i12);padding:16px;margin-bottom:12px;background:#fff;animation:up .8s var(--ease)}
+.deal b{display:block;font-weight:600}
+.deal small{display:block;color:var(--i50);font-size:.76rem}
+.deal .r{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-weight:600;font-size:.88rem}
+.mv{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid var(--burg);color:var(--burg);padding-bottom:2px}
+form.add{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 24px}
+form.add input,form.add select{border:0;border-bottom:1px solid var(--i12);padding:12px 0;outline:none;background:transparent;font-weight:600;border-radius:0}
+form.add input:focus{border-color:var(--burg)}
+form.add .btn{grid-column:1/-1;justify-self:start;margin-top:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,160%);z-index:90;background:#000;color:#fff;padding:15px 22px;border-left:3px solid var(--burg);font-size:.86rem;transition:transform .6s var(--ease);max-width:calc(100vw - 32px)}
+.toast.on{transform:translate(-50%,0)}
+.foot{border-top:1px solid var(--i12);padding:30px 0;font-size:.76rem;color:var(--i50)}
+.foot .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* ratings, bids, overlay CTAs */
+.stars{display:inline-flex;gap:2px}.stars svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.5}.stars svg.f{fill:currentColor}
+.rt{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:.74rem;color:var(--i50)}.rt .stars{color:var(--burg)}.rt b{color:#000}
+.bidline{display:flex;justify-content:space-between;align-items:center;gap:8px 14px;margin-top:12px;font-size:.76rem;color:var(--i70);flex-wrap:wrap}.bidline b{color:#000}
+.lv{display:inline-flex;align-items:center;gap:8px;color:var(--burg);font-weight:700}.lv i{width:7px;height:7px;border-radius:50%;background:currentColor;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.2}}
+.ov{position:absolute;left:0;right:0;bottom:0;padding:clamp(14px,2vw,24px);background:linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,0));color:#fff;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .8s var(--ease)}
+.card:hover .ov,.card:focus-within .ov{opacity:1;transform:none}
+.orate{display:flex;align-items:center;gap:10px;font-size:.72rem;font-weight:600;letter-spacing:.04em}
+.ctas{display:flex;gap:8px;flex-wrap:wrap}
+.oc{position:relative;height:40px;padding:0 16px;border:1px solid rgba(255,255,255,.55);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;transition:background .45s,color .45s,border-color .45s}
+.oc:hover{background:#fff;color:#000;border-color:#fff}
+.oc.b{background:var(--burg);border-color:var(--burg)}.oc.b:hover{background:#fff;color:var(--burg)}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.oc.b::after{content:"";position:absolute;inset:-1px;padding:1.5px;background:conic-gradient(from var(--a),transparent 0deg 200deg,#fff 330deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:spin 2.8s linear infinite;pointer-events:none}
+@keyframes spin{to{--a:360deg}}
+@media (hover:none){.ov{opacity:1;transform:none}}
+.bidbox{display:grid;grid-template-columns:1fr 1.3fr;gap:20px;align-items:end;padding:22px;background:#000;color:#fff;margin-bottom:24px}
+.bidbox small,.bidin label{display:block;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--p50);font-weight:700;margin-bottom:4px}
+.bidbox b{display:block;font-size:1.6rem;font-weight:500}.bidbox span{font-size:.74rem;color:var(--p70)}.bidbox .lv{color:#fff}
+.bidin div{display:flex}.bidin input{flex:1;min-width:0;height:50px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;padding:0 14px;font-weight:600;outline:none}.bidin input:focus{border-color:#fff}
+.cta-band{background:#000;color:#fff;padding:clamp(60px,8vw,110px) 0}
+.cta-band .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.cta-band h2{font-size:clamp(1.8rem,3.4vw,3rem);margin-top:16px}.cta-band p{color:var(--p70);max-width:34em;margin-top:14px}
+.cta-band .b-line{color:#fff}.cta-band .b-line::before{background:#fff}.cta-band .b-line:hover{color:#000}
+.mnav{display:none;width:44px;height:44px;position:relative;margin-left:auto}
+.mnav span{position:absolute;left:10px;right:10px;height:1px;background:#fff;transition:transform .5s var(--ease),left .5s var(--ease)}
+.mnav span:nth-child(1){top:18px}.mnav span:nth-child(2){top:26px;left:18px}
+.nav-open .mnav span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+.nav-open .mnav span:nth-child(2){left:10px;transform:translateY(-4px) rotate(-45deg)}
+@media (max-width:800px){
+  .mnav{display:block}
+  .tabs{position:fixed;left:0;right:0;top:70px;bottom:0;background:#000;flex-direction:column;margin:0;padding:24px var(--g);gap:0;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .7s var(--ease),visibility .7s;overflow-y:auto}
+  .nav-open .tabs{clip-path:inset(0);visibility:visible}
+  .tabs a{font-size:1rem;padding:20px 0;border-bottom:1px solid var(--p12)}
+  .tabs a::after{left:0;right:auto;width:36px;bottom:12px}
+  .bidbox{grid-template-columns:1fr}
+}
+/* 360 tour */
+.tour{position:fixed;inset:0;z-index:100;background:#000;color:#fff;opacity:0;transition:opacity .8s var(--ease);overflow:hidden;user-select:none;-webkit-user-select:none}
+.tour.on{opacity:1}
+.tv{position:absolute;inset:0;cursor:grab;touch-action:none;overflow:hidden}
+.tv.drag{cursor:grabbing}
+.tsc{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d}
+.tp{position:absolute;left:0;top:0;margin:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.tp img{width:100%;height:100%;object-fit:cover;pointer-events:none}
+.tp::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.45),rgba(0,0,0,0) 14%,rgba(0,0,0,0) 86%,rgba(0,0,0,.45));pointer-events:none}
+.tvig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,rgba(0,0,0,0) 45%,rgba(0,0,0,.72) 100%)}
+.hs{position:absolute;z-index:2;display:flex;align-items:center;gap:12px;transform:translate(-50%,-50%);color:#fff}
+.hs i{width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.25),0 0 0 14px rgba(109,1,26,.4);animation:hsp 2.2s ease-in-out infinite}
+@keyframes hsp{50%{box-shadow:0 0 0 10px rgba(255,255,255,.12),0 0 0 22px rgba(109,1,26,.15)}}
+.hs span{background:rgba(0,0,0,.72);padding:7px 12px;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;opacity:0;transform:translateX(-6px);transition:opacity .4s,transform .4s;white-space:nowrap}
+.hs:hover span,.hs:focus-visible span{opacity:1;transform:none}
+.thint{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:14px;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;pointer-events:none;transition:opacity 1s}
+.thint svg{width:64px;height:64px;animation:sway 2.4s ease-in-out infinite}
+@keyframes sway{50%{transform:translateX(14px)}}
+.thint.off{opacity:0}
+.ttop,.tbot{position:absolute;left:0;right:0;display:flex;justify-content:space-between;gap:16px;padding:18px clamp(16px,3vw,40px);pointer-events:none}
+.ttop>*,.tbot>*{pointer-events:auto}
+.ttop{top:0;align-items:center;background:linear-gradient(180deg,rgba(0,0,0,.75),rgba(0,0,0,0));padding-bottom:50px}
+.ttop small{display:block;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--p70)}
+.ttop .lv{color:#fff}
+.ttop b{font-size:clamp(1.1rem,2vw,1.6rem);font-weight:500}
+.tctl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.tbtn{width:44px;height:44px;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center;color:#fff;transition:background .4s,color .4s,border-color .4s}
+.tbtn:hover{background:#fff;color:#000;border-color:#fff}
+.tbtn.on{background:var(--burg);border-color:var(--burg)}
+.tbot{bottom:0;align-items:flex-end;flex-wrap:wrap;background:linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,0));padding-top:60px}
+.tnow{display:flex;align-items:center;gap:18px}
+.comp{width:60px;height:60px;border-radius:50%;border:1px solid rgba(255,255,255,.35);position:relative;flex:none}
+.comp::before{content:"N";position:absolute;top:4px;left:50%;transform:translateX(-50%);font-size:.55rem;font-weight:700;color:var(--p70)}
+.comp i{position:absolute;left:50%;top:50%;width:2px;height:22px;margin:-22px 0 0 -1px;background:var(--burg);transform-origin:50% 100%;border-radius:2px}
+.troom{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--p70);font-weight:700}
+.troom b{display:block;font-size:1.3rem;letter-spacing:0;text-transform:none;color:#fff;font-weight:500}
+.rooms{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.rooms::-webkit-scrollbar{display:none}
+.rooms button{flex:none;width:92px;text-align:left;color:#fff;opacity:.55;transition:opacity .4s}
+.rooms button:hover,.rooms button.on{opacity:1}
+.rooms img{width:92px;height:58px;object-fit:cover;border:1px solid rgba(255,255,255,.2)}
+.rooms button.on img{border-color:#fff;outline:2px solid var(--burg);outline-offset:2px}
+.rooms span{display:block;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;margin-top:7px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:700px){.tctl .oc{display:none}.tbtn{width:38px;height:38px}.comp{display:none}}
+@media (max-width:1100px){
+  .filters .wrap{grid-template-columns:repeat(3,1fr)}
+  .fl{border-bottom:1px solid var(--i12)}.fl:first-child{padding-left:20px}
+  .count{padding:14px 20px}
+  .cols{grid-template-columns:1fr}
+  .sim{display:none}
+}
+@media (max-width:800px){
+  .top .wrap{gap:12px}
+  .brand span{display:none}
+  .filters{position:static}
+  .filters .wrap{grid-template-columns:1fr 1fr;padding:0}
+  .card:nth-child(n){grid-column:1/-1;margin-top:0}
+  .card .ph,.card:nth-child(n) .ph{aspect-ratio:4/3.4}
+  .kpis{grid-template-columns:1fr 1fr}
+  .kpi:nth-child(3){padding-left:0;border-left:0}
+  .kpi{border-bottom:1px solid var(--i12)}
+  .dg{grid-template-columns:1fr 1fr;grid-template-rows:240px 140px}
+  .dg img:first-child{grid-column:span 2;grid-row:auto}
+  .dg img:nth-child(3){display:none}
+  .dg img:nth-child(2){grid-column:span 2}
+  .kv{grid-template-columns:1fr 1fr}
+  .feat{grid-template-columns:1fr}
+  .thumbs{grid-template-columns:1fr 1fr}
+  form.add{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}.rv,.view.on .st{opacity:1;transform:none}}
+
+.to-top{position:fixed;right:clamp(12px,2.4vw,34px);bottom:clamp(18px,4vh,40px);z-index:44;display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 6px;color:#fff;mix-blend-mode:difference;opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.1,1),transform .8s cubic-bezier(.2,.7,.1,1),visibility .8s;background:none;border:0;cursor:pointer;font:inherit}
+.to-top.on{opacity:1;visibility:visible;transform:none}
+.to-top span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.62rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
+.to-top i{display:block;width:1px;height:70px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.to-top i::after{content:"";position:absolute;left:0;bottom:-40%;width:1px;height:40%;background:#fff;animation:cueUp 2.4s cubic-bezier(.2,.7,.1,1) infinite}
+.to-top:hover i::after{animation-duration:1.2s}
+@keyframes cueUp{from{bottom:-40%}to{bottom:100%}}
+@media (prefers-reduced-motion:reduce){.to-top i::after{animation:none;bottom:0;height:100%}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.3 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></symbol>
+  <symbol id="close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M3 12h17M14 6l6 6-6 6"/></symbol>
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a href="../" class="brand" aria-label="Imperial Homes home">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 36V16L20 4l16 12v20"/><path d="M12 36V20l8-6 8 6v16"/><path d="M20 36V26"/><path d="M1 36h38" stroke="#6D011A" stroke-width="2"/></svg>
+      <span>IMPERIAL HOMES</span>
+    </a>
+    <button class="mnav" aria-label="Open menu" aria-expanded="false" aria-controls="tabs"><span></span><span></span></button>
+    <nav class="tabs" id="tabs" aria-label="Portals">
+      <a href="#market" class="on">Collection</a><a href="../portal/#buyer/dashboard">Buyer</a><a href="../portal/#seller/dashboard">Seller</a><a href="../portal/#agent/dashboard">Agent</a><a href="../portal/#admin/dashboard">Admin</a>
+    </nav>
+    <span class="sim">Simulation · seeded data</span>
+  </div>
+</header>
+
+<main>
+<!-- MARKETPLACE -->
+<section class="view" id="v-market">
+  <div class="mhero">
+    <img src="../Images/download%20(32).jpg" alt="Contemporary estate with pool at dusk">
+    <div class="wrap">
+      <span class="eb st">The Private Collection</span>
+      <h1 class="st">Rare Addresses. <em>Offered Quietly.</em></h1>
+      <p class="st">Kenya's most exceptional residences, from Karen and Muthaiga to the shores of Diani and Vipingo, presented by invitation to a verified circle of private clients.</p>
+      <div class="mstats st"><div><b id="ms-n">0</b><span>Residences</span></div><div><b id="ms-v">KES 0</b><span>Collection value</span></div><div><b>9</b><span>Prime Locations</span></div></div>
+    </div>
+  </div>
+  <div class="filters">
+    <div class="wrap">
+      <div class="fl"><label for="q">Search</label><input id="q" placeholder="City, estate or name"></div>
+      <div class="fl"><label for="ft">Type</label><select id="ft"><option value="">All</option><option>Estate</option><option>Villa</option><option>Penthouse</option><option>Residence</option></select></div>
+      <div class="fl"><label for="fp">Price</label><select id="fp"><option value="">Any</option><option value="0-300">Up to KES 300M</option><option value="300-800">KES 300M – 800M</option><option value="800-99999">KES 800M +</option></select></div>
+      <div class="fl"><label for="fb">Bedrooms</label><select id="fb"><option value="0">Any</option><option value="4">4+</option><option value="6">6+</option><option value="8">8+</option></select></div>
+      <div class="fl"><label for="fs">Sort</label><select id="fs"><option value="feat">Curated</option><option value="hi">Price, high</option><option value="lo">Price, low</option></select></div>
+      <div class="count"><b id="cnt">0</b> residences</div>
+    </div>
+  </div>
+  <div class="wrap"><div class="grid" id="grid"></div></div>
+  <section class="cta-band"><div class="wrap"><div><span class="eb" style="color:#fff">The Private Office</span><h2>Seeking Something <em>Not Yet Listed?</em></h2><p>A third of our residences change hands off-market. Share your brief and our partners will curate a private selection, quietly.</p></div><div class="acts"><a class="btn b-burg" href="../portal/#buyer/dashboard">Open Buyer Portal</a><a class="btn b-line" href="../portal/#seller/new">Present Your Residence</a></div></div></section>
+</section>
+
+</main>
+
+<footer class="foot"><div class="wrap"><span>&copy; 2026 Imperial Homes</span><span>Simulated environment. All listings, people and transactions are fictional seeded data.</span></div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-modal="true" role="dialog" aria-label="Residence details"></aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const I = n => '../Images/' + n;
+const ic = (id, extra = '') => `<svg class="i" ${extra}><use href="#${id}"/></svg>`;
+const usd = m => m >= 1000 ? `KES ${(m / 1000).toFixed(2)}B` : `KES ${Number.isInteger(m) ? m : (+m).toFixed(1)}M`;
+const stars = r => `<span class="stars">${[0,1,2,3,4].map(i => `<svg class="${i < Math.round(r) ? 'f' : ''}"><use href="#star"/></svg>`).join('')}</span>`;
+const pics = ['download%20(32).jpg','download%20(29).jpg','Backyard%20Pool%20with%20Built-In%20Sunken%20Lounge.jpg','download%20(30).jpg','download%20(31).jpg','download%20(28).jpg','download%20(35).jpg','download%20(36).jpg','download%20(33).jpg','download%20(34).jpg','download%20(37).jpg','Beautiful%20Living%20Room%20%F0%9F%98%8D%F0%9F%92%9E%F0%9F%98%8E%F0%9F%92%A1.jpg'];
+
+/* ---------- Seeded state (fictional) ---------- */
+const agents = [{id:'a1',n:'Wambui Karanja',r:'Principal Partner'},{id:'a2',n:'Hassan Abdallah',r:'Partner, Coast'},{id:'a3',n:'Chebet Rotich',r:'Partner, Rift Valley & Upcountry'},{id:'a4',n:'Brian Otieno',r:'Senior Partner, Nairobi'}];
+const L = [
+ ['The Meridian Estate','Karen, Nairobi','Estate',1450,8,10,'2,400 m²',0,'a1','Signature'],
+ ['Obsidian House','Runda, Nairobi','Residence',420,6,7,'1,150 m²',1,'a1','New'],
+ ['Lagoon Pavilion','Diani Beach, Kwale','Villa',280,5,6,'860 m²',2,'a2',''],
+ ['Maison Blanche','Muthaiga, Nairobi','Villa',980,7,8,'1,600 m²',3,'a1','Exclusive'],
+ ['Cypress Hall','Tigoni, Limuru','Estate',760,7,9,'1,900 m²',4,'a3',''],
+ ['Azure Point','Vipingo Ridge, Kilifi','Villa',540,6,7,'1,200 m²',5,'a2','Ocean View'],
+ ['The Pergola Residence','Lavington, Nairobi','Residence',240,5,6,'720 m²',6,'a4',''],
+ ['Garden Terraces','Kitisuru, Nairobi','Estate',890,7,8,'1,750 m²',7,'a4','Off-market'],
+ ['Sky Collection One','Westlands, Nairobi','Penthouse',350,4,5,'640 m²',8,'a3','Penthouse'],
+ ['Atelier Penthouse','Nyali, Mombasa','Penthouse',190,4,4,'520 m²',9,'a2',''],
+ ['Linea Residence','Spring Valley, Nairobi','Residence',310,5,6,'780 m²',10,'a4','New'],
+ ['Vantage Estate','Lake Naivasha, Nakuru','Estate',1200,9,11,'40 acres',0,'a3','Signature']
+];
+const feats = ['Private cinema','Wellness spa & hammam','Infinity pool','Staff residence','Helipad access','Wine cellar','24-hour security','Smart-home automation','Car gallery','Landscaped gardens'];
+const S = {
+  listings: L.map((r, i) => ({id:'L' + (i + 1), name:r[0], loc:r[1], type:r[2], price:r[3], beds:r[4], baths:r[5], area:r[6], img:pics[r[7]], g:[pics[r[7]], pics[(r[7] + 3) % pics.length], pics[(r[7] + 6) % pics.length]], agent:r[8], tag:r[9], views:800 + ((i * 937) % 4200), enq:6 + (i * 7) % 31, status:'Live', rating:+(4.6 + (i % 5) * .1).toFixed(1), reviews:6 + (i * 5) % 23, bid:Math.round(r[3] * (.86 + (i % 4) * .02)), bids:3 + (i * 3) % 11, live:4 + (i * 7) % 19, feats:feats.filter((_, k) => (k + i) % 3 !== 0).slice(0, 6)})),
+  saved: new Set(['L1','L4','L9']),
+  viewings: [{l:'L4',d:'Tue 02 Dec · 11:00',m:'Private jet transfer arranged',s:'Confirmed'},{l:'L1',d:'Fri 05 Dec · 16:30',m:'In-person, with principal partner',s:'Confirmed'},{l:'L12',d:'Mon 08 Dec · 10:00',m:'Virtual walkthrough',s:'Requested'}],
+  offers: [{l:'L9',a:84,s:'Under review'},{l:'L5',a:91,s:'Countered'}],
+  sellerIds: ['L2','L7','L11'],
+  incoming: [{id:'O1',l:'L2',b:'Private Client · Karen',a:36.5,s:'New'},{id:'O2',l:'L7',b:'Family Office · Westlands',a:21,s:'New'},{id:'O3',l:'L11',b:'Private Client · Nyali',a:17.2,s:'Countered'}],
+  deals: [
+    {c:'Client W. Kamau',l:'L4',v:142,st:0},{c:'Family Office M.',l:'L1',v:185,st:1},{c:'Client O. Odhiambo',l:'L6',v:74,st:1},
+    {c:'Client S. Tanaka',l:'L9',v:88,st:2},{c:'Client E. Mwangi',l:'L3',v:26,st:2},{c:'Client K. Adeyemi',l:'L8',v:118,st:3},{c:'Client P. Hartmann',l:'L5',v:96,st:0}
+  ],
+  queue: [{id:'Q1',n:'Château Lumière',o:'Seller · Bordeaux',p:64,t:'Listing'},{id:'Q2',n:'Agent: Sofia Brandt',o:'Zurich',p:0,t:'Agent'},{id:'Q3',n:'Kilifi Shores Estate',o:'Seller · Kilifi',p:31,t:'Listing'},{id:'Q4',n:'Buyer: Private Client #4471',o:'Proof of funds',p:0,t:'KYC'}],
+  log: [['Offer submitted on Sky Collection One','2 min ago'],['New verified buyer onboarded · Muthaiga','18 min ago'],['Viewing confirmed · Maison Blanche','1 h ago'],['Listing approved · Linea Residence','3 h ago'],['Agent payout released · $1.4M','Yesterday']]
+};
+const byId = id => S.listings.find(l => l.id === id);
+const agentOf = l => agents.find(a => a.id === l.agent);
+const ini = n => n.split(' ').map(w => w[0]).slice(0, 2).join('');
+
+/* ---------- Toast ---------- */
+let tt; const toast = m => { const t = $('#toast'); t.textContent = m; t.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 3400); };
+
+/* ---------- Reveal ---------- */
+const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {rootMargin:'0px 0px -8% 0px'}) : null;
+const watch = c => $$('.rv', c).forEach(el => io ? io.observe(el) : el.classList.add('in'));
+
+/* ---------- Marketplace ---------- */
+const count = (el, to, f) => { const t0 = performance.now(); const step = t => { const p = Math.min((t - t0) / 1600, 1), e = 1 - Math.pow(1 - p, 3); el.textContent = f(to * e); if (p < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); };
+function market() {
+  const q = $('#q').value.trim().toLowerCase(), t = $('#ft').value, b = +$('#fb').value, s = $('#fs').value;
+  const [lo, hi] = $('#fp').value ? $('#fp').value.split('-').map(Number) : [0, Infinity];
+  let r = S.listings.filter(l => l.status === 'Live' && (!q || (l.name + l.loc).toLowerCase().includes(q)) && (!t || l.type === t) && l.price >= lo && l.price < hi && l.beds >= b);
+  if (s === 'hi') r.sort((a, z) => z.price - a.price); if (s === 'lo') r.sort((a, z) => a.price - z.price);
+  $('#cnt').textContent = r.length;
+  $('#grid').innerHTML = r.length ? r.map(l => `
+    <article class="card rv" data-open="${l.id}" tabindex="0" aria-label="${l.name}, ${l.loc}">
+      <div class="ph"><img src="${I(l.img)}" alt="${l.name}" loading="lazy" style="object-position:${l.img.includes('(37)') ? '50% 0' : '50% 50%'}">
+        ${l.tag ? `<span class="tg ${l.tag === 'Signature' ? 'b' : ''}">${l.tag}</span>` : ''}
+        <button class="sv ${S.saved.has(l.id) ? 'on' : ''}" data-save="${l.id}" aria-label="Save ${l.name}" aria-pressed="${S.saved.has(l.id)}">${ic('heart')}</button>
+        <div class="ov"><div class="orate">${stars(l.rating)}<span>${l.rating} · ${l.reviews} private reviews</span></div><div class="ctas"><button class="oc" data-open="${l.id}">Explore</button><button class="oc b" data-bid="${l.id}">Place Bid</button><button class="oc" data-tour="${l.id}">360° Tour</button></div></div></div>
+      <div class="meta"><div><h3>${l.name}</h3><span class="loc">${l.loc}</span><span class="rt">${stars(l.rating)}<b>${l.rating}</b>(${l.reviews})</span></div><div class="pr"><small>Asking</small>${usd(l.price)}</div></div>
+      <div class="spec"><span>${l.beds} Bedrooms</span><span>${l.baths} Baths</span><span>${l.area}</span><span>${l.type}</span></div>
+      <div class="bidline"><span class="lv"><i></i>${l.live} viewing now</span><span>Highest bid <b>${usd(l.bid)}</b> · ${l.bids} bids</span></div>
+    </article>`).join('') : '<p class="empty">No residences match. The private office can source off-market alternatives on request.</p>';
+  watch($('#grid'));
+}
+['#q','#ft','#fp','#fb','#fs'].forEach(s => $(s).addEventListener('input', market));
+
+/* ---------- Drawer ---------- */
+function openL(id, bidFocus) {
+  const l = byId(id), a = agentOf(l);
+  $('#drawer').innerHTML = `
+    <button class="x" data-x aria-label="Close">${ic('close')}</button>
+    <div class="dg">${l.g.map(g => `<img src="${I(g)}" alt="${l.name}">`).join('')}</div>
+    <div class="db">
+      <span class="eb">${l.tag || 'Private Collection'} · ${l.id}</span>
+      <h2>${l.name}</h2><span class="loc">${l.loc}</span><span class="rt">${stars(l.rating)}<b>${l.rating}</b>(${l.reviews} private reviews)</span>
+      <dl class="kv"><div><dt>Asking</dt><dd>${usd(l.price)}</dd></div><div><dt>Bedrooms</dt><dd>${l.beds}</dd></div><div><dt>Baths</dt><dd>${l.baths}</dd></div><div><dt>Interior</dt><dd>${l.area}</dd></div></dl>
+      <p style="color:var(--i70)">A residence of rare composure, offered discreetly to verified clients. Architecture, privacy and setting have been considered without compromise.</p>
+      <ul class="feat">${l.feats.map(f => `<li>${f}</li>`).join('')}</ul>
+      <div class="agent"><span class="av b">${ini(a.n)}</span><div><b>${a.n}</b><br><small class="loc">${a.r}</small></div></div>
+      <div class="bidbox" id="bidbox"><div><small>Highest bid</small><b>${usd(l.bid)}</b><span><span class="lv"><i></i>${l.live} viewing now</span> · ${l.bids} bids · closes in 3d 14h</span></div><div class="bidin"><label for="bidIn">Your bid (KES millions)</label><div><input id="bidIn" type="number" min="${l.bid + 5}" step="5" value="${l.bid + 10}"><button class="btn b-burg" data-place="${l.id}">Place Bid</button></div></div></div>
+      <div class="acts">
+        <button class="btn b-burg" data-view="${l.id}">Request Private Viewing ${ic('arrow')}</button>
+        <button class="btn b-line" data-offer="${l.id}">Submit Offer</button>
+        <button class="btn b-line" data-tour="${l.id}">360° Tour</button>
+        <button class="btn b-line" data-save="${l.id}">${S.saved.has(l.id) ? 'Saved' : 'Save'}</button>
+      </div>
+      <p style="font-size:.74rem;color:var(--i50);margin-top:24px">Fictional listing in a simulated environment. No request is transmitted.</p>
+    </div>`;
+  document.body.classList.add('dopen'); $('#drawer').scrollTop = 0;
+  if (bidFocus) setTimeout(() => { $('#bidbox').scrollIntoView({behavior:'smooth', block:'center'}); $('#bidIn').focus({preventScroll:true}); }, 650); else $('.x').focus();
+}
+const closeL = () => document.body.classList.remove('dopen');
+$('#scrim').addEventListener('click', closeL);
+addEventListener('keydown', e => { if (e.key === 'Escape') closeL(); if (e.key === 'Enter' && e.target.dataset.open) openL(e.target.dataset.open); });
+
+/* ---------- Router ---------- */
+const R = {market};
+function route() {
+  const k = (location.hash || '#market').slice(1), key = R[k] ? k : 'market';
+  closeL();
+  $$('.view').forEach(v => v.classList.toggle('on', v.id === 'v-' + key));
+  $$('.tabs a').forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + key));
+  R[key](); watch($('#v-' + key));
+  scrollTo(0, 0);
+}
+const rerender = () => { const k = (location.hash || '#market').slice(1); (R[k] || market)(); watch(document); };
+addEventListener('hashchange', route);
+
+/* ---------- Actions (simulated) ---------- */
+const log = m => S.log.unshift([m, 'Just now']);
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-bid],[data-tour],[data-place],[data-save],[data-open],[data-x],[data-view],[data-offer],[data-acc],[data-dec],[data-adv],[data-apr],[data-rej],[data-tog],[data-msg]');
+  if (!t) return;
+  const d = t.dataset;
+  if (d.bid) return openL(d.bid, true);
+  if (d.tour) return openTour(d.tour);
+  if (d.place) { const l = byId(d.place), inp = $('#bidIn'), v = +inp.value; if (!v || v <= l.bid) { toast(`Bids must exceed ${usd(l.bid)}.`); return inp.focus(); } l.bid = v; l.bids++; toast(`Bid of ${usd(v)} placed. You are the highest bidder (simulation).`); market(); return openL(l.id, true); }
+  if (d.save) { e.stopPropagation(); S.saved.has(d.save) ? S.saved.delete(d.save) : S.saved.add(d.save); toast(S.saved.has(d.save) ? 'Saved to your private shortlist.' : 'Removed from your shortlist.'); $$(`[data-save="${d.save}"]`).forEach(b => { b.classList.toggle('on', S.saved.has(d.save)); b.setAttribute('aria-pressed', S.saved.has(d.save)); if (b.classList.contains('btn')) b.textContent = S.saved.has(d.save) ? 'Saved' : 'Save'; }); return; }
+  if (d.x !== undefined) return closeL();
+  if (d.open) return openL(d.open);
+  if (d.view) { S.viewings.push({l:d.view, d:'To be confirmed', m:'Requested via Private Collection', s:'Requested'}); log(`Viewing requested · ${byId(d.view).name}`); toast('Viewing requested. Your advisor will confirm (simulation).'); return closeL(); }
+  if (d.offer) { const l = byId(d.offer); S.offers.push({l:d.offer, a:+(l.price * .94).toFixed(1), s:'Under review'}); log(`Offer submitted · ${l.name}`); toast(`Offer of ${usd(l.price * .94)} submitted (simulation).`); return closeL(); }
+  if (d.msg !== undefined) toast('Secure messaging opens with the full platform (simulation).');
+});
+
+/* ---------- 360° Tour ---------- */
+const TOUR = [['01-arrival-motor-court','Arrival Motor Court'],['02-grand-foyer','Grand Foyer'],['03-living-salon','Living Salon'],['04-dining-room','Dining Room'],['05-chefs-kitchen',"Chef's Kitchen"],['06-cocktail-bar','Cocktail Bar'],['07-family-lounge','Family Lounge'],['08-home-cinema','Home Cinema'],['09-games-room','Games Room'],['10-master-suite','Master Suite'],['11-dressing-room','Dressing Room'],['12-master-bath','Master Bath'],['13-guest-suite','Guest Suite'],['14-private-gym','Private Gym'],['15-pool-terrace','Pool Terrace'],['16-fire-lounge','Fire Lounge'],['17-zen-garden','Zen Garden'],['18-sports-court','Sports Court']];
+const ROOMS = TOUR.map(t => t[1]);
+const tsvg = d => `<svg class="i" viewBox="0 0 24 24"><path d="${d}"/></svg>`;
+let tourEnd = null;
+function openTour(id) {
+  if (tourEnd) tourEnd();
+  const l = byId(id), imgs = TOUR.map(t => '../360/' + t[0] + '.jpg'), n = imgs.length, step = 360 / n;
+  const el = document.createElement('div');
+  el.className = 'tour'; el.setAttribute('role', 'dialog'); el.setAttribute('aria-modal', 'true'); el.setAttribute('aria-label', '360 degree tour of ' + l.name);
+  el.innerHTML = `
+    <div class="tv"><div class="tsc">${imgs.map((s, i) => `<figure class="tp"><img src="${s}" alt="${ROOMS[i]}" draggable="false" decoding="async"><button class="hs" style="left:${28 + (i * 17) % 44}%;top:${46 + (i * 13) % 22}%" data-room="${(i + 1) % n}" aria-label="Go to ${ROOMS[(i + 1) % n]}"><i></i><span>${ROOMS[(i + 1) % n]}</span></button></figure>`).join('')}</div></div>
+    <div class="tvig"></div>
+    <div class="thint"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="1.2"><circle cx="32" cy="32" r="30" opacity=".35"/><path d="M14 32h36M20 26l-6 6 6 6M44 26l6 6-6 6"/></svg>Drag to explore</div>
+    <div class="ttop"><div><small><span class="lv"><i></i>Live 360°</span> · ${l.loc} · ${n} spaces</small><b>${l.name}</b></div>
+      <div class="tctl"><button class="oc b" data-tbid>Place Bid</button>
+        <button class="tbtn on" data-t="auto" aria-label="Auto rotate" aria-pressed="true">${tsvg('M20 12a8 8 0 1 1-2.3-5.6M20 4v5h-5')}</button>
+        <button class="tbtn" data-t="in" aria-label="Zoom in">${tsvg('M12 5v14M5 12h14')}</button>
+        <button class="tbtn" data-t="out" aria-label="Zoom out">${tsvg('M5 12h14')}</button>
+        <button class="tbtn" data-t="fs" aria-label="Full screen">${tsvg('M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5')}</button>
+        <button class="tbtn" data-t="x" aria-label="Close tour">${tsvg('M5 5l14 14M19 5L5 19')}</button></div></div>
+    <div class="tbot"><div class="tnow"><div class="comp"><i></i></div><div class="troom">Now viewing<b>${ROOMS[0]}</b></div></div>
+      <div class="rooms">${imgs.map((s, i) => `<button data-room="${i}" class="${i ? '' : 'on'}"><img src="${s}" alt="" draggable="false" loading="lazy"><span>${ROOMS[i]}</span></button>`).join('')}</div></div>`;
+  document.body.appendChild(el); document.body.style.overflow = 'hidden';
+  const tv = $('.tv', el), sc = $('.tsc', el), figs = $$('.tp', el), needle = $('.comp i', el), lab = $('.troom b', el), chips = $$('.rooms button', el), hint = $('.thint', el);
+  let W, R, P, yaw = -7, tilt = 4, vy = 0, target = null, zoom = 1, fly = 0, cur = 0, raf, drag = null, last = performance.now();
+  let auto = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const layout = () => { W = 1100; R = W / (2 * Math.tan(Math.PI / n)); P = innerWidth * (innerWidth < 700 ? .95 : .6) / (2 * Math.tan(Math.PI / n)); const H = 1.7 * innerHeight * R / P;
+    figs.forEach((f, i) => { f.style.cssText = `width:${W + 2}px;height:${H}px;margin:${-H / 2}px 0 0 ${-W / 2 - 1}px;transform:rotateY(${-i * step}deg) translateZ(${-R}px)`; }); };
+  const go = i => { let t = i * step; while (t - yaw > 180) t -= 360; while (yaw - t > 180) t += 360; target = t; last = performance.now(); };
+  const frame = now => {
+    if (!drag) { if (target !== null) { yaw += (target - yaw) * .08; if (Math.abs(target - yaw) < .05) target = null; } else { yaw += vy; vy *= .94; if (auto && now - last > 2600) yaw += .045; } tilt += (0 - tilt) * .02; }
+    fly += (1 - fly) * .035;
+    const z = P * zoom * (.62 + .38 * fly);
+    tv.style.perspective = z + 'px';
+    sc.style.transform = `translateZ(${z}px) rotateX(${tilt}deg) rotateY(${yaw}deg)`;
+    needle.style.transform = `rotate(${-yaw}deg)`;
+    const c = ((Math.round(yaw / step) % n) + n) % n;
+    if (c !== cur) { cur = c; lab.textContent = ROOMS[c]; chips.forEach((b, i) => b.classList.toggle('on', i === c)); const rb = chips[c].parentElement; rb.scrollTo({left: chips[c].offsetLeft - rb.clientWidth / 2 + chips[c].clientWidth / 2, behavior: 'smooth'}); }
+    raf = requestAnimationFrame(frame);
+  };
+  tv.addEventListener('pointerdown', e => { if (e.target.closest('button')) return; drag = {x: e.clientX, y: e.clientY}; tv.setPointerCapture(e.pointerId); tv.classList.add('drag'); hint.classList.add('off'); target = null; vy = 0; });
+  tv.addEventListener('pointermove', e => { if (!drag) return; const dx = e.clientX - drag.x, dy = e.clientY - drag.y; drag = {x: e.clientX, y: e.clientY}; yaw -= dx * .12; vy = -dx * .12; tilt = Math.max(-14, Math.min(14, tilt - dy * .06)); last = performance.now(); });
+  const up = () => { drag = null; tv.classList.remove('drag'); last = performance.now(); };
+  tv.addEventListener('pointerup', up); tv.addEventListener('pointercancel', up);
+  tv.addEventListener('wheel', e => { e.preventDefault(); zoom = Math.max(.75, Math.min(1.9, zoom - e.deltaY * .0009)); }, {passive: false});
+  el.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const d = b.dataset;
+    if (d.room) { hint.classList.add('off'); return go(+d.room); }
+    if (d.tbid !== undefined) { end(); return openL(id, true); }
+    if (d.t === 'auto') { auto = !auto; b.classList.toggle('on', auto); b.setAttribute('aria-pressed', auto); last = 0; return; }
+    if (d.t === 'in') zoom = Math.min(1.9, zoom + .2);
+    if (d.t === 'out') zoom = Math.max(.75, zoom - .2);
+    if (d.t === 'fs') { if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); else if (el.requestFullscreen) el.requestFullscreen().catch(() => {}); }
+    if (d.t === 'x') end();
+  });
+  const key = e => { if (e.key === 'Escape') end(); else if (e.key === 'ArrowLeft') go(cur - 1); else if (e.key === 'ArrowRight') go(cur + 1); else if (e.key === '+' || e.key === '=') zoom = Math.min(1.9, zoom + .2); else if (e.key === '-') zoom = Math.max(.75, zoom - .2); };
+  function end() { cancelAnimationFrame(raf); removeEventListener('keydown', key); removeEventListener('resize', layout); if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); el.classList.remove('on'); document.body.style.overflow = ''; setTimeout(() => el.remove(), 700); tourEnd = null; }
+  tourEnd = end;
+  addEventListener('keydown', key); addEventListener('resize', layout);
+  layout(); raf = requestAnimationFrame(frame); requestAnimationFrame(() => el.classList.add('on'));
+  setTimeout(() => hint.classList.add('off'), 4200);
+}
+
+/* ---------- Mobile nav ---------- */
+const mnav = $('.mnav');
+const setNav = o => { document.body.classList.toggle('nav-open', o); mnav.setAttribute('aria-expanded', o); mnav.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); document.body.style.overflow = o ? 'hidden' : ''; };
+mnav.addEventListener('click', () => setNav(!document.body.classList.contains('nav-open')));
+$$('.tabs a').forEach(a => a.addEventListener('click', () => setNav(false)));
+addEventListener('keydown', e => { if (e.key === 'Escape') setNav(false); });
+addEventListener('resize', () => { if (innerWidth > 800) setNav(false); });
+
+/* ---------- Boot ---------- */
+route();
+{ const qp = new URLSearchParams(location.search), oid = qp.get('open'), mode = qp.get('mode');
+  if (oid && byId(oid)) setTimeout(() => mode === 'tour' ? openTour(oid) : openL(oid, mode === 'bid'), 600); }
+const live = S.listings.filter(l => l.status === 'Live');
+count($('#ms-n'), live.length, v => Math.round(v));
+count($('#ms-v'), live.reduce((s, l) => s + l.price, 0), v => usd(Math.round(v)));
+})();
+</script>
+<button class="to-top" id="toTop" aria-label="Scroll up to the top"><i></i><span>Scroll up</span></button>
+<script>(()=>{const b=document.getElementById('toTop');const s=()=>b.classList.toggle('on',scrollY>innerHeight*.8);addEventListener('scroll',s,{passive:true});s();b.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));})();</script>
+</body>
+</html>

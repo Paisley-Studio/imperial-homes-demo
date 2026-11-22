@@ -1,0 +1,1139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Imperial Homes — Welcome to the Future of Real Estate</title>
+<meta name="description" content="Imperial Homes. Discover exceptional properties and experience a smarter way to find, explore and secure your next home.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="Images/download%20(29).jpg">
+<style>
+:root{
+  --black:#000000; --burgundy:#6D011A; --white:#FFFFFF;
+  --ink-70:rgba(0,0,0,.7); --ink-50:rgba(0,0,0,.5); --ink-12:rgba(0,0,0,.12); --ink-06:rgba(0,0,0,.06);
+  --paper-70:rgba(255,255,255,.72); --paper-50:rgba(255,255,255,.5); --paper-20:rgba(255,255,255,.2); --paper-12:rgba(255,255,255,.12);
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --gutter:clamp(20px,5vw,80px);
+  --max:1440px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip}
+dialog{overflow:auto}
+body{font-family:'Quicksand',system-ui,sans-serif;background:var(--white);color:var(--black);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+:focus-visible{outline:2px solid var(--burgundy);outline-offset:3px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Type */
+.eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;display:inline-flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:36px;height:1px;background:currentColor;opacity:.6}
+.eyebrow.burg{color:var(--burgundy)}
+h1,h2,h3{font-weight:500;letter-spacing:-.01em;line-height:1.08}
+h2{font-size:clamp(2rem,3.8vw,3.4rem)}
+h2 em{font-style:normal;font-weight:300}
+.lead{font-size:clamp(1rem,1.2vw,1.12rem);color:var(--ink-70);max-width:34em;font-weight:400}
+
+/* Buttons */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:14px;height:56px;padding:0 34px;font-size:.74rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;overflow:hidden;isolation:isolate;transition:color .5s var(--ease),border-color .5s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;transform:scaleX(0);transform-origin:right;transition:transform .6s var(--ease)}
+.btn:hover::before,.btn:focus-visible::before{transform:scaleX(1);transform-origin:left}
+.btn svg{width:18px;height:18px;transition:transform .5s var(--ease)}
+.btn:hover svg{transform:translateX(5px)}
+.btn-burg{background:var(--burgundy);color:var(--white)}
+.btn-burg::before{background:var(--black)}
+.btn-white{background:var(--white);color:var(--black)}
+.btn-white::before{background:var(--burgundy)}
+.btn-white:hover{color:var(--white)}
+.btn-black{background:var(--black);color:var(--white)}
+.btn-black::before{background:var(--burgundy)}
+.btn-line{border:1px solid var(--paper-50);color:var(--white)}
+.btn-line::before{background:var(--white)}
+.btn-line:hover{color:var(--black);border-color:var(--white)}
+.btn-line-dark{border:1px solid var(--black);color:var(--black)}
+.btn-line-dark::before{background:var(--black)}
+.btn-line-dark:hover{color:var(--white)}
+.link{display:inline-flex;align-items:center;gap:12px;font-size:.72rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;padding-bottom:6px;position:relative}
+.link::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;transform:scaleX(.35);transform-origin:left;transition:transform .6s var(--ease)}
+.link:hover::after,.link:focus-visible::after{transform:scaleX(1)}
+.link svg{width:16px;height:16px;transition:transform .5s var(--ease)}
+.link:hover svg{transform:translateX(4px)}
+
+/* Navigation */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;color:var(--white);transition:background .5s var(--ease),height .5s var(--ease),border-color .5s;border-bottom:1px solid var(--paper-12);height:96px}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.nav.solid{background:var(--black);height:72px;border-color:transparent}
+.brand{display:flex;align-items:center;gap:14px;font-weight:700;letter-spacing:.34em;font-size:.86rem;white-space:nowrap}
+.brand-mark{width:34px;height:34px;flex:none}
+.nav-links{display:flex;gap:clamp(18px,2.4vw,40px);list-style:none}
+.nav-links a{font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;position:relative;padding:8px 0;opacity:.85;transition:opacity .3s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--white);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.nav-links a:hover,.nav-links a.active{opacity:1}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+.nav-links a.active::after{background:var(--burgundy);height:2px}
+.nav .btn{height:46px;padding:0 24px;font-size:.68rem}
+.menu-toggle{display:none;width:44px;height:44px;position:relative}
+.menu-toggle span{position:absolute;left:10px;right:10px;height:1px;background:var(--white);transition:transform .5s var(--ease),opacity .3s}
+.menu-toggle span:nth-child(1){top:17px}.menu-toggle span:nth-child(2){top:26px;left:18px}
+.menu-open .menu-toggle span:nth-child(1){transform:translateY(4.5px) rotate(45deg)}
+.menu-open .menu-toggle span:nth-child(2){left:10px;transform:translateY(-4.5px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:45;background:var(--black);color:var(--white);display:flex;flex-direction:column;justify-content:center;padding:100px var(--gutter) 40px;clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--ease);visibility:hidden}
+.menu-open .mobile-menu{clip-path:inset(0 0 0 0);visibility:visible}
+.mobile-menu ol{list-style:none;counter-reset:m}
+.mobile-menu li{counter-increment:m;border-bottom:1px solid var(--paper-12);opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.menu-open .mobile-menu li{opacity:1;transform:none}
+.mobile-menu li:nth-child(2){transition-delay:.05s}.mobile-menu li:nth-child(3){transition-delay:.1s}.mobile-menu li:nth-child(4){transition-delay:.15s}.mobile-menu li:nth-child(5){transition-delay:.2s}.mobile-menu li:nth-child(6){transition-delay:.25s}
+.mobile-menu a{display:flex;align-items:baseline;gap:18px;padding:16px 0;font-size:1.7rem;font-weight:500}
+.mobile-menu a::before{content:"0" counter(m);font-size:.7rem;letter-spacing:.2em;color:var(--paper-50)}
+.mobile-menu .btn{margin-top:36px;align-self:flex-start}
+
+/* Hero */
+.hero{position:relative;height:100vh;height:100svh;min-height:620px;color:var(--white);overflow:hidden;background:#000 url("Images/download%20(29).jpg") center/cover no-repeat}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-shade{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 22%),
+  linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.25) 45%,rgba(0,0,0,0) 70%),
+  linear-gradient(90deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 60%)}
+.hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(56px,9vh,110px)}
+.hero .eyebrow{margin-bottom:28px}
+.hero h1{font-size:clamp(2.4rem,5.6vw,5.2rem);font-weight:500;line-height:1.02;letter-spacing:-.02em;max-width:13em}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .line span{display:block;transform:translateY(105%);animation:rise 1.4s var(--ease) forwards}
+.hero h1 .line:nth-child(2) span{animation-delay:.14s;font-weight:300}
+.hero h1 .line strong{font-weight:600}
+.hero-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-top:40px;flex-wrap:wrap}
+.hero p{max-width:30em;font-size:clamp(1rem,1.2vw,1.12rem);color:rgba(255,255,255,.86);margin-bottom:34px}
+.hero .actions{display:flex;gap:14px;flex-wrap:wrap}
+.fade-up{opacity:0;transform:translateY(24px);animation:fadeUp 1.2s var(--ease) forwards}
+.d1{animation-delay:.5s}.d2{animation-delay:.7s}.d3{animation-delay:.9s}.d4{animation-delay:1.2s}
+.scroll-cue{display:flex;flex-direction:column;align-items:center;gap:14px;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--paper-70);writing-mode:vertical-rl}
+.scroll-cue i{display:block;width:1px;height:70px;background:var(--paper-20);position:relative;overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--white);animation:cue 2.4s var(--ease) infinite}
+.hero-meta{position:absolute;z-index:2;right:var(--gutter);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;align-items:flex-end;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--paper-70)}
+@keyframes rise{to{transform:translateY(0)}}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+@keyframes cue{0%{top:-40%}100%{top:100%}}
+
+/* Reveal */
+.reveal{opacity:0;transform:translate3d(0,64px,0);transition:opacity 1.4s var(--ease),transform 1.6s var(--ease),clip-path 1.6s var(--ease);will-change:transform,opacity}
+.reveal[data-reveal="left"]{transform:translate3d(-90px,0,0)}
+.reveal[data-reveal="right"]{transform:translate3d(90px,0,0)}
+h2.reveal{clip-path:inset(100% 0 -12% 0);transform:translate3d(0,48px,0)}
+.reveal[data-delay="1"]{transition-delay:.14s}.reveal[data-delay="2"]{transition-delay:.28s}.reveal[data-delay="3"]{transition-delay:.42s}
+.reveal.in{opacity:1;transform:none}
+h2.reveal.in{clip-path:inset(-6% 0 -12% 0)}
+.reveal.out{opacity:0;transform:translate3d(0,-48px,0);transition-duration:1s;transition-delay:0s}
+h2.reveal.out{clip-path:inset(-6% 0 100% 0)}
+main>section{position:relative;background:var(--white);overflow:clip}
+.mask{overflow:hidden;position:relative}
+.mask img{transform:scale(1.12);transition:transform 1.8s var(--ease)}
+.mask.in img{transform:scale(1)}
+.mask::after{content:"";position:absolute;inset:0;background:var(--white);transform-origin:top;transition:transform 1.3s var(--ease)}
+.mask.dark::after{background:var(--black)}
+.mask.in::after{transform:scaleY(0)}
+
+/* Discovery */
+.discover{padding:clamp(90px,12vw,160px) 0 clamp(70px,9vw,120px);position:relative}
+.discover-head{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:end;margin-bottom:clamp(44px,5vw,70px)}
+.discover-head h2{margin-top:22px}
+.search{border:1px solid var(--black);position:relative;background:var(--white)}
+.search-tabs{display:flex;border-bottom:1px solid var(--ink-12);position:relative}
+.search-tabs button{padding:20px 34px;font-size:.72rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-50);transition:color .4s}
+.search-tabs button[aria-selected="true"]{color:var(--black)}
+.tab-ink{position:absolute;bottom:-1px;height:2px;background:var(--burgundy);transition:transform .6s var(--ease),width .6s var(--ease);left:0}
+.search-note{margin-left:auto;align-self:center;padding-right:28px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-50)}
+.search-row{display:grid;grid-template-columns:1.5fr 1.1fr 1.2fr .9fr auto}
+.field{position:relative;padding:24px 28px 22px;border-right:1px solid var(--ink-12);transition:background .4s}
+.field:hover,.field:focus-within{background:var(--ink-06)}
+.field::after{content:"";position:absolute;left:28px;right:28px;bottom:0;height:2px;background:var(--burgundy);transform:scaleX(0);transform-origin:left;transition:transform .6s var(--ease)}
+.field:focus-within::after{transform:scaleX(1)}
+.field label{display:flex;align-items:center;gap:10px;font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-50);margin-bottom:8px}
+.field label svg{width:15px;height:15px;color:var(--burgundy)}
+.field input,.field select{width:100%;border:0;background:transparent;font-size:1.02rem;font-weight:600;padding:2px 0;outline:none;appearance:none;-webkit-appearance:none;border-radius:0}
+.field select{padding-right:22px;cursor:pointer;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23000' stroke-width='1.4'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E") right center no-repeat}
+.field input::placeholder{color:var(--ink-50);font-weight:500}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+.search-go{position:relative;display:flex;margin:-1px -1px -1px 0}
+.search-btn{flex:1;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:16px;padding:0 46px;background:var(--black);color:var(--white);font-size:.74rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;isolation:isolate}
+.search-btn::before{content:"";position:absolute;inset:2px;background:var(--burgundy);z-index:-1;transform:scaleY(0);transform-origin:bottom;transition:transform .7s var(--ease)}
+.search-btn:hover::before,.search-btn:focus-visible::before{transform:scaleY(1)}
+.search-btn::after,.halo{background:conic-gradient(from var(--a),transparent 0deg 190deg,var(--burgundy) 280deg,var(--white) 332deg,var(--burgundy) 350deg,transparent 360deg);animation:spin 3.4s linear infinite}
+.search-btn::after{content:"";position:absolute;inset:0;padding:2px;pointer-events:none;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+.halo{position:absolute;inset:-4px;filter:blur(18px);pointer-events:none;z-index:0;animation:spin 3.4s linear infinite,breathe 3.4s ease-in-out infinite alternate}
+.search-btn svg{width:20px;height:20px;transition:transform .6s var(--ease)}
+.search-btn:hover svg{transform:rotate(-12deg) scale(1.1)}
+@keyframes spin{to{--a:360deg}}
+@keyframes breathe{from{opacity:.4}to{opacity:.9}}
+.search-result{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:22px;min-height:28px;font-size:.9rem;color:var(--ink-70)}
+.search-result strong{color:var(--black);font-weight:700}
+.chips{display:flex;gap:10px;flex-wrap:wrap}
+.chip{font-size:.68rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--ink-12);transition:border-color .4s,color .4s,background .4s}
+.chip:hover{border-color:var(--black)}
+.chip[aria-pressed="true"]{background:var(--black);color:var(--white);border-color:var(--black)}
+
+/* Featured */
+.featured{padding:clamp(60px,8vw,120px) 0 clamp(90px,12vw,170px)}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:clamp(44px,6vw,90px);flex-wrap:wrap}
+.sec-head h2{margin-top:22px;max-width:12em}
+.estates{display:grid;grid-template-columns:repeat(12,1fr);column-gap:clamp(20px,3vw,48px);row-gap:clamp(60px,8vw,120px)}
+.estate{position:relative;transition:opacity .6s var(--ease),filter .6s var(--ease)}
+.estate.dim{opacity:.22;filter:grayscale(1)}
+.estate:nth-child(1){grid-column:1/8}
+.estate:nth-child(2){grid-column:9/13;margin-top:clamp(80px,14vw,220px)}
+.estate:nth-child(3){grid-column:2/6}
+.estate:nth-child(4){grid-column:7/13;margin-top:clamp(-120px,-8vw,-40px)}
+.estate-media{position:relative;display:block;overflow:hidden;cursor:pointer;background:var(--ink-06)}
+.estate-media img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.estate:nth-child(1) .estate-media{aspect-ratio:4/4.4}
+.estate:nth-child(2) .estate-media{aspect-ratio:3/4}
+.estate:nth-child(3) .estate-media{aspect-ratio:3/4}
+.estate:nth-child(4) .estate-media{aspect-ratio:5/4}
+.estate-media:hover img{transform:scale(1.05)}
+.estate-media .view{position:absolute;right:22px;bottom:22px;width:84px;height:84px;border-radius:50%;background:var(--burgundy);color:var(--white);display:grid;place-items:center;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;transform:scale(.6);opacity:0;transition:transform .6s var(--ease),opacity .5s}
+.estate-media:hover .view,.estate-media:focus-visible .view{transform:scale(1);opacity:1}
+.tag{position:absolute;left:0;top:0;background:var(--white);color:var(--black);padding:10px 16px;font-size:.62rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase}
+.tag.burg{background:var(--burgundy);color:var(--white)}
+.estate-info{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;padding-top:24px}
+.estate-no{font-size:.72rem;font-weight:700;letter-spacing:.2em;color:var(--burgundy);padding-top:6px}
+.estate h3{font-size:clamp(1.3rem,1.8vw,1.75rem);font-weight:500}
+.estate .loc{display:flex;align-items:center;gap:8px;font-size:.84rem;color:var(--ink-50);font-weight:500}
+.estate .loc svg{width:14px;height:14px}
+.estate .specs{grid-column:2;display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:14px;padding-top:16px;border-top:1px solid var(--ink-12);font-size:.8rem;font-weight:600;color:var(--ink-70)}
+.estate .specs span{display:flex;align-items:center;gap:8px}
+.estate .specs svg{width:16px;height:16px;color:var(--black)}
+.estate .row{grid-column:2;display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:20px;flex-wrap:wrap}
+.price{font-size:1.25rem;font-weight:600;letter-spacing:.01em}
+.price small{font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-50);display:block;font-weight:600}
+.demo-note{margin-top:60px;font-size:.74rem;color:var(--ink-50);letter-spacing:.06em}
+
+/* Ratings, bids & overlay CTAs */
+.stars{display:inline-flex;gap:2px}.stars svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.5}.stars svg.f{fill:currentColor}
+.estate .rt{display:flex;align-items:center;gap:6px;margin-top:6px;font-size:.76rem;color:var(--ink-50)}.estate .rt .stars{color:var(--burgundy)}.estate .rt b{color:var(--black)}
+.estate .bidline{grid-column:2;display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;margin-top:14px;font-size:.8rem;color:var(--ink-70)}.estate .bidline b{color:var(--black)}
+.lv{display:inline-flex;align-items:center;gap:8px;color:var(--burgundy);font-weight:700}.lv i{width:7px;height:7px;border-radius:50%;background:currentColor;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.2}}
+.estate-media .ov{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:clamp(16px,2vw,28px);background:linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,0));color:#fff;display:flex;flex-direction:column;gap:14px;opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .8s var(--ease)}
+.estate-media:hover .ov,.estate-media:focus-within .ov{opacity:1;transform:none}
+.orate{display:flex;align-items:center;gap:10px;font-size:.74rem;font-weight:600}
+.ctas{display:flex;gap:8px;flex-wrap:wrap}
+.oc{position:relative;display:inline-flex;align-items:center;height:42px;padding:0 18px;border:1px solid rgba(255,255,255,.55);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;transition:background .45s,color .45s,border-color .45s}
+.oc:hover{background:#fff;color:#000;border-color:#fff}
+.oc.b{background:var(--burgundy);border-color:var(--burgundy)}.oc.b:hover{background:#fff;color:var(--burgundy)}
+.oc.b::after{content:"";position:absolute;inset:-1px;padding:1.5px;background:conic-gradient(from var(--a),transparent 0deg 200deg,#fff 330deg,transparent 360deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:spin 2.8s linear infinite;pointer-events:none}
+@media (hover:none){.estate-media .ov{opacity:1;transform:none}}
+@media (max-width:600px){.estate .bidline{grid-column:1}}
+
+/* Collections */
+.collections{background:var(--black);color:var(--white);padding:clamp(90px,11vw,150px) 0}
+.collections .lead{color:var(--paper-70)}
+.panels{display:flex;height:clamp(520px,72vh,720px);gap:6px;margin-top:clamp(44px,5vw,70px)}
+.panel{position:relative;flex:1;overflow:hidden;transition:flex 1.1s var(--ease);cursor:pointer;min-width:0;color:var(--white);text-align:left}
+.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease),filter 1s;filter:brightness(.62) saturate(.85)}
+.panel::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,0) 55%)}
+.panel.on{flex:3.4}
+.panel.on img{filter:brightness(.85) saturate(1);transform:scale(1.03)}
+.panel-in{position:absolute;z-index:2;left:0;right:0;bottom:0;padding:clamp(20px,2.4vw,36px)}
+.panel .num{font-size:.68rem;font-weight:700;letter-spacing:.24em;color:var(--paper-70);display:block;margin-bottom:12px}
+.panel h3{font-size:clamp(1.1rem,1.5vw,1.6rem);font-weight:500;white-space:nowrap}
+.panel .more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .9s var(--ease),opacity .6s;opacity:0}
+.panel.on .more{grid-template-rows:1fr;opacity:1;transition-delay:.25s}
+.panel .more>div{overflow:hidden}
+.panel .more p{max-width:28em;color:var(--paper-70);margin:14px 0 20px;font-size:.95rem}
+.panel .bar{position:absolute;z-index:2;top:0;left:0;height:3px;width:100%;background:var(--burgundy);transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease)}
+.panel.on .bar{transform:scaleX(1)}
+.panel:not(.on) h3{writing-mode:vertical-rl;transform:rotate(180deg)}
+.panel:not(.on) .num{writing-mode:horizontal-tb}
+
+/* Brand statement */
+.statement{padding:clamp(100px,13vw,180px) 0;position:relative}
+.statement-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(20px,3vw,48px);align-items:center}
+.statement-img{grid-column:1/8;aspect-ratio:4/5;position:relative}
+.statement-img img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;will-change:transform}
+.statement-inset{position:absolute;right:-14%;bottom:-10%;width:42%;aspect-ratio:3/4;border:10px solid var(--white);z-index:2}
+.statement-inset img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.statement-text{grid-column:9/13}
+.statement-text h2{margin:24px 0 30px}
+.statement-text .lead{margin-bottom:44px}
+.pillars{list-style:none;margin:0 0 48px;border-top:1px solid var(--ink-12)}
+.pillars li{display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--ink-12);font-weight:600;font-size:.92rem}
+.pillars li span{color:var(--ink-50);font-weight:500;font-size:.8rem;letter-spacing:.14em}
+
+/* Sell */
+.sell{background:var(--burgundy);color:var(--white);position:relative;overflow:hidden}
+.sell-grid{display:grid;grid-template-columns:1.05fr 1fr;min-height:clamp(620px,86vh,820px)}
+.sell-copy{padding:clamp(80px,10vw,140px) clamp(20px,5vw,90px) clamp(80px,10vw,140px) 0;display:flex;flex-direction:column;justify-content:center}
+.sell .eyebrow{color:var(--paper-70)}
+.sell h2{margin:24px 0 28px;max-width:11em}
+.sell .lead{color:rgba(255,255,255,.82);margin-bottom:48px}
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:56px;border-top:1px solid var(--paper-20);padding-top:28px}
+.steps b{display:block;font-size:.68rem;letter-spacing:.24em;color:var(--paper-50);margin-bottom:10px;font-weight:700}
+.steps span{font-weight:600;font-size:.95rem;line-height:1.4}
+.sell .actions{display:flex;gap:34px;align-items:center;flex-wrap:wrap}
+.sell-media{position:relative;margin-right:calc(-1 * var(--gutter))}
+.sell-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sell-media .frame{position:absolute;left:clamp(20px,3vw,48px);top:clamp(20px,3vw,48px);right:clamp(20px,3vw,48px);bottom:clamp(20px,3vw,48px);border:1px solid rgba(255,255,255,.55);pointer-events:none}
+.sell-media .caption{position:absolute;left:clamp(40px,5vw,80px);bottom:clamp(40px,5vw,80px);font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;font-weight:700;background:var(--black);padding:12px 18px}
+.sell-mark{position:absolute;left:-4vw;bottom:-7vw;font-size:22vw;font-weight:700;line-height:1;color:rgba(0,0,0,.14);letter-spacing:-.04em;pointer-events:none;user-select:none}
+
+/* Financing */
+.finance{padding:clamp(100px,13vw,180px) 0}
+.finance-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(20px,3vw,48px);align-items:start}
+.finance-text{grid-column:1/6}
+.finance-text h2{margin:24px 0 28px}
+.finance-text .lead{margin-bottom:48px}
+.tools{list-style:none;border-top:1px solid var(--black);margin-bottom:48px}
+.tools li{display:grid;grid-template-columns:48px 1fr auto;gap:18px;align-items:center;padding:22px 0;border-bottom:1px solid var(--ink-12);transition:padding .5s var(--ease)}
+.tools li:hover{padding-left:12px}
+.tools svg{width:28px;height:28px;color:var(--burgundy)}
+.tools strong{display:block;font-weight:600;font-size:1.02rem}
+.tools small{color:var(--ink-50);font-size:.85rem}
+.tools em{font-style:normal;font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-50)}
+.finance-visual{grid-column:7/13;position:relative}
+.finance-visual .mask{aspect-ratio:5/6}
+.finance-visual .mask img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.estimate{position:absolute;left:clamp(-90px,-6vw,-20px);bottom:clamp(30px,5vw,70px);width:min(360px,80%);background:var(--black);color:var(--white);padding:30px 30px 28px}
+.estimate .k{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--paper-50);font-weight:700}
+.estimate .v{font-size:2rem;font-weight:500;margin:6px 0 20px;letter-spacing:-.01em}
+.estimate .v small{font-size:.9rem;color:var(--paper-50)}
+.meter{height:2px;background:var(--paper-20);position:relative;margin-bottom:12px}
+.meter i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--burgundy);transition:width 2s var(--ease) .4s}
+.in .meter i{width:62%}
+.meter i::after{content:"";position:absolute;right:-6px;top:-5px;width:12px;height:12px;border-radius:50%;background:var(--white)}
+.estimate .scale{display:flex;justify-content:space-between;font-size:.7rem;color:var(--paper-50)}
+.estimate .illus{margin-top:18px;font-size:.66rem;color:var(--paper-50);letter-spacing:.06em}
+
+/* Final CTA */
+.final{position:relative;min-height:92vh;display:grid;place-items:center;text-align:center;color:var(--white);overflow:hidden;background:#000 url("Images/download%20(29).jpg") center/cover no-repeat}
+.final video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.final::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.55);z-index:1}
+.final-in{position:relative;z-index:2;padding:120px var(--gutter)}
+.final h2{font-size:clamp(2.4rem,5.4vw,5rem);font-weight:500;letter-spacing:-.02em;margin:26px 0 24px}
+.final h2 span{font-weight:300;display:block}
+.final p{color:rgba(255,255,255,.82);max-width:30em;margin:0 auto 46px;font-size:1.08rem}
+.final .eyebrow::after{content:"";width:36px;height:1px;background:currentColor;opacity:.6}
+
+/* Footer */
+footer{background:var(--black);color:var(--white);padding:clamp(80px,9vw,120px) 0 36px}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:60px;padding-bottom:70px;border-bottom:1px solid var(--paper-12)}
+.foot-top p{color:var(--paper-50);max-width:24em;margin-top:24px;font-size:.95rem}
+.foot-h{font-size:.66rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--paper-50);margin-bottom:22px}
+.foot-links{list-style:none;columns:2;column-gap:30px}
+.foot-links li{margin-bottom:12px;break-inside:avoid}
+.foot-links a{font-weight:500;font-size:.95rem;transition:color .3s}
+.foot-links a:hover{color:var(--paper-50)}
+.contact li{list-style:none;display:flex;align-items:center;gap:12px;margin-bottom:14px;color:var(--paper-70);font-size:.95rem}
+.contact svg{width:16px;height:16px;color:var(--white)}
+.social{display:flex;gap:10px;margin-top:26px}
+.social a{width:44px;height:44px;border:1px solid var(--paper-20);display:grid;place-items:center;transition:background .4s,border-color .4s}
+.social a:hover{background:var(--burgundy);border-color:var(--burgundy)}
+.social svg{width:17px;height:17px}
+.foot-word{position:relative;margin:clamp(44px,6vw,72px) 0 clamp(28px,4vw,44px);background:#000;isolation:isolate;overflow:hidden;clip-path:inset(100% 0 0 0);transform:translate3d(0,60px,0);transition:clip-path 1.9s var(--ease),transform 1.9s var(--ease)}
+.foot-word.in{clip-path:inset(0);transform:none}
+.foot-word video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%;transform:scale(1.3);transition:transform 3s var(--ease)}
+.foot-word.in video{transform:scale(1)}
+.fw{position:relative;display:block;width:100%;height:auto;mix-blend-mode:multiply}
+.fw text{font-family:'Quicksand',sans-serif;font-weight:700;fill:#fff}
+.fw-stack{display:none}
+.fw-glint{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.fw-glint text{font-family:'Quicksand',sans-serif;font-weight:700;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gl-o{stroke:var(--burgundy);stroke-width:1.2;opacity:.55}
+.gl-b{stroke:var(--burgundy);stroke-width:5;stroke-dasharray:130 350;animation:traceB 5s linear infinite;filter:drop-shadow(0 0 6px rgba(109,1,26,.95))}
+.gl-w{stroke:var(--white);stroke-width:2.6;stroke-dasharray:42 438;animation:traceW 5s linear infinite;filter:drop-shadow(0 0 5px rgba(255,255,255,.9))}
+.fw-stack .gl-o{stroke-width:2.4}
+.fw-stack .gl-b{stroke-width:9}
+.fw-stack .gl-w{stroke-width:4.5}
+@keyframes traceB{from{stroke-dashoffset:0}to{stroke-dashoffset:-960}}
+@keyframes traceW{from{stroke-dashoffset:-96}to{stroke-dashoffset:-1056}}
+.foot-line{height:1px;background:var(--paper-12);position:relative;margin-bottom:28px;overflow:hidden}
+.foot-line::after{content:"";position:absolute;inset:0;width:30%;background:var(--burgundy);animation:sweep 6s var(--ease) infinite}
+@keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(340%)}}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.78rem;color:var(--paper-50)}
+
+/* Dialog */
+dialog{border:0;padding:0;max-width:min(960px,calc(100vw - 32px));width:100%;max-height:calc(100vh - 32px);margin:auto;background:var(--white);color:var(--black)}
+dialog::backdrop{background:rgba(0,0,0,.78)}
+dialog[open]{animation:dlg .6s var(--ease)}
+@keyframes dlg{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.dlg{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+.dlg-media{position:relative;background:var(--black)}
+.dlg-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dlg-body{padding:48px 44px;display:flex;flex-direction:column;position:relative;overflow:auto}
+.dlg-close{position:absolute;top:14px;right:14px;width:44px;height:44px;display:grid;place-items:center;transition:transform .5s var(--ease)}
+.dlg-close:hover{transform:rotate(90deg)}
+.dlg-close svg{width:20px;height:20px}
+.dlg-body h3{font-size:1.9rem;font-weight:500;margin:18px 0 10px}
+.dlg-body p{color:var(--ink-70);margin-bottom:24px}
+.dlg-specs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink-12);margin-bottom:30px}
+.dlg-specs div{padding:14px 0;border-bottom:1px solid var(--ink-12)}
+.dlg-specs dt{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-50);font-weight:700}
+.dlg-specs dd{font-weight:600}
+.dlg form{display:grid;gap:14px;margin-bottom:22px}
+.dlg form input,.dlg form select{border:0;border-bottom:1px solid var(--ink-12);padding:12px 0;outline:none;background:transparent;font-weight:500;border-radius:0}
+.dlg form input:focus,.dlg form select:focus{border-color:var(--burgundy)}
+.dlg .notice{font-size:.8rem;color:var(--ink-50);margin-top:auto;padding-top:16px}
+.dlg .ok{display:none;border-left:2px solid var(--burgundy);padding:12px 16px;background:var(--ink-06);font-size:.88rem;margin-bottom:16px}
+.dlg .ok.show{display:block}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,140%);z-index:80;background:var(--black);color:var(--white);padding:16px 24px;font-size:.86rem;border-left:3px solid var(--burgundy);transition:transform .6s var(--ease);max-width:calc(100vw - 32px)}
+.toast.show{transform:translate(-50%,0)}
+
+/* Responsive */
+@media (max-width:1100px){
+  .nav-links{display:none}
+  .nav .nav-cta{display:none}
+  .menu-toggle{display:block}
+  .search-row{grid-template-columns:1fr 1fr}
+  .field{border-bottom:1px solid var(--ink-12)}
+  .search-go{grid-column:1/-1;height:70px;margin:0}
+  .hero-meta{display:none}
+}
+@media (max-width:1100px) and (min-width:901px){
+  .statement-img{grid-column:1/7}.statement-text{grid-column:7/13}
+  .statement-inset{right:-8%}
+  .finance-text{grid-column:1/7}.finance-visual{grid-column:7/13}
+}
+@media (max-width:900px){
+  .discover-head{grid-template-columns:1fr}
+  .estates{grid-template-columns:1fr;row-gap:70px}
+  .estate:nth-child(n){grid-column:1;margin-top:0}
+  .estate:nth-child(n) .estate-media{aspect-ratio:4/3.6}
+  .panels{flex-direction:column;height:auto;gap:4px}
+  .panel{flex:none;height:120px;transition:height 1s var(--ease)}
+  .panel.on{flex:none;height:440px}
+  .panel:not(.on) h3{writing-mode:horizontal-tb;transform:none}
+  .statement-grid,.finance-grid{grid-template-columns:1fr}
+  .statement-img,.statement-text,.finance-text,.finance-visual{grid-column:1}
+  .statement-img{margin-right:18%}
+  .statement-inset{right:-22%}
+  .statement-text{margin-top:90px}
+  .sell-grid{grid-template-columns:1fr}
+  .sell-copy{padding-right:0}
+  .sell-media{min-height:420px;margin:0 calc(-1 * var(--gutter))}
+  .finance-visual{margin-top:30px}
+  .estimate{left:16px}
+  .foot-top{grid-template-columns:1fr;gap:44px}
+  .dlg{grid-template-columns:1fr}
+  .dlg-media{min-height:240px}
+  .dlg-body{padding:36px 24px}
+}
+@media (max-width:600px){
+  .nav{height:76px}.nav.solid{height:64px}
+  .brand{font-size:.74rem;letter-spacing:.28em}
+  .brand-mark{width:28px;height:28px}
+  .hero .actions .btn{flex:1 1 100%}
+  .scroll-cue{display:none}
+  .search-tabs button{padding:18px 22px}
+  .search-note{display:none}
+  .search-row{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:16px}
+  .estate-info{grid-template-columns:1fr}
+  .estate .specs,.estate .row{grid-column:1}
+  .search-result{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:700px){.fw-wide{display:none}.fw-stack{display:block}}
+@media (max-width:380px){
+  :root{--gutter:16px}
+  .btn{padding:0 20px;letter-spacing:.16em;gap:10px}
+  .hero h1{font-size:2.05rem}
+  .field{padding:20px 18px}
+  .brand{letter-spacing:.2em;gap:10px}
+  .mobile-menu a{font-size:1.4rem}
+  .estimate{padding:22px}
+  .estimate .v{font-size:1.6rem}
+}
+@media (max-height:540px) and (orientation:landscape){
+  .hero{min-height:460px}
+  .hero h1{font-size:clamp(1.8rem,5vw,2.8rem)}
+  .hero .eyebrow{margin-bottom:14px}
+  .hero p{margin-bottom:18px}
+  .hero-foot{margin-top:16px}
+  .hero .btn{height:46px}
+  .mobile-menu{justify-content:flex-start;overflow:auto}
+  .mobile-menu a{padding:10px 0;font-size:1.3rem}
+}
+@media (min-width:1800px){:root{--max:1680px}html{font-size:17px}}
+@media (hover:none){.estate-media .view{opacity:1;transform:scale(.8)}}
+@media (prefers-reduced-motion:reduce){
+  .foot-word{clip-path:none;transform:none}
+  .reveal,h2.reveal{clip-path:none}
+  .fw-glint{display:none!important}
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  .reveal,.fade-up{opacity:1;transform:none}
+  .hero h1 .line span{transform:none}
+}
+
+.to-top{position:fixed;right:clamp(12px,2.4vw,34px);bottom:clamp(18px,4vh,40px);z-index:44;display:flex;flex-direction:column;align-items:center;gap:14px;padding:8px 6px;color:#fff;mix-blend-mode:difference;opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.1,1),transform .8s cubic-bezier(.2,.7,.1,1),visibility .8s;background:none;border:0;cursor:pointer;font:inherit}
+.to-top.on{opacity:1;visibility:visible;transform:none}
+.to-top span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:.62rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
+.to-top i{display:block;width:1px;height:70px;background:rgba(255,255,255,.3);position:relative;overflow:hidden}
+.to-top i::after{content:"";position:absolute;left:0;bottom:-40%;width:1px;height:40%;background:#fff;animation:cueUp 2.4s cubic-bezier(.2,.7,.1,1) infinite}
+.to-top:hover i::after{animation-duration:1.2s}
+@keyframes cueUp{from{bottom:-40%}to{bottom:100%}}
+@media (prefers-reduced-motion:reduce){.to-top i::after{animation:none;bottom:0;height:100%}}
+</style>
+</head>
+<body id="top">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="star" viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 12h17M14 6l6 6-6 6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-6h4v6"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 12V3h9l9 9-9 9-9-9z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 19V6M3 15h18v4M21 15v-3a3 3 0 0 0-3-3h-7v6M7 11.5a1.5 1.5 0 1 0 0-.01"/></symbol>
+  <symbol id="i-bath" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 12h18v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-2zM6 12V5a2 2 0 0 1 4 0M7 19l-1 2M17 19l1 2"/></symbol>
+  <symbol id="i-area" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4h16v16H4zM4 9h5V4M20 15h-5v5"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 5l14 14M19 5L5 19"/></symbol>
+  <symbol id="i-calc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="3" width="14" height="18"/><path d="M8 7h8M8 12h1M12 12h0.01M15.5 12h.5M8 16h1M12 16h.01M15.5 16h.5"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 3v18M7 21h10M4 7h16M4 7l-2.5 6a2.5 2.5 0 0 0 5 0L4 7zM20 7l-2.5 6a2.5 2.5 0 0 0 5 0L20 7z"/></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 3v18h18M7 15l4-4 3 3 6-7M16 7h4v4"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Imperial Homes, home">
+      <svg class="brand-mark" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 36V16L20 4l16 12v20"/><path d="M12 36V20l8-6 8 6v16"/><path d="M20 36V26"/><path d="M1 36h38" stroke="#6D011A" stroke-width="2"/></svg>
+      IMPERIAL HOMES
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#top" class="active">Home</a></li>
+        <li><a href="marketplace/">Discover Properties</a></li>
+        <li><a href="#discover" data-mode="buy">Buy</a></li>
+        <li><a href="#sell">Sell</a></li>
+        <li><a href="#sell" data-open="agent">Agents</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <button class="btn btn-burg nav-cta" data-open="list">List Your Property</button>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <ol>
+    <li><a href="#top">Home</a></li>
+    <li><a href="marketplace/">Discover Properties</a></li>
+    <li><a href="#discover" data-mode="buy">Buy</a></li>
+    <li><a href="#sell">Sell</a></li>
+    <li><a href="#sell" data-open="agent">Agents</a></li>
+    <li><a href="#about">About</a></li>
+  </ol>
+  <button class="btn btn-burg" data-open="list">List Your Property <svg><use href="#i-arrow"/></svg></button>
+</div>
+
+<main>
+<!-- HERO -->
+<section class="hero" aria-label="Introduction">
+  <video id="heroVideo" autoplay muted loop playsinline preload="auto" poster="Images/download%20(29).jpg" aria-hidden="true" tabindex="-1">
+    <source src="Images/home-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade"></div>
+  <div class="hero-meta fade-up d4" aria-hidden="true"><span>Residences</span><span>Estates</span><span>Villas</span></div>
+  <div class="wrap hero-content">
+    <span class="eyebrow fade-up d1">Imperial Homes</span>
+    <h1><span class="line"><span>Welcome to the</span></span><span class="line"><span>Future of <strong>Real Estate.</strong></span></span></h1>
+    <div class="hero-foot">
+      <div>
+        <p class="fade-up d2">Where exceptional properties meet intelligent discovery. Find a place that reflects your aspirations.</p>
+        <div class="actions fade-up d3">
+          <a href="marketplace/" class="btn btn-white">Explore Properties <svg><use href="#i-arrow"/></svg></a>
+          <button class="btn btn-line" data-open="list">List Your Property</button>
+        </div>
+      </div>
+      <a href="#discover" class="scroll-cue fade-up d4" aria-label="Scroll to discover properties">Scroll <i></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOVERY -->
+<section class="discover" id="discover" aria-labelledby="disc-h">
+  <div class="wrap">
+    <div class="discover-head">
+      <div class="reveal">
+        <span class="eyebrow burg">Property Discovery</span>
+        <h2 id="disc-h">Find Somewhere<br><em>Extraordinary.</em></h2>
+      </div>
+      <p class="lead reveal" data-reveal="right" data-delay="1">Discover exceptional spaces, thoughtfully selected for the way you want to live.</p>
+    </div>
+
+    <form class="search reveal" data-delay="2" id="searchForm" role="search" aria-label="Property search">
+      <div class="search-tabs" role="tablist" aria-label="Transaction type">
+        <button type="button" role="tab" aria-selected="true" data-tab="buy">Buy</button>
+        <button type="button" role="tab" aria-selected="false" data-tab="rent">Rent</button>
+        <span class="tab-ink" aria-hidden="true"></span>
+        <span class="search-note">Curated portfolio preview</span>
+      </div>
+      <div class="search-row">
+        <div class="field">
+          <label for="f-loc"><svg><use href="#i-pin"/></svg>Location</label>
+          <input id="f-loc" type="text" placeholder="City, neighbourhood or estate" list="locs" autocomplete="off">
+          <datalist id="locs"><option value="Karen"><option value="Runda"><option value="Muthaiga"><option value="Westlands"><option value="Kilimani"><option value="Diani"><option value="Lavington"></datalist>
+        </div>
+        <div class="field">
+          <label for="f-type"><svg><use href="#i-home"/></svg>Property Type</label>
+          <select id="f-type">
+            <option value="any">Any type</option>
+            <option value="Villa">Villa</option>
+            <option value="Estate">Estate</option>
+            <option value="Residence">Residence</option>
+            <option value="Apartment">Apartment</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-price"><svg><use href="#i-tag"/></svg>Price Range</label>
+          <select id="f-price">
+            <option value="any">Any price</option>
+            <option value="0-300">Up to KES 300M</option>
+            <option value="300-800">KES 300M – 800M</option>
+            <option value="800-99999">KES 800M +</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-beds"><svg><use href="#i-bed"/></svg>Bedrooms</label>
+          <select id="f-beds">
+            <option value="0">Any</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+            <option value="5">5+</option>
+            <option value="6">6+</option>
+          </select>
+        </div>
+        <div class="search-go"><span class="halo" aria-hidden="true"></span><button class="search-btn" type="submit">Search <svg><use href="#i-search"/></svg></button></div>
+      </div>
+    </form>
+    <div class="search-result" aria-live="polite">
+      <span id="resultText">Explore our curated selection of demonstration residences below.</span>
+      <div class="chips" aria-label="Quick filters">
+        <button type="button" class="chip" data-chip="Villa" aria-pressed="false">Villas</button>
+        <button type="button" class="chip" data-chip="Estate" aria-pressed="false">Estates</button>
+        <button type="button" class="chip" data-chip="Residence" aria-pressed="false">Residences</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED -->
+<section class="featured" id="featured" aria-labelledby="feat-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="reveal">
+        <span class="eyebrow burg">Featured Properties</span>
+        <h2 id="feat-h">Exceptional Properties. <em>Extraordinary Living.</em></h2>
+      </div>
+      <a href="marketplace/" class="link reveal" data-delay="1">View the Private Collection <svg><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div class="estates" id="estates"></div>
+    <p class="demo-note">All listings shown are demonstration properties for presentation purposes. Names, prices and specifications are illustrative.</p>
+  </div>
+</section>
+
+<!-- COLLECTIONS -->
+<section class="collections" data-frame id="collections" aria-labelledby="col-h">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:0">
+      <div class="reveal">
+        <span class="eyebrow">Property Collections</span>
+        <h2 id="col-h">Curated for Every <em>Way of Living.</em></h2>
+      </div>
+      <p class="lead reveal" data-delay="1">Six distinct collections, each assembled around a different idea of home, from landmark estates to considered urban residences.</p>
+    </div>
+    <div class="panels reveal" data-delay="2" id="panels"></div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement" id="about" aria-labelledby="st-h">
+  <div class="wrap statement-grid">
+    <div class="statement-img">
+      <div class="mask" style="position:absolute;inset:0">
+        <img data-parallax src="Images/download%20(35).jpg" alt="Modern courtyard with a timber pergola, planted borders and warm evening lighting" loading="lazy" decoding="async" width="736" height="1104">
+      </div>
+      <div class="statement-inset mask reveal" data-delay="2">
+        <img src="Images/Beautiful%20Living%20Room%20%F0%9F%98%8D%F0%9F%92%9E%F0%9F%98%8E%F0%9F%92%A1.jpg" alt="Contemporary living room with integrated lighting and media wall" loading="lazy" decoding="async" width="720" height="900">
+      </div>
+    </div>
+    <div class="statement-text reveal-group">
+      <span class="eyebrow burg reveal">The Imperial Philosophy</span>
+      <h2 id="st-h" class="reveal" data-delay="1">More Than a Property. <em>A Place to Belong.</em></h2>
+      <p class="lead reveal" data-delay="2">Finding the right property is more than a transaction. It is about discovering possibilities, making informed decisions and finding a place that feels right.</p>
+      <ul class="pillars reveal" data-reveal="right" data-delay="2">
+        <li>Curated portfolio <span>01</span></li>
+        <li>Intelligent discovery <span>02</span></li>
+        <li>Informed decisions <span>03</span></li>
+      </ul>
+      <a href="#sell" class="btn btn-black reveal" data-delay="3">Discover the Imperial Experience <svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- SELL -->
+<section class="sell" data-frame id="sell" aria-labelledby="sell-h">
+  <span class="sell-mark" aria-hidden="true">IH</span>
+  <div class="wrap sell-grid">
+    <div class="sell-copy">
+      <span class="eyebrow reveal">For Owners &amp; Agents</span>
+      <h2 id="sell-h" class="reveal" data-delay="1">Your Property Deserves the <em>Right Audience.</em></h2>
+      <p class="lead reveal" data-delay="2">Showcase your property to a wider audience through a smarter, more connected real estate marketplace.</p>
+      <ol class="steps reveal" data-reveal="left" data-delay="2">
+        <li><b>01</b><span>Present your property beautifully</span></li>
+        <li><b>02</b><span>Reach qualified, serious buyers</span></li>
+        <li><b>03</b><span>Manage enquiries in one place</span></li>
+      </ol>
+      <div class="actions reveal" data-delay="3">
+        <button class="btn btn-white" data-open="list">List Your Property <svg><use href="#i-arrow"/></svg></button>
+        <button class="link" data-open="agent">Become an Agent <svg><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+    <div class="sell-media mask dark">
+      <img data-parallax src="Images/download%20(33).jpg" alt="White residential tower with layered balconies against a blue sky" loading="lazy" decoding="async" width="736" height="1308">
+      <span class="frame" aria-hidden="true"></span>
+      <span class="caption">Presented by Imperial</span>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCING -->
+<section class="finance" id="finance" aria-labelledby="fin-h">
+  <div class="wrap finance-grid">
+    <div class="finance-text">
+      <span class="eyebrow burg reveal">Property Financing</span>
+      <h2 id="fin-h" class="reveal" data-delay="1">Plan Your Next Move <em>With Confidence.</em></h2>
+      <p class="lead reveal" data-delay="2">Explore mortgage estimates, understand your affordability and make informed property investment decisions.</p>
+      <ul class="tools reveal" data-reveal="left" data-delay="2">
+        <li><svg><use href="#i-calc"/></svg><div><strong>Mortgage Calculator</strong><small>Estimate monthly repayments in seconds.</small></div><em>Soon</em></li>
+        <li><svg><use href="#i-scale"/></svg><div><strong>Affordability Estimation</strong><small>Understand a comfortable price range.</small></div><em>Soon</em></li>
+        <li><svg><use href="#i-chart"/></svg><div><strong>Investment Insights</strong><small>Read yields, trends and long-term value.</small></div><em>Soon</em></li>
+      </ul>
+      <button class="btn btn-burg reveal" data-delay="3" data-open="finance">Explore Financing Tools <svg><use href="#i-arrow"/></svg></button>
+    </div>
+    <div class="finance-visual">
+      <div class="mask"><img src="Images/download%20(31).jpg" alt="Contemporary villa with glass balconies and a landscaped lawn and lawn walkway at dusk" loading="lazy" decoding="async" width="736" height="1051"></div>
+      <div class="estimate reveal" data-reveal="left" data-delay="2" aria-label="Illustrative mortgage estimate">
+        <div class="k">Indicative monthly estimate</div>
+        <div class="v">KES 1.42M <small>/ month</small></div>
+        <div class="meter"><i></i></div>
+        <div class="scale"><span>20% deposit</span><span>20 years</span></div>
+        <div class="illus">Illustration only. Not a financial quote.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final" data-frame aria-labelledby="final-h">
+  <video id="finalVideo" muted loop playsinline preload="none" poster="Images/download%20(29).jpg" aria-hidden="true" tabindex="-1">
+    <source src="Images/home-video.mp4" type="video/mp4">
+  </video>
+  <div class="final-in">
+    <span class="eyebrow reveal">Imperial Homes</span>
+    <h2 id="final-h" class="reveal" data-delay="1">Your Next Chapter <span>Begins Here.</span></h2>
+    <p class="reveal" data-delay="2">Discover exceptional properties and experience a new perspective on real estate.</p>
+    <a href="marketplace/" class="btn btn-white reveal" data-delay="3">Explore Imperial Homes <svg><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <a href="#top" class="brand" aria-label="Imperial Homes, back to top">
+          <svg class="brand-mark" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M4 36V16L20 4l16 12v20"/><path d="M12 36V20l8-6 8 6v16"/><path d="M20 36V26"/><path d="M1 36h38" stroke="#6D011A" stroke-width="2"/></svg>
+          IMPERIAL HOMES
+        </a>
+        <p>A considered marketplace for exceptional properties, bringing together remarkable homes, discerning buyers and the people who represent them.</p>
+      </div>
+      <div>
+        <div class="foot-h">Explore</div>
+        <ul class="foot-links">
+          <li><a href="marketplace/">Discover Properties</a></li>
+          <li><a href="#discover" data-mode="buy">Buy</a></li>
+          <li><a href="#sell">Sell</a></li>
+          <li><a href="#sell" data-open="agent">Agents</a></li>
+          <li><a href="#finance">Mortgage Tools</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div id="contact">
+        <div class="foot-h">Contact</div>
+        <ul class="contact">
+          <li><svg><use href="#i-mail"/></svg>[email address]</li>
+          <li><svg><use href="#i-phone"/></svg>[telephone number]</li>
+        </ul>
+        <div class="social" aria-label="Social media (links to be added)">
+          <a href="#contact" aria-label="Instagram (link pending)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
+          <a href="#contact" aria-label="LinkedIn (link pending)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18"/><path d="M7.5 10v7M7.5 7v.01M11 17v-7M11 13.5a2.5 2.5 0 0 1 5 0V17"/></svg></a>
+          <a href="#contact" aria-label="X (link pending)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 4l16 16M20 4L4 20"/></svg></a>
+          <a href="#contact" aria-label="YouTube (link pending)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="5.5" width="19" height="13" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-word" role="img" aria-label="Imperial Homes">
+      <video id="wordVideo" muted loop playsinline preload="none" poster="Images/download%20(29).jpg" aria-hidden="true" tabindex="-1"><source src="Images/home-video.mp4" type="video/mp4"></video>
+      <svg class="fw fw-wide" viewBox="0 0 1400 132" aria-hidden="true"><rect width="1400" height="132" fill="#000"/><text x="700" y="122" font-size="160" text-anchor="middle" textLength="1392" lengthAdjust="spacing">IMPERIAL HOMES</text></svg>
+      <svg class="fw fw-stack" viewBox="0 0 800 300" aria-hidden="true"><rect width="800" height="300" fill="#000"/><text x="400" y="130" font-size="170" text-anchor="middle" textLength="792" lengthAdjust="spacing">IMPERIAL</text><text x="400" y="290" font-size="170" text-anchor="middle" textLength="792" lengthAdjust="spacing">HOMES</text></svg>
+      <svg class="fw-glint fw-wide" viewBox="0 0 1400 132" aria-hidden="true">
+        <g font-size="160" text-anchor="middle">
+          <text class="gl-o" x="700" y="122" textLength="1392" lengthAdjust="spacing">IMPERIAL HOMES</text>
+          <text class="gl-b" x="700" y="122" textLength="1392" lengthAdjust="spacing">IMPERIAL HOMES</text>
+          <text class="gl-w" x="700" y="122" textLength="1392" lengthAdjust="spacing">IMPERIAL HOMES</text>
+        </g>
+      </svg>
+      <svg class="fw-glint fw-stack" viewBox="0 0 800 300" aria-hidden="true">
+        <g font-size="170" text-anchor="middle">
+          <text class="gl-o" x="400" y="130" textLength="792" lengthAdjust="spacing">IMPERIAL</text>
+          <text class="gl-b" x="400" y="130" textLength="792" lengthAdjust="spacing">IMPERIAL</text>
+          <text class="gl-w" x="400" y="130" textLength="792" lengthAdjust="spacing">IMPERIAL</text>
+          <text class="gl-o" x="400" y="290" textLength="792" lengthAdjust="spacing">HOMES</text>
+          <text class="gl-b" x="400" y="290" textLength="792" lengthAdjust="spacing">HOMES</text>
+          <text class="gl-w" x="400" y="290" textLength="792" lengthAdjust="spacing">HOMES</text>
+        </g>
+      </svg>
+    </div>
+    <div class="foot-line" aria-hidden="true"></div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="yr">2026</span> Imperial Homes. All rights reserved.</span>
+      <span>Demonstration homepage. Listings shown are illustrative.</span>
+    </div>
+  </div>
+</footer>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg">
+    <div class="dlg-media"><img id="dlg-img" src="" alt=""></div>
+    <div class="dlg-body" id="dlg-body"></div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const img = n => 'Images/' + n;
+  const ico = id => `<svg aria-hidden="true"><use href="#${id}"/></svg>`;
+
+  /* ---------- Data (demonstration listings) ---------- */
+  const estates = [
+    {mid:'L1', rating:4.9, reviews:18, live:14, bid:1290, name:'The Meridian Estate', loc:'Karen, Nairobi', price:1450, beds:6, baths:7, type:'Estate', area:'1,120 m²', mode:'buy', tag:'Signature', src:'download%20(32).jpg', alt:'Contemporary stone and glass estate with pool and lit garden path at dusk', pos:'50% 60%',
+     text:'A composed contemporary estate set behind manicured lawns, with a reflecting pool, double-height living spaces and evening-lit terraces.'},
+    {mid:'L2', rating:4.8, reviews:11, live:9, bid:372, name:'Obsidian House', loc:'Runda, Nairobi', price:420, beds:5, baths:6, type:'Residence', area:'780 m²', mode:'buy', tag:'New', src:'download%20(29).jpg', alt:'Dark modern residence with illuminated stairway and cantilevered terraces', pos:'50% 50%',
+     text:'Dramatic cantilevered volumes in charcoal, framed by sculpted lighting and a floating stairway to the main entrance.'},
+    {mid:'L3', rating:4.7, reviews:9, live:7, bid:252, name:'Lagoon Pavilion', loc:'Diani Beach, Kwale', price:120, beds:4, baths:5, type:'Villa', area:'540 m²', mode:'rent', tag:'For Rent', src:'Backyard%20Pool%20with%20Built-In%20Sunken%20Lounge.jpg', alt:'Villa with a long swimming pool and a sunken circular lounge with fire pit', pos:'50% 70%',
+     text:'An indoor-outdoor villa built around a long pool and sunken fire lounge, designed for slow afternoons and long evenings.'},
+    {mid:'L4', rating:4.9, reviews:21, live:12, bid:870, name:'Maison Blanche', loc:'Muthaiga, Nairobi', price:980, beds:5, baths:5, type:'Villa', area:'640 m²', mode:'buy', tag:'Exclusive', src:'download%20(30).jpg', alt:'White modern villa with balconies and a gated forecourt at twilight', pos:'50% 45%',
+     text:'Crisp white façades, generous balconies and a private gated forecourt, softly illuminated against the evening sky.'}
+  ];
+  const collections = [
+    {t:'Signature Estates', src:'download%20(31).jpg', alt:'Contemporary estate with expansive lawns', d:'Landmark homes on generous grounds, chosen for architecture, privacy and permanence.', n:'Featured estates'},
+    {t:'Modern Residences', src:'download%20(37).jpg', alt:'Modern white and charcoal residence', d:'Clean architectural lines and intelligent layouts for contemporary family life.', n:'Architect designed', pos:'50% 0%'},
+    {t:'Luxury Apartments', src:'download%20(34).jpg', alt:'Warm, softly lit apartment living room', d:'Serviced, secure and beautifully finished residences in the city’s best addresses.', n:'Urban living'},
+    {t:'Prime Land', src:'download%20(36).jpg', alt:'Landscaped garden terrace with mature planting', d:'Exceptional plots with the space, setting and approvals to build something lasting.', n:'Build your vision'},
+    {t:'Exclusive Villas', src:'download%20(28).jpg', alt:'Infinity pool overlooking the ocean beneath palm trees', d:'Coastal and resort-style villas made for light, water and unhurried living.', n:'Coast & retreat'},
+    {t:'Commercial Properties', src:'download%20(33).jpg', alt:'Multi-storey building with balconies', d:'Mixed-use buildings and investment-grade assets in established growth corridors.', n:'Invest with intent'}
+  ];
+
+  /* ---------- Render featured ---------- */
+  const fmt = p => p >= 1000 ? `KES ${(p / 1000).toFixed(2)}B` : `KES ${p}M`;
+  const stars = r => `<span class="stars">${[0,1,2,3,4].map(i => `<svg class="${i < Math.round(r) ? 'f' : ''}"><use href="#star"/></svg>`).join('')}</span>`;
+  $('#estates').innerHTML = estates.map((e, i) => `
+    <article class="estate reveal" data-i="${i}" data-reveal="${i % 2 ? 'right' : 'left'}">
+      <div class="estate-media mask" data-estate="${i}">
+        <img src="${img(e.src)}" alt="${e.alt}" loading="lazy" decoding="async" style="object-position:${e.pos}">
+        <span class="tag ${i === 0 ? 'burg' : ''}">${e.tag}</span>
+        <div class="ov"><div class="orate">${stars(e.rating)}<span>${e.rating} · ${e.reviews} private reviews</span></div>
+          <div class="ctas"><button class="oc" data-estate="${i}" aria-label="Explore ${e.name}">Explore</button><a class="oc b" href="marketplace/?open=${e.mid}&amp;mode=bid">Place Bid</a><a class="oc" href="marketplace/?open=${e.mid}&amp;mode=tour">360° Tour</a></div></div>
+      </div>
+      <div class="estate-info">
+        <span class="estate-no">0${i + 1}</span>
+        <div><h3>${e.name}</h3><span class="loc">${ico('i-pin')}${e.loc}</span><span class="rt">${stars(e.rating)}<b>${e.rating}</b>(${e.reviews})</span></div>
+        <div class="specs">
+          <span>${ico('i-bed')}${e.beds} Beds</span><span>${ico('i-bath')}${e.baths} Baths</span><span>${ico('i-home')}${e.type}</span><span>${ico('i-area')}${e.area}</span>
+        </div>
+        <div class="bidline"><span class="lv"><i></i>${e.live} viewing now</span><span>Highest bid <b>${fmt(e.bid)}</b></span></div>
+        <div class="row">
+          <div class="price"><small>${e.mode === 'rent' ? 'Monthly equivalent on request' : 'Asking price'}</small>${e.mode === 'rent' ? 'KES 1.2M / mo' : fmt(e.price)}</div>
+          <button class="link" data-estate="${i}">Explore Property ${ico('i-arrow')}</button>
+        </div>
+      </div>
+    </article>`).join('');
+
+  /* ---------- Render collections ---------- */
+  const panels = $('#panels');
+  panels.innerHTML = collections.map((c, i) => `
+    <div class="panel${i === 0 ? ' on' : ''}" tabindex="0" role="button" aria-expanded="${i === 0}" aria-label="${c.t}">
+      <img src="${img(c.src)}" alt="${c.alt}" loading="lazy" decoding="async" style="object-position:${c.pos || '50% 50%'}">
+      <span class="bar"></span>
+      <div class="panel-in">
+        <span class="num">0${i + 1} — ${c.n}</span>
+        <h3>${c.t}</h3>
+        <div class="more"><div><p>${c.d}</p><span class="link" data-collection="${c.t}">Explore Collection ${ico('i-arrow')}</span></div></div>
+      </div>
+    </div>`).join('');
+  const setPanel = p => $$('.panel', panels).forEach(x => { const on = x === p; x.classList.toggle('on', on); x.setAttribute('aria-expanded', on); });
+  $$('.panel', panels).forEach(p => {
+    p.addEventListener('mouseenter', () => matchMedia('(hover:hover)').matches && setPanel(p));
+    p.addEventListener('focus', () => setPanel(p));
+    p.addEventListener('click', e => {
+      if (!p.classList.contains('on')) { setPanel(p); return; }
+      if (e.target.closest('[data-collection]')) applyCollection(p.querySelector('h3').textContent);
+    });
+    p.addEventListener('keydown', e => { if (e.key === 'Enter') applyCollection(p.querySelector('h3').textContent); });
+  });
+  const collMap = {'Signature Estates':'Estate','Modern Residences':'Residence','Exclusive Villas':'Villa','Luxury Apartments':'Apartment','Prime Land':null,'Commercial Properties':null};
+  function applyCollection(name) {
+    const t = collMap[name];
+    if (t) { $('#f-type').value = t; runSearch(); $('#discover').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); }
+    else toast(`${name} will be available when the full marketplace launches.`);
+  }
+
+  /* ---------- Hero video ---------- */
+  const hv = $('#heroVideo');
+  const tryPlay = v => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+  if (hv) {
+    hv.muted = true;
+    if (reduce) { hv.removeAttribute('autoplay'); hv.pause(); } else tryPlay(hv);
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && !reduce) tryPlay(hv); });
+    hv.addEventListener('error', () => hv.remove(), true);
+  }
+  ['#finalVideo', '#wordVideo'].forEach(sel => {
+    const v = $(sel);
+    if (!v || reduce || !('IntersectionObserver' in window)) return;
+    v.muted = true;
+    new IntersectionObserver(([en]) => {
+      if (en.isIntersecting) { if (v.preload === 'none') { v.preload = 'auto'; v.load(); } tryPlay(v); }
+      else v.pause();
+    }, {rootMargin: '300px'}).observe(v);
+  });
+
+  /* ---------- Navigation ---------- */
+  const nav = $('#nav');
+  const toggle = $('.menu-toggle');
+  const menu = $('#mobile-menu');
+  const setMenu = open => {
+    document.body.classList.toggle('menu-open', open);
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    menu.setAttribute('aria-hidden', !open);
+    document.body.style.overflow = open ? 'hidden' : '';
+    if (open) nav.classList.add('solid'); else onScroll();
+  };
+  toggle.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+  $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false); });
+
+  const sections = ['top', 'discover', 'sell', 'about'].map(id => id === 'top' ? $('.hero') : document.getElementById(id));
+  const navLinks = $$('.nav-links a');
+  function onScroll() {
+    const y = scrollY;
+    if (!document.body.classList.contains('menu-open')) nav.classList.toggle('solid', y > 60);
+    let cur = 'top';
+    sections.forEach((s, i) => { if (s && s.getBoundingClientRect().top < innerHeight * .4) cur = ['top', 'discover', 'sell', 'about'][i]; });
+    const about = $('#about').getBoundingClientRect(); if (about.top < innerHeight * .4 && about.bottom > innerHeight * .4) cur = 'about';
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur && !a.dataset.mode && !a.dataset.open));
+  }
+
+  /* ---------- Parallax ---------- */
+  const px = $$('[data-parallax]');
+  let ticking = false;
+  function parallax() {
+    if (reduce || innerWidth < 900) { px.forEach(el => el.style.transform = ''); return; }
+    px.forEach(el => {
+      const r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      const p = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+      el.style.transform = `translate3d(0,${(p * -60).toFixed(1)}px,0) scale(1.08)`;
+    });
+  }
+  /* ---------- Section motion: framed entrances, layered exits ---------- */
+  const secs = $$('main > section').map(s => ({s, inner: s.querySelector(':scope > .wrap, :scope > .final-in'), frame: s.hasAttribute('data-frame')}));
+  const clamp = v => Math.min(Math.max(v, 0), 1);
+  function sectionMotion() {
+    if (reduce) return;
+    const vh = innerHeight, small = innerWidth < 768;
+    secs.forEach(({s, inner, frame}) => {
+      const r = s.getBoundingClientRect();
+      if (r.bottom < -50 || r.top > vh + 50) return;
+      const isHero = s.classList.contains('hero');
+      const e = clamp(1 - r.bottom / vh);                       // exit progress as the next section rises over it
+      if (inner) {
+        const dist = isHero ? vh * .28 : (small ? 46 : 110);
+        inner.style.transform = e ? `translate3d(0,${(e * dist).toFixed(1)}px,0)` : '';
+        inner.style.opacity = e ? (1 - e * (isHero ? 1.1 : .6)).toFixed(3) : '';
+      }
+      if (isHero && hv) hv.style.transform = `scale(${(1 + e * .1).toFixed(4)})`;
+      if (frame) {
+        const p = clamp((vh - r.top) / (vh * .8));            // entrance progress
+        const ins = (1 - p) * (small ? 16 : Math.min(innerWidth * .07, 110));
+        s.style.clipPath = ins > .5 ? `inset(0 ${ins.toFixed(1)}px 0 ${ins.toFixed(1)}px)` : '';
+      }
+    });
+  }
+
+  addEventListener('scroll', () => {
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(() => { onScroll(); parallax(); sectionMotion(); ticking = false; });
+  }, {passive: true});
+  addEventListener('resize', () => { parallax(); sectionMotion(); });
+  onScroll(); parallax(); sectionMotion();
+
+  /* ---------- Reveal: slides in on entry, glides out on exit, replays on return ---------- */
+  const revealEls = $$('.reveal, .mask, .foot-word');
+  if ('IntersectionObserver' in window && !reduce) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      const el = e.target, cl = el.classList;
+      if (e.isIntersecting) { cl.remove('out'); cl.add('in'); }
+      else if (e.boundingClientRect.top > 0) cl.remove('in', 'out');
+      else if (cl.contains('reveal')) { cl.remove('in'); cl.add('out'); }
+    }), {threshold: 0, rootMargin: '-4% 0px -9% 0px'});
+    revealEls.forEach(el => io.observe(el));
+  } else revealEls.forEach(el => el.classList.add('in'));
+
+  /* ---------- Search (front-end demo) ---------- */
+  let mode = 'buy';
+  const tabs = $$('.search-tabs [role=tab]');
+  const ink = $('.tab-ink');
+  const moveInk = () => { const t = tabs.find(b => b.dataset.tab === mode); ink.style.width = t.offsetWidth + 'px'; ink.style.transform = `translateX(${t.offsetLeft}px)`; };
+  const setMode = m => { mode = m; tabs.forEach(b => b.setAttribute('aria-selected', b.dataset.tab === m)); moveInk(); };
+  tabs.forEach(b => b.addEventListener('click', () => { setMode(b.dataset.tab); runSearch(); }));
+  tabs.forEach(b => b.addEventListener('keydown', e => { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { const n = tabs[(tabs.indexOf(b) + 1) % 2]; n.focus(); n.click(); } }));
+  addEventListener('resize', moveInk); document.fonts && document.fonts.ready.then(moveInk); moveInk();
+
+  $$('[data-mode]').forEach(a => a.addEventListener('click', () => { setMode(a.dataset.mode); runSearch(true); }));
+
+  const chips = $$('.chip');
+  chips.forEach(c => c.addEventListener('click', () => {
+    const on = c.getAttribute('aria-pressed') !== 'true';
+    chips.forEach(x => x.setAttribute('aria-pressed', 'false'));
+    c.setAttribute('aria-pressed', on);
+    $('#f-type').value = on ? c.dataset.chip : 'any';
+    runSearch();
+  }));
+
+  function runSearch(silent) {
+    const loc = $('#f-loc').value.trim().toLowerCase();
+    const type = $('#f-type').value;
+    const [lo, hi] = $('#f-price').value === 'any' ? [0, Infinity] : $('#f-price').value.split('-').map(Number);
+    const beds = +$('#f-beds').value;
+    chips.forEach(x => x.setAttribute('aria-pressed', x.dataset.chip === type));
+    let n = 0;
+    estates.forEach((e, i) => {
+      const ok = e.mode === mode && (!loc || e.loc.toLowerCase().includes(loc)) && (type === 'any' || e.type === type) && e.price >= lo && e.price < hi && e.beds >= beds;
+      $(`.estate[data-i="${i}"]`).classList.toggle('dim', !ok);
+      if (ok) n++;
+    });
+    const label = mode === 'buy' ? 'for sale' : 'to rent';
+    $('#resultText').innerHTML = n
+      ? `<strong>${n} demonstration ${n === 1 ? 'property' : 'properties'}</strong> ${label} match your criteria. <a class="link" href="#featured" style="margin-left:10px">View ${ico('i-arrow')}</a>`
+      : `No demonstration properties ${label} match these criteria. Try widening your search.`;
+    return n;
+  }
+  $('#searchForm').addEventListener('submit', e => {
+    e.preventDefault();
+    if (runSearch()) $('#featured').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'});
+  });
+
+  /* ---------- Dialog ---------- */
+  const dlg = $('#dlg'), body = $('#dlg-body'), dimg = $('#dlg-img');
+  const closeBtn = `<button class="dlg-close" aria-label="Close" data-close>${ico('i-close')}</button>`;
+  function openDialog(html, src, alt) {
+    body.innerHTML = closeBtn + html;
+    dimg.src = src; dimg.alt = alt;
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+  }
+  const closeDialog = () => dlg.close ? dlg.close() : dlg.removeAttribute('open');
+  dlg.addEventListener('click', e => { if (e.target === dlg || e.target.closest('[data-close]')) closeDialog(); });
+
+  function estateDialog(i) {
+    const e = estates[i];
+    openDialog(`
+      <span class="eyebrow burg">Demonstration Listing · ${e.tag}</span>
+      <h3 id="dlg-title">${e.name}</h3>
+      <span class="loc" style="display:flex;gap:8px;align-items:center;color:rgba(0,0,0,.5);margin-bottom:18px"><svg style="width:14px;height:14px"><use href="#i-pin"/></svg>${e.loc}</span>
+      <p>${e.text}</p>
+      <dl class="dlg-specs">
+        <div><dt>Asking</dt><dd>${e.mode === 'rent' ? 'KES 1.2M / mo' : fmt(e.price)}</dd></div>
+        <div><dt>Type</dt><dd>${e.type}</dd></div>
+        <div><dt>Bedrooms</dt><dd>${e.beds}</dd></div>
+        <div><dt>Bathrooms</dt><dd>${e.baths}</dd></div>
+      </dl>
+      <div class="ok" role="status">Viewing requests will be enabled when the marketplace launches. Nothing has been sent.</div>
+      <button class="btn btn-black" data-viewing>Request a Private Viewing ${ico('i-arrow')}</button>
+      <p class="notice">This is an illustrative listing created for the homepage demonstration.</p>`,
+      img(e.src), e.alt);
+  }
+  function formDialog(kind) {
+    const agent = kind === 'agent';
+    openDialog(`
+      <span class="eyebrow burg">${agent ? 'Agent Partnership' : 'List Your Property'}</span>
+      <h3 id="dlg-title">${agent ? 'Represent Exceptional Properties.' : 'Present Your Property Beautifully.'}</h3>
+      <p>${agent ? 'Join a network of agents presenting distinguished homes to a discerning audience.' : 'Share a few details and we will shape a presentation worthy of your property.'}</p>
+      <form novalidate>
+        <input type="text" placeholder="Full name" aria-label="Full name" required>
+        <input type="email" placeholder="Email address" aria-label="Email address" required>
+        ${agent ? '<input type="text" placeholder="Agency name" aria-label="Agency name">' :
+          '<select aria-label="Property type"><option>Villa</option><option>Estate</option><option>Residence</option><option>Apartment</option><option>Land</option><option>Commercial</option></select><input type="text" placeholder="Property location" aria-label="Property location">'}
+        <div class="ok" role="status">Thank you. This is a front-end preview, so your details have not been submitted or stored.</div>
+        <button class="btn btn-burg" type="submit">${agent ? 'Apply as an Agent' : 'Begin Listing'} ${ico('i-arrow')}</button>
+      </form>
+      <p class="notice">Demonstration form. No information is transmitted.</p>`,
+      img(agent ? 'download%20(29).jpg' : 'download%20(37).jpg'), agent ? 'Dark modern residence at night' : 'Modern white residence with charcoal detailing');
+    if (!agent) dimg.style.objectPosition = '50% 0%'; else dimg.style.objectPosition = '';
+    const f = $('form', body);
+    f.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!f.checkValidity()) { const bad = f.querySelector(':invalid'); bad && bad.focus(); return; }
+      $('.ok', f).classList.add('show');
+    });
+  }
+  function financeDialog() {
+    openDialog(`
+      <span class="eyebrow burg">Financing Tools</span>
+      <h3 id="dlg-title">Coming to Imperial Homes.</h3>
+      <p>Mortgage calculation, affordability estimation and property investment insights are being developed as part of the full platform.</p>
+      <dl class="dlg-specs">
+        <div><dt>Tool</dt><dd>Mortgage Calculator</dd></div><div><dt>Status</dt><dd>In development</dd></div>
+        <div><dt>Tool</dt><dd>Affordability</dd></div><div><dt>Status</dt><dd>In development</dd></div>
+        <div><dt>Tool</dt><dd>Investment Insights</dd></div><div><dt>Status</dt><dd>In development</dd></div>
+      </dl>
+      <button class="btn btn-black" data-close>Continue Exploring ${ico('i-arrow')}</button>`,
+      img('download%20(31).jpg'), 'Contemporary villa with landscaped lawn');
+    dimg.style.objectPosition = '';
+  }
+
+  document.addEventListener('click', e => {
+    const est = e.target.closest('[data-estate]');
+    if (est && !e.target.closest('a')) { dimg.style.objectPosition = ''; estateDialog(+est.dataset.estate); return; }
+    const op = e.target.closest('[data-open]');
+    if (op) {
+      e.preventDefault();
+      if (document.body.classList.contains('menu-open')) setMenu(false);
+      op.dataset.open === 'finance' ? financeDialog() : formDialog(op.dataset.open);
+      return;
+    }
+    if (e.target.closest('[data-viewing]')) $('.ok', body).classList.add('show');
+  });
+
+  /* ---------- Toast ---------- */
+  let tt;
+  function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 3600); }
+
+  $('#yr').textContent = new Date().getFullYear();
+})();
+</script>
+<button class="to-top" id="toTop" aria-label="Scroll up to the top"><i></i><span>Scroll up</span></button>
+<script>(()=>{const b=document.getElementById('toTop');const s=()=>b.classList.toggle('on',scrollY>innerHeight*.8);addEventListener('scroll',s,{passive:true});s();b.addEventListener('click',()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}));})();</script>
+</body>
+</html>
